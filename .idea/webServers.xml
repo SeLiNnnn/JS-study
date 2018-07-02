@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="0cea887b-cbee-46d3-a772-ce72a44c604b" name="JS-learning" url="https://github.com/selin0410/JS-learning.git">
+        <fileTransfer port="0" mountedRoot="G:\WEB前端系统班\JS精英实验班课堂操作&amp;作业" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>
