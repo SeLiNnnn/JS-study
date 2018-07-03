@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>08-queryselector</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="SeLiNnnn">
+        <style>
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            a{text-decoration:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <p>
+                <i></i>
+                <i></i>
+            </p>
+        </div>
+        
+        <script>
+
+//            var x = document.getElementById("wrap").getElementsByTagName("p")[0].getElementsByTagName("i");
+
+            var x = document.querySelectorAll("#wrap p i");
+            x[1].innerHTML = "我是x操作的";
+
+            var y = document.querySelector("#wrap p i");
+            y.innerHTML = "我是y操作的";
+//            console.log(x);
+
+
+        </script>
+    </body>
+</html>
