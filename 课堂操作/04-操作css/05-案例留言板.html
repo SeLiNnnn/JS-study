@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="">
+        <meta name="description" content="这是网页的描述">
+        <meta name="author" content="SeLiNnnn">
+        <meta name="generator" content="WebStorm">
+        <title>05-案例</title>
+        <style>
+            body {
+                font-family: "微软雅黑";
+                font-size: 14px;
+            }
+
+            body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+                margin: 0;
+            }
+
+            ol, ul, li {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            img {
+                border: none;
+                vertical-align: bottom;
+            }
+
+            a {
+                text-decoration: none;
+            }
+            #wrap {
+                width: 500px;
+                /*background-color: pink;*/
+                margin: 100px auto;
+            }
+            #text {
+                width: 494px;
+                height: 100px;
+                border: 1px solid #000;
+                resize: none;/*不可拖拽*/
+            }
+            #inp {
+                float: right;
+            }
+            #list {
+                width: 100%;
+                margin-top: 30px;
+            }
+            #list li {
+                width: 100%;
+                line-height: 22px;
+                font-size: 14px;
+                color: #333333;
+                text-indent: 2em;
+                padding: 10px 0;
+                border-bottom: 1px dotted #999999;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="wrap">
+            <textarea name="" id="text" ></textarea>
+            <input id="inp" type="button" value="提交">
+
+            <ul id="list">
+                <!--<li>111</li>-->
+                <!--<li>222</li>-->
+                <!--<li>333</li>-->
+            </ul>
+        </div>
+
+
+        <script>
+
+            //获取涉及的三个元素
+            var oBtn = document.getElementById("inp"),
+                oText = document.getElementById("text"),
+                oList = document.getElementById("list");
+
+
+            //为input添加点击事件
+            oBtn.onclick = function () {
+                // alert( oText.value );添加弹窗内容
+                var val = oText.value;//获取textarea的内容
+                oList.innerHTML += "<li>" + val + "</li>";
+                oText.value = "";//情况内容,使用value而不是innerHTML
+            };
+
+        </script>
+    </body>
+</html>

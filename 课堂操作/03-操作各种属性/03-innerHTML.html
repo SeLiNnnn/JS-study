@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03-innerHTML</title>
+</head>
+<body>
+<div id="wrap"></div>
+
+<script>
+    document.onclick = function () {
+        var oWrap = document.getElementById("wrap");
+        // oWrap.innerHTML = "123123";
+        // oWrap.innerText = "12931832";
+
+        oWrap.innerHTML = "<a href=''>123456</a>";
+        // oWrap.innerText = "<a href=''>7890</a>";
+
+    }
+</script>
+</body>
+</html>

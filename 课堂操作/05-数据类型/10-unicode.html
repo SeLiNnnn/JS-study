@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>10-unicode</title>
+    <style>
+        body {
+            font-family: "微软雅黑";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+
+
+        <script>
+
+            /*
+            * ASCII
+            * 00000000   0
+            *                   共256个字符,根本无法表示汉字
+            * 11111111   1*2^8-1  255
+            *
+            * GB2312-GBK
+            *
+            * unicode
+            * 00000000 00000000
+            * 11111111 11111111  2^16-1
+            * 除此之外,unicode还有很多层次，每一层都有2^16-1个字符
+            *
+            * 但由于unicode使用16位数来表示,在某些不需要16位表示的时候,它的解析速度会不如ASCII
+            * 所以出现了UTF-8
+            *
+            * \u4e88这是一种unicode的表示方式
+            *
+            * */
+
+
+        </script>
+    </body>
+</html>

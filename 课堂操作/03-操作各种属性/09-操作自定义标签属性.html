@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>09-操作自定义标签属性</title>
+    <style>
+        body {
+            font-family: "微软雅黑";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div id="wrap" goudan="123"></div>
+
+    <script>
+        var oW = document.getElementById("wrap");
+
+        // alert(oW.goudan);//无法点操作
+        // alert(oW.getAttribute("goudan"));
+
+        oW.setAttribute( "goudan" , "我是改变后的" );
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>09-进制和unicode编码</title>
+    <style>
+        body {
+            font-family: "微软雅黑";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+
+
+        <script>
+
+            /*
+            *八进制0o
+            * 0 1 2 3 4 5 6 7 10 11 12 13 14 15 16 17 20 21
+            *
+            * 十六进制0x
+            * 0 1 2 3 4 5 6 7 8 9 a b c d e f 10 11 12 13 14 15 16 17 18 19 1a 1b 1c
+            *
+            * 二进制0b
+            * 0 1 10 11 100 101
+            *
+            * */
+
+            // var a = 012;
+            // alert( a );//弹出10,因为js会认为012表示的是八进制,转换为十进制就是10
+            //
+            // //目前写八进制不推荐前置写0,因为可能被省略从而显示成十进制,所以现在用0o
+            // var b = 088;
+            // alert( b );//弹出88,因为八进制里没有8,只能认为是十进制
+            //
+            // var c = 0o10;
+            // alert(c);
+            //
+            // var d = 0o8;//此时会有报错了
+            // alert(d);
+
+            // var e = 0xaf;//a*16的一次方,f*16的0次方
+            // alert(e);//弹出175
+
+            // var f = 0b10;
+            // alert(f);
+
+
+        </script>
+    </body>
+</html>

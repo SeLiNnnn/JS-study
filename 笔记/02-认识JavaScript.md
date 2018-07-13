@@ -51,9 +51,10 @@ alert(50);//弹出50
 
 - 特殊的标签
 
-  - `document.body`
-  - `document.head`
-  - `document.title`
+  - `document.documentElement`获取html
+  - `document.body`获取body标签
+  - `document.head获取head标签`
+  - `document.title获取title标签`
 
 - 一般标签
 
@@ -121,12 +122,11 @@ y.innerHTML = "我是y操作的";//如果有多个i，则选择第一个
 
 
 
-![](G:\WEB前端系统班\JS精英实验班课堂操作&作业\笔记\pic\1.png)
+![](G:\WEB\JS精英实验班课堂操作&作业\笔记\pic\1.png)
 
-## 9.获取和修改元素HTML
+## 9.获取和修改元素内容 
 
-- 元素HTML内容 
-  `ele.innerHTML` 获取元素HTML 
+- `ele.innerHTML` 获取元素HTML 
   ele.innerHTML = ‘字符串’; 修改元素HTML
 - 元素文本内容 
   标准 

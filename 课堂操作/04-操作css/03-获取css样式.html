@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>03-获取css样式</title>
+    <style>
+        body {
+            font-family: "微软雅黑";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #wrap {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="wrap" style="width: 200px;">
+
+    </div>
+
+    <script>
+
+        var oW = document.getElementById("wrap");
+
+        // alert ( oW.style.width );//只能获取行内样式的值，而不是获取标签最终的样式显示状态
+
+        oW.style.width = "200px";
+
+        oW.style.cssFloat = "left";//兼容IE
+        oW.style.styleFloat = "left";//兼容其他浏览器
+
+    </script>
+</body>
+</html>

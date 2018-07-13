@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>05-数组</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+
+
+        <script>
+
+            var arr = [
+                10,
+                20,
+                30,
+                "阿飞",
+                true,
+                [
+                    3,
+                    4,
+                    undefined,
+                    [
+                        9,
+                        "哈哈"
+                    ]
+                ]
+            ];//任何数据类型都可以存在数组里，包括数组本身
+
+            alert( arr );//只弹出数组的值
+            alert( arr[5][3][1] );
+
+        </script>
+    </body>
+</html>

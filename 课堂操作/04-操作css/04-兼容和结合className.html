@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>04-兼容和结合className</title>
+    <style>
+        body {
+            font-family: "微软雅黑";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .fl {
+            float: left;
+        }
+        .fr {
+            float: right;
+        }
+        #wrap {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transition: .5s;/*动画直接用h5*/
+        }
+        #wrap.click {/*只是相同的部分会按优先级覆盖 不同的部分依然遵循#wrap*/
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="wrap"></div>
+
+
+    <script>
+
+        var oW = document.getElementById("wrap");
+
+        // oW.className = "fl";
+        // //如果本身就有类名
+        // oW.className += " fl";//+= 空格
+
+        oW.onclick = function () {
+
+            //当一次性要操作很多样式时的方法:
+            // oW.style.width = "200px";
+            // this.style.height = "200px";//可以替换成this，代表时间发生的那个主体
+            // this.style.backgroundColor = "pink";
+
+            // this.style.cssText = "width:200px;height:200px;background-color:pink";第二种写法
+
+            this.className = "click";//直接操作className
+
+        };
+
+    </script>
+
+
+</body>
+</html>

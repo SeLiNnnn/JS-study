@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>07-[]的取值操作</title>
+    <style>
+        body {
+            font-family: "微软雅黑";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+
+
+        <script>
+
+            // []取值
+            //几乎所有的对象.操作都可以使用[]来代替
+            // var n = x["goudan"];//必须加双引号，且此时的goudan变成了字符串
+            // alert(n);
+            //或者
+            //或者
+            var k = "goudan";//当使用某个变量里的属性值时，只能用[]
+            var n = x[k];//这里的k是变量k
+            // var n = x.k;//这里的k是x下的属性k，不能这样写
+
+            // document.onclick = function () {
+            //     alert(n);
+            // }
+
+            document["onclick"] = function () {
+                alert(n);
+            }
+
+            //读写
+            x.dachui = 50;
+            x.name = "打锤";
+            x["name"] = "小刘鸭";
+            console.log(x);
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="">
+        <meta name="description" content="这是网页的描述">
+        <meta name="author" content="SeLiNnnn">
+        <meta name="generator" content="WebStorm">
+        <title>06-操作属性</title>
+        <style>
+            body {
+                font-family: "微软雅黑";
+                font-size: 14px;
+            }
+
+            body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+                margin: 0;
+            }
+
+            ol, ul, li {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            img {
+                border: none;
+                vertical-align: bottom;
+            }
+
+            a {
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap" title="这是一个div" class="gg" goudan=""></div>
+
+        <script>
+
+            // var oW = document.getElementById("wrap");
+            //
+            // console.dir(oW);//查看属性
+
+            /*
+            * js操作标签属性
+                * 合法
+                * 自定义
+            * */
+
+            var oW = document.getElementById("wrap");
+            // var t = oW.title;
+            //
+            // alert(t);
+
+            oW.title = "我是新的title";//直接覆盖
+            oW.className = "yy";
+
+
+        </script>
+
+    </body>
+</html>

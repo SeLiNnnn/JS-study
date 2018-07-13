@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>01-操作css样式</title>
+    <style>
+        body {
+            font-family: "微软雅黑";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #wrap {
+            width: 100px;
+            height: 50px;
+            background: red;
+        }
+    </style>
+
+    <!--<style id="goudan">-->
+
+    <!--</style>-->
+
+
+</head>
+<body>
+
+    <div id="wrap">
+
+    </div>
+
+    <script>
+
+        // var oGou = document.getElementById("goudan");
+        // oGou.innerHTML = "#wrap{width:100px;height:100px;background:pink;}";
+
+        var oW = document.getElementById("wrap");
+
+        console.log(oW.style);//节点对象 .style，操作的只是行内样式
+
+        // oW.style = "width:200px;";//不推荐,style是一个对象，这样会把它变成一个字符串
+
+        oW.style.width = "200px";//推荐这样使用
+        oW.style.backgroundColor = "green";
+
+
+    </script>
+
+</body>
+</html>

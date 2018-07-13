@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>06-点击切换图片</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #pic1,#pic2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #pic2 {
+            display: none;
+        }
+    </style>
+</head>
+    <body>
+
+        <img id="pic1" src="img/1.png" alt="">
+        <img id=pic2 src="img/2.png" alt="">
+
+        <script>
+
+            //如何点击切换图片：
+            //1.改变src,发现需要使用if,先放着
+            // var oImg1 = document.getElementById("pic1");
+            // oImg1.onclick = function () {
+            //     this.src = "img/2.png";
+            // };
+
+            //2.改变display:none
+            var oImg1 = document.getElementById("pic1"),
+                oImg2 = document.getElementById("pic2");
+
+            oImg1.onclick = function () {
+                this.style.display = "none";
+                oImg2.style.display = "block";
+            };
+            oImg2.onclick = function () {
+                this.style.display = "none";
+                oImg1.style.display = "block";
+            };
+
+        </script>
+    </body>
+</html>

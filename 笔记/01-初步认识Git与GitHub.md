@@ -45,9 +45,9 @@
 
 ## 2.JS代码写在哪里？
 
-JavaScript代码可以写在页面的
+JavaScript代码可以写在页面的：
 
-- [内嵌 js](http://js)，
+- [内嵌 js](http://js)，**==最好写在body结束标签之前==**
 - [外链 js文件里面，利用src属性引入](http://js)
 
 *当script用src来引入外部js文件时，那么这个script标签里面就不能在写代码了。

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>05-案例</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #box1,#box2 {
+            width: 200px;
+            height: 40px;
+            margin: 50px auto;
+            line-height: 40px;
+            text-align: center;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: bolder;
+            background-color: #999;
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="box1"></div>
+    <div id="box2"></div>
+
+    <script>
+
+        var oBox1 = document.getElementById("box1"),
+            oBox2 = document.getElementById("box2");
+
+        oBox1.onmouseenter = function () {
+            oBox2.innerHTML = "box1被移入了";
+        };
+        oBox1.onmouseleave = function () {
+            oBox2.innerHTML = "";
+        };
+        oBox2.onmouseenter = function () {
+            oBox1.innerHTML = "box2被移入了";
+        };
+        oBox2.onmouseleave = function () {
+            oBox1.innerHTML = "";
+        };
+
+
+    </script>
+</body>
+</html>

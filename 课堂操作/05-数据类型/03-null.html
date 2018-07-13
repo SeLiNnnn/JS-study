@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>03-null</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+        <div id="wrap"></div>
+
+        <script>
+
+            var oW = document.getElementById("wrap");
+            oW.title = "123456";//有值的是时候是字符串
+            oW.title = "";//清空的时候也必须是字符串
+
+            // var = "";//空字符串
+            // var b;//undefined
+            // var c = null;//null 先说明是一个对象,只是还没存值
+
+
+        </script>
+    </body>
+</html>
