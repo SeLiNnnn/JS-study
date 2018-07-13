@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>02-三目运算</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #wrap {
+            width: 100px;
+            height: 200px;
+        }
+        #wrap.red {
+            background-color: red;
+        }
+        #wrap.pink {
+            background-color: pink;
+        }
+    </style>
+</head>
+    <body>
+
+        <div id="wrap" class="red"></div>
+
+        <script>
+
+            // var a = 10;
+            // var b = 20;
+            // if (a<b){
+            //     alert(1);
+            // }else{
+            //     alert(0);
+            // }
+            // //等价于
+            // a<b ? alert(1) : alert(0);//1
+
+            var oWrap = document.getElementById("wrap");
+            var bool = true;
+            oWrap.onclick = function () {
+                // if (bool){
+                //     this.className = "pink";
+                //     bool = false;
+                // }else{
+                //     this.className = "red";
+                //     bool = true;
+                // }
+
+
+                // bool ? this.className = "pink" : this.className = "red";
+                // bool = !bool;
+
+                this.className = bool ? "pink" : "red";
+                bool = !bool;
+
+            };
+
+
+
+        </script>
+    </body>
+</html>

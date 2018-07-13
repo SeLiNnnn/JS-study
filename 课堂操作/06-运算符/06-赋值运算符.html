@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>06-赋值运算符</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+
+
+        <script>
+
+            var a = 10 + 5;//先进行右边的计算，再赋值
+
+            var b = 1;
+            b += 5;//b=b+5
+            alert(b);//弹出6
+
+            var c = 1;
+            c += "5";
+            alert(c);//拼接,弹出15
+
+            var e = 10;
+            e %= 5;
+            alert(e);//弹出0
+
+
+
+        </script>
+    </body>
+</html>

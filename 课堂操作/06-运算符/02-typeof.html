@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>02-typeof</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+
+
+        <script>
+
+            // var a = 10;
+            // alert(a);//弹出的不知道是数字还是字符串10
+
+            var a;
+            alert( typeof a);//undefined
+
+            var b;
+            b = true;
+            alert( typeof b);//boolean
+
+            var c;
+            c = function () {
+
+            }
+            alert( typeof c);//弹出funciton,但依然是obj
+
+            var d = document;
+            alert( typeof d);//obj
+
+            var e = null;
+            var f = typeof e;
+            alert(f);//弹出null，但typeof e，这一段，是字符串
+            alert(typeof f);//弹出string
+
+
+        </script>
+    </body>
+</html>

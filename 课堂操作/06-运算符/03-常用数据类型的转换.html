@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>03-常用数据类型的转换</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+
+
+        <script>
+
+            var a = Number("10");
+
+            alert(a);//弹出10
+            alert(typeof a);//弹出number
+
+            var b = Number("ggg");
+            alert(b);//NaN
+            alert(typeof b);//number
+
+            var c = Number(true);
+            alert(c);//1
+            var d = Number(false);
+            alert(d);//0
+
+
+
+        </script>
+    </body>
+</html>

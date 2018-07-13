@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>03-switch</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+
+
+        <script>
+
+            var name = "阿飞";
+
+            // if ( name === "阿飞" ){
+            //     alert("喵喵喵？？？");
+            // }else if ( name === "朝哥" ){
+            //     alert("是真的骚");
+            // }
+
+            switch (name) {
+                case "阿飞":
+                    alert("帅");
+                    break;
+                case "朝哥":
+                    alert("丑");
+                    break;
+                case "心艾":
+                    alert("好");
+                    break;//当条件1满足，既要执行1的内容也要执行2的内容，满足条件2，只执行2，那么可以不写条件1的break
+                default:
+                    alert("无法识别");
+                    break;
+
+            }
+
+
+        </script>
+    </body>
+</html>
