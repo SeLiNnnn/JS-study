@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>03-示例</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="SeLiNnnn">
+        <style>
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            a{text-decoration:none;}
+
+            #goudan {
+                width: 100px;
+                height: 30px;
+                background-color: pink;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        <div id="goudan">我是狗蛋</div>
+        
+        <script>
+            //操作html内容
+//            document.getElementById("wrap").innerHTML = "我是新增的内容";
+
+            //点击狗蛋，给wrap加文字
+//            document.getElementById("goudan").onclick = function () {
+//                document.getElementById("wrap").innerHTML = "狗蛋被点击了";
+//            }
+
+            //点击狗蛋，改变title
+            document.getElementById("goudan").onclick = function () {
+                document.title = "恍恍惚惚"
+            }
+        </script>
+    </body>
+</html>
