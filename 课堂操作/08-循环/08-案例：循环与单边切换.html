@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="">
+        <meta name="description" content="这是网页的描述">
+        <meta name="author" content="SeLiNnnn">
+        <meta name="generator" content="WebStorm">
+        <title>08-案例：循环与单边切换</title>
+        <style>
+            body {
+                font-family: "Microsoft Yahei";
+                font-size: 14px;
+            }
+
+            body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+                margin: 0;
+            }
+
+            ol, ul, li {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            img {
+                border: none;
+                vertical-align: bottom;
+            }
+
+            a {
+                text-decoration: none;
+            }
+            #wrap {
+                width: 600px;
+                height: 470px;
+                /*background-color: pink;*/
+                margin: 100px auto;
+                user-select: none;//箭头不要被选中
+            }
+            #wrap .show {
+                position: relative;
+                width: 100%;
+                height: 380px;
+            }
+            #wrap .show .top,#wrap .show .bottom {
+                position: absolute;
+                left: 0;
+                z-index: 2;
+                width: 100%;
+                height: 25px;
+                background-color: rgba(0,0,0,.5);
+                line-height: 25px;
+                font-size: 12px;
+                color: #fff;
+                text-align: center;
+                font-weight: bolder;
+            }
+            #wrap .show .top {
+                top: 0;
+
+            }
+            #wrap .show .bottom {
+                bottom: 0;
+            }
+            #wrap .show .img {
+                width: 100%;
+                height: 100%;
+            }
+            #wrap .show .img img {
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+            #wrap .show .img img.on {
+                display: block;
+            }
+            #wrap .arrow p {
+                position: absolute;
+                top: 50%;
+                width: 40px;
+                height: 30px;
+                margin-top: -15px;
+                font-size: 12px;
+                background-color: rgba(0,0,0,.5);
+                color: #ffffff;
+                font-weight: bolder;
+                line-height: 30px;
+                text-align: center;
+                cursor: pointer;
+            }
+            #wrap .left {
+                left: 0;
+            }
+            #wrap .right {
+                right: 0;
+            }
+            #wrap .btn {
+                width: 170px;
+                height: 40px;
+                margin: 50px auto 0;
+                /*background-color: red;*/
+            }
+            #wrap .btn .btnChild {
+                width: 80px;
+                height: 40px;
+                background-color: #bbb;
+                line-height: 40px;
+                text-align: center;
+                font-size: 12px;
+                color: #fff;
+                cursor: pointer;
+            }
+            #wrap .btn .btnChild.left {
+                float: left;
+            }
+            #wrap .btn .btnChild.right {
+                float: right;
+            }
+            #wrap .btn .btnChild#on {
+                background-color: #f60;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="wrap">
+
+            <!-- 图片显示区 -->
+
+            <div class="show">
+
+                <p class="top"><span>1</span>/5</p>
+                <p class="bottom">下面的</p>
+
+                <div class="img">
+                    <img src="images/1.jpg" class="on" alt="">
+                    <img src="images/2.jpg" alt="">
+                    <img src="images/3.jpg" alt="">
+                    <img src="images/4.jpg" alt="">
+                    <img src="images/5.jpg" alt="">
+                </div>
+
+                <div class="arrow">
+                    <p class="left">&lt;</p>
+                    <p class="right">&gt;</p>
+                </div>
+            </div>
+
+            <!-- 按钮 -->
+            <div class="btn">
+                <div id="on" class="btnChild left">单边切换</div>
+                <div class="btnChild right">循环切换</div>
+            </div>
+
+        </div>
+
+
+        <script>
+
+            var oRight = document.querySelector("#wrap .show .arrow .right"),
+                oLeft = document.querySelector("#wrap .show .arrow .left"),
+                aImg = document.querySelectorAll("#wrap .show .img img"),
+                topSpan = document.querySelector("#wrap .show .top span"),
+                oBottom = document.querySelector("#wrap .show .bottom"),
+                oBtnLeft = document.querySelector("#wrap .btn .left"),
+                oBtnRight = document.querySelector("#wrap .btn .right");
+
+            var length = aImg.length,
+                index = 0,//用来表示当前显示的是第几张图片
+                arrTxt = [
+                    "图片1的描述",
+                    "图片2的描述",
+                    "图片3的描述",
+                    "图片4的描述",
+                    "图片5的描述"
+                ],//存储图片的描述
+                bool = true;//用来表明现在处于哪种切换状态
+
+
+            // alert(length);
+
+
+            //单边切换
+            oRight.onclick = function () {
+
+                if ( bool ) {//处于单边切换
+                    if ( index !== length-1) {//不超过序号的最大限度，才继续执行
+                        aImg[index].className = "";//当前的去掉名字 隐藏
+                        index ++;//序号加1
+                        aImg[index].className = "on";//下一张图片显示
+                        topSpan.innerHTML = index+1;//顶部span标签计数
+                        oBottom.innerHTML = arrTxt[index];
+                    }else {
+                        alert("已经是最后一张啦！");
+                    }
+                }else {//循环切换
+                    aImg[index].className = "";
+                    index ++;
+                    index %= length;//让其等于0,这样比判断要快
+                    aImg[index].className = "on";
+                    topSpan.innerHTML = index+1;
+                    oBottom.innerHTML = arrTxt[index];
+                }
+
+            };
+
+            oLeft.onclick = function () {
+                if ( bool ) {//处于单边切换
+                    if ( index !== 0 ) {
+                        aImg[index].className = "";
+                        index --;
+                        aImg[index].className = "on";
+                        topSpan.innerHTML = index+1;//虽然是按左边，但依然是-1
+                        oBottom.innerHTML = arrTxt[index];
+                    } else {
+                        alert("已经是第一张啦！")
+                    }
+                }else {
+                    aImg[index].className = "";
+                    index --;
+                    if ( index < 0 ){
+                        index = length - 1;
+                    }//千万不能放在else里,不管if如何,后面代码都是要执行的
+                    aImg[index].className = "on";
+                    topSpan.innerHTML = index+1;
+                    oBottom.innerHTML = arrTxt[index];
+                }
+
+            };
+
+            //切换选择按钮的点击
+            oBtnLeft.onclick = function () {
+                this.id = "on";
+                oBtnRight.id = "";
+                bool = true;
+            }
+            oBtnRight.onclick = function () {
+                this.id = "on";
+                oBtnLeft.id = "";
+                bool = false;
+            }
+
+            // 我自己的写法
+           //  oLeft.onclick = function () {
+           //      if ( index !== 0) {
+           //          aImg[index].className = "";
+           //          index --;
+           //          aImg[index].className = "on";
+           //          topSpan.innerHTML = index+1;
+           //      }else {
+           //          aImg[index].className = "";
+           //          index = length-1;
+           //          aImg[index].className = "on";
+           //          topSpan.innerHTML = index+1;
+           //      }
+           //  }
+
+
+        </script>
+
+    </body>
+</html>

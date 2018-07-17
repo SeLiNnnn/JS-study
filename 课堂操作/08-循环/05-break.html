@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>05-break</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+
+<script>
+
+    // for (var i =0; true; i++){
+    //
+    //     console.log(i);
+    //     if (i===10){
+    //         break;
+    //     }
+    // }
+
+    //找出最小的，能被33,57,62,7，四个数整除的数
+    // for (var i = 1;true;i++){
+    //
+    //     if (i%33===0 && i%57===0 && i%62===0 && i%7===0){
+    //         alert(i);
+    //         break;
+    //     }
+    // }
+
+    //更好的写法
+    for (var i = 1;true;i++){
+
+        if(! (i%33||i%57||i%62||i%7)){//或 遇到真就停，停了那么外层的非 得到的就是假 就不会弹窗，
+            // 只有当它们全是0的时候，外层的非 才会得到真 故而弹窗
+            alert(i);
+            break;
+        }
+    }
+
+
+
+
+</script>
+</body>
+</html>
