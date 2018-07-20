@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="">
+        <meta name="description" content="这是网页的描述">
+        <meta name="author" content="SeLiNnnn">
+        <meta name="generator" content="WebStorm">
+        <title>01-案例-选项卡</title>
+        <style>
+            body {
+                font-family: "Microsoft Yahei";
+                font-size: 14px;
+            }
+
+            body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+                margin: 0;
+            }
+
+            ol, ul, li {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            img {
+                border: none;
+                vertical-align: bottom;
+            }
+
+            a {
+                text-decoration: none;
+            }
+            #wrap {
+                width: 260px;
+                height: 180px;
+                margin: 50px auto;
+                border: 1px solid red;
+            }
+            #wrap .header {
+                font-size: 0;
+            }
+            .header span {
+                display: inline-block;
+                background-color: #000;
+                padding: 5px 20px;
+                font-size: 14px;
+                color: #fff;
+                cursor: pointer;
+            }
+            .header span.on {
+                background-color: #aaa;
+                color: #fff;
+            }
+            #wrap .content {
+                position: relative;
+            }
+            .content ul {
+                position: absolute;
+                display: none;
+                top: 0;
+                left: 0;
+                width: 100%;
+            }
+            .content ul li {
+                padding: 4px 0 4px 5px;
+                border-bottom: 1px dashed #aaa;
+                text-indent: 12px;
+            }
+            .content ul.active {
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="wrap">
+
+            <div class="header">
+
+                <span class="on">热门排行</span>
+                <span>美图速递</span>
+                <span>社区</span>
+
+            </div>
+
+
+            <div class="content">
+
+                <ul class="active">
+                    <li>恭喜</li>
+                    <li>奉光咪</li>
+                    <li>喜提120斤</li>
+                    <li>开心哦</li>
+                    <li>撒花撒花</li>
+                </ul>
+                <ul>
+                    <li>通知通知</li>
+                    <li>福尔摩谛</li>
+                    <li>又胖了20斤</li>
+                    <li>果然是最胖的</li>
+                    <li>4AM体重担当</li>
+                </ul>
+                <ul>
+                    <li>快报快报</li>
+                    <li>智障薇</li>
+                    <li>家的伯爵</li>
+                    <li>又吃了一盆多肉</li>
+                    <li>当然是选择原谅它啦</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <script>
+
+            var aSpan = document.querySelectorAll("#wrap .header span");
+            var oUl = document.querySelectorAll("#wrap .content ul");
+            var length = aSpan.length;
+            var index = 0;
+            var i = 0;
+
+            for ( i; i < length; i++) {
+
+                aSpan[i].goudan = i;//把i的序号存入自定义属性index
+                //aSpan[0].index = 0;
+                //sSpan[1].index = 1;
+
+                aSpan[i].onmouseenter = function () {
+                    aSpan[index].className = "";//这里的index是0
+                    oUl[index].className = "";
+                    index = this.goudan;//将鼠标移入的赋值给index
+                    aSpan[index].className = "on";
+                    // console.log(index);//index没有发生变化
+                    // console.log(this.index);
+                    oUl[index].className = "active";
+
+                };
+
+
+
+            }
+
+
+
+
+
+            
+            
+            
+            
+            
+            
+
+        </script>
+
+
+    </body>
+</html>

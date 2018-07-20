@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="">
+        <meta name="description" content="这是网页的描述">
+        <meta name="author" content="SeLiNnnn">
+        <meta name="generator" content="WebStorm">
+        <title>05-案例-自定义复选框</title>
+        <style>
+            body {
+                font-family: "Microsoft Yahei";
+                font-size: 14px;
+            }
+
+            body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+                margin: 0;
+            }
+
+            ol, ul, li {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            img {
+                border: none;
+                vertical-align: bottom;
+            }
+
+            a {
+                text-decoration: none;
+            }
+            #wrap {
+                width: 600px;
+                height: 300px;
+                /*background-color: pink;*/
+                margin: 100px auto;
+                user-select: none;
+            }
+            #wrap h4 {
+                font-size: 14px;
+                border-bottom: 1px dashed #000;
+                line-height: 30px;
+            }
+            #wrap ul {
+                margin-top: 20px;
+                margin-left: 2px;
+
+            }
+            #wrap ul li {
+                float: left;
+                height: 20px;
+                padding: 0 10px 0 25px;
+                font-size: 14px;
+                line-height: 20px;
+                background: none no-repeat;
+                background-image: url("img/ckbg1.jpg");/*分开写是因为下一步只需要修改bg-img就可以了*/
+                cursor: pointer;
+            }
+            #wrap ul li.checked {
+                background-image: url("img/ckbg2.jpg");
+            }
+
+
+        </style>
+    </head>
+
+    <body>
+
+        <div id="wrap">
+
+            <h4>你最喜欢多少斤的奉光咪？</h4>
+            <ul>
+                <li>120斤</li>
+                <li>130斤</li>
+                <li>160斤</li>
+                <li>180斤</li>
+                <li>200斤</li>
+                <li class="checked">250斤</li>
+            </ul>
+
+        </div>
+
+
+
+        <script>
+
+            var aLi = document.querySelectorAll("#wrap ul li");
+
+
+            var length = aLi.length;
+            // alert(length);
+
+            var index = 0;
+            for (index; index < length; index++) {
+                aLi[index].onclick = checked;
+            }
+
+            function checked() {//函数执行的时候才能知道this指向谁,每个li的this都不一样
+                //方法1
+                // if ( this.className === "" ) {
+                //     this.className = "checked";
+                // } else {
+                //     this.className = "";
+                // }
+
+                //方法2
+                // if ( this.className ) {//自动判断成布尔值，空字符串默认是false
+                //     this.className = "";//当this.className是真才执行这一句
+                // } else {
+                //     this.className = "checked";//当条件是flase也就是字符串是空的时候，加上名字
+                // }
+
+                //三目
+                this.className = this.className ? "" : "checked";
+
+                // console.log( this.innerText );
+            }
+
+
+
+        </script>
+
+
+    </body>
+</html>

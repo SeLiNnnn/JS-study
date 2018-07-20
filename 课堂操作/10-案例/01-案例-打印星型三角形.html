@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="">
+        <meta name="description" content="这是网页的描述">
+        <meta name="author" content="SeLiNnnn">
+        <meta name="generator" content="WebStorm">
+        <title>01-案例-打印星型三角形</title>
+        <style>
+            body {
+                font-family: "Microsoft Yahei";
+                font-size: 14px;
+            }
+
+            body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+                margin: 0;
+            }
+
+            ol, ul, li {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            img {
+                border: none;
+                vertical-align: bottom;
+            }
+
+            a {
+                text-decoration: none;
+            }
+            p {
+                text-align: center;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <div id="wrap"></div>
+
+
+        <script>
+
+            var oWrap = document.getElementById("wrap");
+            var length = 5 ;//n行
+
+            //一直增加的三角形
+            for ( var n = 0; n < length; n++) {
+
+                //一行几个
+                var x = 2*n+1;
+
+                var str = "<p>";
+                for (var i = 0; i < x; i++) {
+                    str += "*";
+                }
+                str += "</p>";
+                // console.log(str);//打印length次
+                oWrap.innerHTML += str;
+
+                // oWrap.innerHTML += "<p>"+x+"</p>";//这样输出的数字x
+            }
+
+
+        </script>
+
+
+    </body>
+</html>

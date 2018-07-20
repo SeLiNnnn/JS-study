@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>02-案例-点击伸缩导航</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #wrap {
+            width: 130px;
+            margin: 50px auto;
+            border: 1px solid red;
+        }
+        #wrap .content + .content{
+            margin-top: 2px;
+        }
+        #wrap .content p {
+            width: 130px;
+            height: 35px;
+            background-color: #000;
+            color: #fff;
+            line-height: 35px;
+            text-indent: 16px;
+            cursor: pointer;
+        }
+        #wrap .content p.active {
+            background-color: orange;
+        }
+        #wrap .content ul {
+            display: none;
+        }
+        #wrap .content ul.on {
+            display: block;
+        }
+        #wrap .content ul li {
+            background-color: skyblue;
+            color: #fff;
+            font-size: 14px;
+            text-indent: 16px;
+        }
+        #wrap .content ul li + li {
+            margin-top: 1px;
+        }
+
+
+    </style>
+</head>
+    <body>
+
+        <div id="wrap">
+
+            <div class="content">
+                <p>奉光咪</p>
+                <ul>
+                    <li>哈</li>
+                    <li>麻</li>
+                    <li>批</li>
+                </ul>
+            </div>
+            <div class="content">
+                <p>福尔摩谛</p>
+                <ul>
+                    <li>肥肠胖</li>
+                    <li>巨胖</li>
+                    <li>胖</li>
+                </ul>
+            </div>
+            <div class="content">
+                <p>智障薇</p>
+                <ul>
+                    <li>猪</li>
+                    <li>猪</li>
+                    <li>薇</li>
+                </ul>
+            </div>
+
+        </div>
+
+
+
+        <script>
+
+            var aP = document.querySelectorAll("#wrap .content p");
+            var aUl = document.querySelectorAll("#wrap .content ul");
+            var length = aP.length;
+
+            // alert(length);
+
+            for ( var i = 0; i < length; i++) {
+                aP[i].goudan = i;//把序号都存在goudan里,点击谁，就是谁的goudan
+                aP[i].onclick = function () {
+                    // console.log(i);//永远console 3
+                    // aUl[this.goudan].className = "on";
+
+                    if (aP[this.goudan].className) {
+                        aP[this.goudan].className = "";
+                    } else {
+                        aP[this.goudan].className = "active";
+                    }
+
+                    if (aUl[this.goudan].className) {
+                        aUl[this.goudan].className = "";
+                    } else {
+                        aUl[this.goudan].className = "on";
+                    }
+                }
+            }
+
+
+        </script>
+
+
+    </body>
+</html>

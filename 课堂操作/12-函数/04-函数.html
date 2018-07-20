@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>04-函数</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+    </style>
+</head>
+    <body>
+
+
+
+        <script>
+
+            var a = 10;
+
+            // function f() {
+            //     var a = 20;//隔离两个a,让其互不影响,但此时函数只是起隔离作用的话,再去定义函数名就显得比较多余
+            //     alert(a);
+            // }
+            // f();
+            // alert(a);
+
+            !function () {
+                var a = 20;
+                alert(a);
+            }();
+            alert(a);
+
+
+
+
+        </script>
+
+
+    </body>
+</html>

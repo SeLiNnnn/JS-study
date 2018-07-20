@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02-案例-左侧伸缩导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #box{
+            position: fixed;
+            top: 0;
+            left: -50px;
+            width: 50px;
+            height: 100%;
+            background: #666;
+        }
+        #box .list{
+            position: absolute;
+            top: 20%;
+            width: 50px;
+            height: 350px;
+        }
+        #box .list li{
+            position: relative;
+            width: 50px;
+            height: 50px;
+        }
+        #box .list li img{
+            position: absolute;
+            top: 7px;
+            left: 7px;
+            cursor: pointer;
+        }
+        #box .list li div.hide{
+            display: none;
+            position: absolute;
+            left: 50px;
+            top: -1px;
+            width: 200px;
+            height: 180px;
+            background: #ffc;
+            border: 1px solid #000;
+            border-left: none;
+        }
+        /*#box .list li:hover{*/
+        /*background: #ffc;*/
+        /*}*/
+        /*#box .list li:hover .hide{*/
+        /*display: block;*/
+        /*}*/
+        #box .btn{
+            position: absolute;
+            bottom: 50px;
+            left: 50px;
+            width: 50px;
+            height: 50px;
+            background-image: url("images3/icon.png");
+            background-position: 0 50px;
+        }
+        #box .btn.on{
+            background-position: 0 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box">
+    <ul class="list">
+        <li>
+            <img src="images3/bq1.png" >
+            <div class="hide"></div>
+            <!--布局的时候要注意,子元素是属于li的,否则选择到子元素时会变成移出状态-->
+        </li>
+        <li>
+            <img src="images3/bq2.png" >
+            <div class="hide"></div>
+        </li>
+        <li>
+            <img src="images3/bq3.png" >
+            <div class="hide"></div>
+        </li>
+        <li>
+            <img src="images3/bq4.png" >
+            <div class="hide"></div>
+        </li>
+        <li>
+            <img src="images3/bq5.png" >
+            <div class="hide"></div>
+        </li>
+    </ul>
+
+    <div class="btn"></div>
+    <!--不能给box设置display:none,因为btn会一起none,或者让btn不属于box,就可以设置显示隐藏了-->
+
+</div>
+
+<script>
+
+    //能用css解决的不要用js,js的效率没有css的高
+
+    var oBox = document.getElementById("box"),
+        aLi = oBox.querySelectorAll("ul li"),
+        aHide = oBox.querySelectorAll("ul li .hide"),
+        oBtn = oBox.querySelector(".btn"),
+        length = aLi.length;
+
+    for ( var i = 0; i < length; i++) {
+
+        aLi[i].index = i;
+
+        //移入
+        aLi[i].onmouseenter = function () {
+            this.style.backgroundColor = "#ffc";
+            //this.querySelector(".hide").style.display = "block";此方法不好,还不如一次性找完
+            aHide[this.index].style.display = "block";
+        };
+        aLi[i].onmouseleave = function () {
+            this.style.backgroundColor = "transparent";
+            aHide[this.index].style.display = "none";
+        };
+
+    }
+
+        oBtn.flag = false;
+        //需要一个标识知道现在是什么状态
+
+        oBtn.onclick = function () {
+            if ( this.flag) {
+                oBox.style.left = "-50px";
+                this.className = "btn";
+                this.flag = false;
+            }else{
+                oBox.style.left = "0px";
+                this.className += " on";
+                this.flag = true;
+            }
+
+        };
+
+</script>
+</body>
+</html>

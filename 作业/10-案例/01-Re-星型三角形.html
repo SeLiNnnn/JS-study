@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="">
+        <meta name="description" content="这是网页的描述">
+        <meta name="author" content="SeLiNnnn">
+        <meta name="generator" content="WebStorm">
+        <title>01-Re-星型三角形</title>
+        <style>
+            body {
+                font-family: "Microsoft Yahei";
+                font-size: 14px;
+            }
+
+            body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+                margin: 0;
+            }
+
+            ol, ul, li {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            img {
+                border: none;
+                vertical-align: bottom;
+            }
+
+            a {
+                text-decoration: none;
+            }
+            p {
+                text-align: center;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <div id="wrap"></div>
+
+        <script>
+
+            var oWrap = document.getElementById("wrap");
+
+            length = 7;
+            var x = 0;
+            for ( var n = 0; n < length; n++) {
+                x = 2*n+1;
+
+                var str = "<p>";//需要变量来存放*和p
+
+                for ( var i = 0; i < x; i++) {
+                    // oWrap.innerHTML += "*";
+                    str += "*";
+                }
+                str += "</p>";
+                oWrap.innerHTML += str;
+
+            }
+
+
+        </script>
+
+
+    </body>
+</html>

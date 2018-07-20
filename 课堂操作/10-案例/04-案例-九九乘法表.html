@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="">
+        <meta name="description" content="这是网页的描述">
+        <meta name="author" content="SeLiNnnn">
+        <meta name="generator" content="WebStorm">
+        <title>04-案例-九九乘法表</title>
+        <style>
+            body {
+                font-family: "Microsoft Yahei";
+                font-size: 14px;
+            }
+
+            body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+                margin: 0;
+            }
+
+            ol, ul, li {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            img {
+                border: none;
+                vertical-align: bottom;
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            #wrap {
+                font-size: 0;
+            }
+            span {
+                display: inline-block;
+                width: 65px;
+                height: 35px;
+                border: 1px solid #ccc;
+                margin: 5px;
+                font-size: 12px;
+                text-align: center;
+                line-height: 35px;
+            }
+
+
+        </style>
+    </head>
+    <body>
+
+    <div id="wrap">
+
+        <!--<span>1*1=1</span>-->
+        <!--<br>-->
+        <!--<span>2*1=2</span><span>2*2=4</span>-->
+
+
+    </div>
+
+
+
+        <script>
+
+            var oWrap = document.getElementById("wrap");
+
+
+            //第一种排列
+            for ( var i = 1; i <=9; i++) {//循环几行
+
+                var str = "";
+                for ( var j = 1; j <= i; j++) {
+                    str += "<span>"+i+"×"+j+"="+i*j+"</span>";
+                }
+                str += "<br>";//一行结束才换行
+
+                oWrap.innerHTML += str;
+            }
+
+            oWrap.innerHTML += "<hr>";
+            // alert(i);//i=10;
+            // alert(j);//j=10
+
+            //第二种排列
+            for ( i = 1; i <= 9; i++ ) {
+
+                var str = "";
+
+                for ( j = i; j <=9; j++) {//这种方法更好,因为第几行就从乘以几开始，所以只需关联j和i就可以了
+                    str += "<span>"+i+"×"+j+"="+i*j+"</span>";
+                }
+
+                // for ( j = 1; j <= x; j++ ) {
+                //     str += "<span>"+i+"×"+(j+i-1)+"="+i*(j+i-1)+"</span>";
+                // }
+
+
+                str += "<br>";
+
+                oWrap.innerHTML += str;
+
+            }
+                oWrap.innerHTML += "<hr>";
+
+            //第三种
+            for ( i = 9; i >=1; i--) {//循环几行
+
+
+                var str = "";
+                for ( var j = 1; j <= i; j++) {
+                    str += "<span>"+i+"×"+j+"="+i*j+"</span>";
+                }
+                str += "<br>";//一行结束才换行
+
+                oWrap.innerHTML += str;
+            }
+
+            oWrap.innerHTML += "<hr>";
+
+            //第四种
+            for ( i = 9; i >=1; i--) {//循环几行
+
+
+                var str = "";
+                for ( var j = i; j <= 9; j++) {//i从9开始，j从i开始，到9结束
+                    str += "<span>"+i+"×"+j+"="+i*j+"</span>";
+                }
+                str += "<br>";//一行结束才换行
+
+                oWrap.innerHTML += str;
+            }
+
+            oWrap.innerHTML += "<hr>";
+
+
+
+
+
+        </script>
+
+
+    </body>
+</html>

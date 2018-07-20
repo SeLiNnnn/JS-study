@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>03-案例-打印只有边框的星型三角形</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        p {
+            text-align: center;
+        }
+
+
+    </style>
+</head>
+    <body>
+
+        <div id="wrap"></div>
+
+
+
+        <script>
+
+            var oWrap = document.getElementById("wrap");
+
+            var length = 50;
+
+            for (var n = 0; n < length; n++) {
+
+                var x = 0;
+                var mid = length/2;
+
+                if (n < mid) {
+                    x  = 2*n+1;
+                } else {
+                    x = 2*(length-1-n)+1;
+                }
+
+                var str = "<p>";
+                for (var i = 0; i < x; i++) {
+                    if (i === 0 || i === x-1){//x是星号的个数，对应的序号就是x-1
+                        str += "*";
+                    } else {
+                        str += "&nbsp;";//空格和*的字体大小不同，所以比起全部是*要稍微“瘦”一些
+                    }
+
+                }
+                str += "</p>";
+                oWrap.innerHTML += str;
+
+            }
+
+        </script>
+
+
+    </body>
+</html>

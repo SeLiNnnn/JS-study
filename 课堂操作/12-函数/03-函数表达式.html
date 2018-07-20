@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>03-函数表达式</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+    </style>
+</head>
+    <body>
+
+
+
+        <script>
+
+            function a() {
+                alert(1);
+            }
+
+
+            //可以定义一个函数，同时还将函数标变成了一个函数表达式,然后立马执行
+            var b = function () {
+                alert(2);
+            };
+            b();
+
+            // function c() {
+            //     alert(3);
+            // }();//不能加括号自执行，会报错
+
+
+            var c = function () {
+                alert(4);
+            }();//立马执行
+
+
+
+
+
+
+
+        </script>
+
+
+    </body>
+</html>
