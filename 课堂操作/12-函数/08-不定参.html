@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>08-不定参</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+    </style>
+</head>
+    <body>
+
+        <div id="wrap"></div>
+
+
+        <script>
+
+            // //弹出两个数字的和，假设某一个不是数字，弹出提示
+            // function sum( a, b ) {
+            //     if (typeof a === "number" && typeof b === "number") {//暂时不考虑NaN
+            //         alert( a + b);
+            //     } else {
+            //         alert( "a或b不是数字" );
+            //     }
+            // }
+            //
+            // sum( 5, 6 );//11
+            // sum( "5", 6);//a或b不是数字
+
+            // function sum(a, b, c,d) {
+            //     alert( a+b+c+d );
+            // }
+            // sum(1,2,3,4);//10
+
+            //传的实参数字 个数 不确定
+            function sum() {
+
+                // arguments 所有函数都有的一个API 不需要定义 是函数的内置对象 是所有实参的结合 是一个类数组(有下标取值,有length)
+                console.log(arguments);
+
+                var s = 0;
+                var s = "";//从左往右 先是一个空字符串和1拼接,得到一个字符串,再继续拼接,所以弹出123456
+                for (var i = 0; i < arguments.length; i++) {
+                    s += arguments[i];
+                }
+                for (var i = 0, length = arguments.length; i < length; i++){
+                    //将length统一拿出来,只访问一次，而不需要每次都访问
+                    //在遍历数组的时候推荐这样去写循环
+                }
+                alert( s );//1+2+3+4+5+6故弹出21
+            }
+            sum( 1,2,3,4,5,6 );
+
+        </script>
+
+
+    </body>
+</html>
