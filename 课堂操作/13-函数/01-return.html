@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>01-return</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+    </style>
+</head>
+    <body>
+
+        <div id="wrap"></div>
+
+
+        <script>
+
+            //函数加()执行的时候会运行里面的代码，运行完以后，整体会返回一个数据
+            // function fn( a,b ) {
+            //     var c = a + b;
+            //     alert( c );//弹出5
+            //     return 50;
+            //     // return a+b;//return5
+            // }
+            //
+            // // fn(2,3);
+            // var x = fn(2,3);//弹出50
+            //
+            // alert( x );
+
+            // function fn( a,b ) {
+            //
+            //     alert( a*b );//弹窗三次,分别是6,30,16
+            //     return a+b;
+            //
+            // }
+            // alert( fn(2,3) + fn(5,6) );//弹出16
+
+            // //默认return
+            // function x( a,b ) {
+            //     alert( a + b);//弹出NaN
+            // }
+            // var y = x();
+            //
+            // console.log(y);//NaN
+
+
+            // var a = document.getElementById("wrap");//对象.function("字符串实参wrap"),默认返回DOM对象a
+            // alert(1);//函数obj alert加()执行,传递实参1
+            // //有些函数使用时就拿到返回值,有些功能函数则不需要有返回值
+            // var b = alert(1);
+            // alert(b);//undefined
+
+            // function x() {
+            //
+            //     return [7,8,9];
+            //
+            // }
+            //
+            // var y = x();
+            // console.log(y[0]);//返回数组[7,8,9]的第一个值7
+
+            // function x() {
+            //     return {
+            //         name : "SeLiNnnn",
+            //         age : "21"
+            //     }
+            // }
+            // var y = x();
+            // console.log(y);
+
+            function x() {
+                return function () {
+                    alert(1);
+                }
+            }
+
+
+            // var y = x();
+            // y();//此处执行弹窗1
+            var y = x()();//undefined
+            console.log(y);//返回函数整体,类似于alert弹出函数体,不弹窗
+
+
+        </script>
+
+
+    </body>
+</html>

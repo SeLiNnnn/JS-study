@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>10-练习</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+    </style>
+</head>
+    <body>
+
+
+
+        <script>
+
+            a();//2
+            var a = function () {
+                alert(1);
+            };
+            a();//1
+            function a() {
+                alert(2);
+            }
+            a();//1
+            var a = function () {
+                alert(3);
+            };
+            a();//3
+
+            /*
+            * 1.定义
+            *   function a alert(2)
+            * 2.执行
+            *   a();//弹出2
+            *   var a = function 1
+            *   a();//1
+            *   function a;//只是一个单独的定义,没有赋值也没有执行
+            *   a();//还是1
+            *   var a = function 3;//
+            *   a();//弹出3
+            *
+            *
+            * */
+
+
+
+        </script>
+
+
+    </body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>01-多层选项卡</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #wrap {
+            width: 430px;
+            height: 204px;
+            /*border: 1px solid red;*/
+            margin: 50px auto;
+            user-select: none;
+        }
+        #wrap .left {
+            float: left;
+            width: 100px;
+            height: 100px;
+        }
+        #wrap .left ul li {
+            width: 100%;
+            height: 30px;
+            margin-bottom: 3px;
+            background: #000;
+            color: #ffffff;
+            line-height: 30px;
+            text-align: center;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        #wrap .left ul li.on {
+            background-color: #ff6600;
+        }
+        #wrap .right {
+            float: right;
+            position: relative;
+            width: 326px;
+            height: 204px;
+        }
+        #wrap .right .part {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #wrap .right .part.on {
+            display: block;
+        }
+        #wrap .right ul {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        #wrap .right ul.img li {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #wrap .right ul.img li.on {
+            display: block;
+        }
+        #wrap .right .part .tab {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 27px;
+            width: 100%;
+        }
+        #wrap .right .part .tab li {
+            float: left;
+            width: 25px;
+            height: 25px;
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+            line-height: 25px;
+            font-size: 12px;
+            cursor: pointer;
+            margin: 0 3px;
+        }
+        #wrap .right .part .tab li.on {
+            background-color: #ff6600;
+        }
+
+
+
+
+    </style>
+</head>
+    <body>
+
+        <div id="wrap">
+
+            <div class="left">
+
+                <ul>
+                    <li class="on">汽车</li>
+                    <li>美食</li>
+                    <li>风景</li>
+                </ul>
+            </div>
+
+            <div class="right">
+                <div class="part on">
+                    <ul class="img">
+                        <li class="on"><img src="images/1.jpg" alt=""></li>
+                        <li><img src="images/2.jpg" alt=""></li>
+                        <li><img src="images/3.jpg" alt=""></li>
+                    </ul>
+                    <ul class="tab">
+                            <li class="on">1</li>
+                            <li>2</li>
+                            <li>3</li>
+                    </ul>
+
+
+                </div>
+                <div class="part">
+                    <ul class="img">
+                        <li class="on"><img src="images/m1.jpg" alt=""></li>
+                        <li><img src="images/m2.jpg" alt=""></li>
+                        <li><img src="images/m3.jpg" alt=""></li>
+                        <li><img src="images/m4.jpg" alt=""></li>
+                        <li><img src="images/m5.jpg" alt=""></li>
+                    </ul>
+                    <ul class="tab">
+                        <li class="on">1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                    </ul>
+
+
+                </div>
+                <div class="part">
+                    <ul class="img">
+                        <li class="on"><img src="images/s1.jpg" alt=""></li>
+                        <li><img src="images/s2.jpg" alt=""></li>
+                        <li><img src="images/s3.jpg" alt=""></li>
+                        <li><img src="images/s4.jpg" alt=""></li>
+                        <li><img src="images/s5.jpg" alt=""></li>
+                    </ul>
+                    <ul class="tab">
+                        <li class="on">1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <script>
+
+            //左侧控制右侧大模块
+            (function () {
+
+                var aLeftLi = document.querySelectorAll("#wrap .left ul li"),//querySelectorAll是静态方法
+                    aRightPart = document.querySelectorAll("#wrap .right .part"),
+                    length = aLeftLi.length,//他们的长度是一样的，任选一个长度
+                    leftIndex = 0;//用来表示左侧当前显示的序号
+
+                for (var i = 0; i < length; i++) {//for循环瞬间执行完毕,和点击事件没有关系！！！
+                    //虽然在ES6规则下,只要有{}就是作用域,但是对于var的解读,
+                    // 还是会用ES5解析,所以只有函数里的var是局部变量
+                    var dom = aLeftLi[i];//类数组,一个集合,dom是一个html obj,所以是引用关系,即指针关系
+                    //在js中,只要是重复使用的,都定义起来
+                    dom.index = i;
+                    dom.onclick = function () {
+
+                        var index = this.index;
+
+                        // alert(1);
+                        //先清除所有的颜色,再单独加,不推荐,选项过多时候for循环太慢
+
+                        //用这种方法:存储上一个的序号,单独操作
+                        if ( index === leftIndex ) {return;}//真语句只有一条,可以省略大括号
+                            //这里的return是为了跳出当前函数,不用返回任何值
+                            //这里写判断的原因，是当你图片已经显示到4的时候,重复点击左侧按钮,又回到1,重复点击时
+                            // 不需要执行点击事件
+                            //也就是说,假设当前显示的序号和点击元素序号一样，就直接中断执行
+                            // console.log(1);//测试重复点击是否还触发点击事件
+
+                            //自身元素的操作
+                            aLeftLi[leftIndex].className = "";//清除原来显示元素的名字
+                            aRightPart[leftIndex].className = "part";//特别注意,原本也是有类名的
+
+                            leftIndex = index;//换序号
+
+                            aLeftLi[leftIndex].className = "on";//给当前对应的加名字
+                            aRightPart[leftIndex].className += " on";//这样不兼容IE9及以下,兼容方法后面再讲
+
+                            //右侧选项卡添加事件
+                            rightAddEvent( index );//通过传参,来确定到底点击的是哪一个,这是实参,传的是序号的数字
+
+                    }
+
+                }
+                rightAddEvent(0);//自执行一次,保证初始打开页面的时候,第一个模块能点击,因为右侧模块只有左侧选项被点击才会执行
+
+
+                //右侧模块功能的实现
+                //1.当前点击第几个,才给右侧的模块添加点击事件,不推荐,因为通过别人的点击来触发自己的事件,不够合理
+                function rightAddEvent( index ) {//这里的index是个形参,叫什么名字都可以
+                    var rightDom = aRightPart[index],//先获取对应的是哪一个右侧模块
+                    aImg = rightDom.querySelectorAll(".img li"),//对应的ul.img集合
+                    aLi = rightDom.querySelectorAll(".tab li"),//对应的ul.tab集合
+                    length = aImg.length;
+
+
+
+
+                    //清空原来的显示
+                    //先获取
+                    if ( rightDom.rightIndex ) {//初始是undefined,不执行,清空样式
+                        aImg[rightDom.rightIndex].className = "";//不管第几次获取对象,是一样的
+                        aLi[rightDom.rightIndex].className = "";
+                        //给初始的第0个显示
+                        aImg[0].className = "on";
+                        aLi[0].className = "on";
+                    }
+
+
+                    //优化的地方
+                    //再重置
+                    rightDom.rightIndex = 0;
+
+                    for (i = 0; i < length; i++) {
+                        var dom = aLi[i];
+                        dom.index = i;
+                        dom.onclick = function () {
+                            var index = this.index;
+                            if (index === rightDom.rightIndex) return;
+                            aLi[rightDom.rightIndex].className = "";
+                            aImg[rightDom.rightIndex].className = "";
+
+                            rightDom.rightIndex = index;
+
+                            aLi[rightDom.rightIndex].className = "on";
+                            aImg[rightDom.rightIndex].className = "on";
+                        }
+                    }
+                }
+
+
+            })();//函数自执行,为了防止模块很多的时候变量名相同而互相影响
+
+
+
+
+
+
+
+
+
+
+        </script>
+
+
+    </body>
+</html>

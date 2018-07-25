@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>01-作用域</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+    </style>
+</head>
+    <body>
+
+
+
+        <script>
+
+            /*
+            * script是最大的作用域
+            *
+            *
+            * function的()里面，以及他的参数，是一个作用域
+            *
+            * */
+
+            //a b 全局变量
+            var a = 10;
+            var b = 20;
+
+            function fn(x, y) {
+                var c = 30;
+                var d = 40;
+
+                hh();
+                function hh() {
+                    var a = 80;
+                    var b = 90;
+                }
+                jj();
+                function jj() {
+                    var a = 800;
+                    var b = 900;
+                    // alert(a);//弹出800
+                }
+                alert(a);//弹出10先从fn函数本身去找，fn里只有c和d,所以继续找父级,全局变量a=10
+
+            }
+            fn();
+
+
+
+
+        </script>
+
+
+    </body>
+</html>

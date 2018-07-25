@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>01-多层选项卡</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #wrap {
+            width: 430px;
+            height: 204px;
+            /*border: 1px solid red;*/
+            margin: 50px auto;
+            user-select: none;
+        }
+        #wrap .left {
+            float: left;
+            width: 100px;
+            height: 100px;
+        }
+        #wrap .left ul li {
+            width: 100%;
+            height: 30px;
+            margin-bottom: 3px;
+            background: #000;
+            color: #ffffff;
+            line-height: 30px;
+            text-align: center;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        #wrap .left ul li.on {
+            background-color: #ff6600;
+        }
+        #wrap .right {
+            float: right;
+            position: relative;
+            width: 326px;
+            height: 204px;
+        }
+        #wrap .right .part {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #wrap .right .part.on {
+            display: block;
+        }
+        #wrap .right ul {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        #wrap .right ul.img li {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #wrap .right ul.img li.on {
+            display: block;
+        }
+        #wrap .right .part .tab {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 27px;
+            width: 100%;
+        }
+        #wrap .right .part .tab li {
+            float: left;
+            width: 25px;
+            height: 25px;
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+            line-height: 25px;
+            font-size: 12px;
+            cursor: pointer;
+            margin: 0 3px;
+        }
+        #wrap .right .part .tab li.on {
+            background-color: #ff6600;
+        }
+
+
+
+
+    </style>
+</head>
+    <body>
+
+        <div id="wrap">
+
+            <div class="left">
+
+                <ul>
+                    <li class="on">汽车</li>
+                    <li>美食</li>
+                    <li>风景</li>
+                </ul>
+            </div>
+
+            <div class="right">
+                <div class="part on">
+                    <ul class="img">
+                        <li class="on"><img src="images/1.jpg" alt=""></li>
+                        <li><img src="images/2.jpg" alt=""></li>
+                        <li><img src="images/3.jpg" alt=""></li>
+                    </ul>
+                    <ul class="tab">
+                            <li class="on">1</li>
+                            <li>2</li>
+                            <li>3</li>
+                    </ul>
+
+
+                </div>
+                <div class="part">
+                    <ul class="img">
+                        <li class="on"><img src="images/m1.jpg" alt=""></li>
+                        <li><img src="images/m2.jpg" alt=""></li>
+                        <li><img src="images/m3.jpg" alt=""></li>
+                        <li><img src="images/m4.jpg" alt=""></li>
+                        <li><img src="images/m5.jpg" alt=""></li>
+                    </ul>
+                    <ul class="tab">
+                        <li class="on">1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                    </ul>
+
+
+                </div>
+                <div class="part">
+                    <ul class="img">
+                        <li class="on"><img src="images/s1.jpg" alt=""></li>
+                        <li><img src="images/s2.jpg" alt=""></li>
+                        <li><img src="images/s3.jpg" alt=""></li>
+                        <li><img src="images/s4.jpg" alt=""></li>
+                        <li><img src="images/s5.jpg" alt=""></li>
+                    </ul>
+                    <ul class="tab">
+                        <li class="on">1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <script>
+
+            //以下内容,容易引起秃顶,慎重观看XD
+            //闭包
+
+
+            //左侧控制右侧模块
+            (function () {
+
+                var aLeftLi = document.querySelectorAll("#wrap .left ul li"),
+                    aRightPart = document.querySelectorAll("#wrap .right .part");
+                var arrTab = [];
+
+
+                //生成左侧选项卡
+                tabC([aLeftLi,"","on"], [aRightPart,"part","part on"], true);//"part","part on"初始的名字和添加样式的名字
+
+                //生成右侧选项卡
+                for (var i = 0; i < aRightPart.length; i++) {
+                    var rightDom = aRightPart[i],
+                        aTab = rightDom.querySelectorAll(".tab li"),
+                        aContent = rightDom.querySelectorAll(".img li");
+
+                    arrTab[i] = tabC( [aTab,"","on"], [aContent,"","on"]);
+                    // console.log(arrTab[i]);
+                }
+
+                // document.onclick = function () {
+                //     console.log(arrTab);
+                // }
+
+                //常规操作:右侧的li不需要左侧的参与,如果每次点击左侧都要添加事件,就很重复,因为右侧已经有事件了,每次点击会去不停的覆盖
+                //选项卡功能,需要两个部分的参与,一个是tab点击部分,一个是内容变化的部分
+                function tabC( ArrTab, ArrContent, bool) {
+                    var obj = {index:0},
+                        domTab = ArrTab[0],
+                        classTab1 = ArrTab[1],
+                        classTab2 = ArrTab[2],
+                        domContent = ArrContent[0],
+                        classContent1 = ArrContent[1],
+                        classContent2 = ArrContent[2],
+                        length = domTab.length,
+                        index = 0;//存储初始序号
+
+                    for ( var i = 0; i < length; i++ ) {
+                        var dom = domTab[i];
+                        dom.index = i;
+                        dom.onclick = function () {
+                            //alert(1);
+                            var x = this.index;
+                            if ( x === obj.index ) return;
+                            domTab[obj.index].className = classTab1;//注意这里不要写引号
+                            domContent[obj.index].className = classContent1;
+                            obj.index = x;
+                            domTab[obj.index].className = classTab2;
+                            domContent[obj.index].className = classContent2;
+
+
+                            if (bool) {
+                                var rightDom = aRightPart[x],
+                                    aTab = rightDom.querySelectorAll(".tab li"),
+                                    aContent = rightDom.querySelectorAll(".img li");
+
+                                aTab[arrTab[x].index].className = "";
+                                aContent[arrTab[x].index].className = "";
+                                aTab[0].className = "on";
+                                aContent[0].className = "on";
+                                arrTab[x].index = 0;
+                            }
+                        }
+                    }
+                    return obj;
+                }
+
+            })();
+
+        </script>
+
+    </body>
+</html>

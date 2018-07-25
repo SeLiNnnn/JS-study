@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="">
+        <meta name="description" content="这是网页的描述">
+        <meta name="author" content="SeLiNnnn">
+        <meta name="generator" content="WebStorm">
+        <title>03-案例-可编辑内容框</title>
+        <style>
+            body {
+                font-family: "Microsoft Yahei";
+                font-size: 14px;
+            }
+
+            body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+                margin: 0;
+            }
+
+            ol, ul, li {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            img {
+                border: none;
+                vertical-align: bottom;
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            #wrap ul li {
+                height: 30px;
+                padding: 10px 0 10px 50px;
+                border-bottom: 1px solid red;
+                font-size: 12px;
+                line-height: 30px;
+            }
+            #wrap ul li span,#wrap ul li input,#wrap ul li p {
+                float: left;
+            }
+            #wrap ul li input {
+                display: none;
+                margin-top: 5px;
+                color: #999999;
+            }
+            #wrap ul li p {
+                width: 50px;
+                height: 30px;
+                background-color: #000;
+                color: #ffffff;
+                text-align: center;
+                margin-left: 30px;
+                cursor: pointer;
+            }
+            #wrap ul li.active span {/*两个标签的变化,用一个class来表示*/
+                display: none;
+            }
+            #wrap ul li.active input {
+                display: block;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div id="wrap">
+            <ul>
+                <li>
+                    <span>修改内容</span>
+                    <input type="text" value="点击修改">
+                    <p>修改</p>
+                </li>
+                <li>
+                    <span>修改内容</span>
+                    <input type="text" value="点击修改">
+                    <p>修改</p>
+                </li>
+                <li>
+                    <span>修改内容</span>
+                    <input type="text" value="点击修改">
+                    <p>修改</p>
+                </li>
+                <li>
+                    <span>修改内容</span>
+                    <input type="text" value="点击修改">
+                    <p>修改</p>
+                </li>
+            </ul>
+
+        </div>
+
+
+
+        <script>
+
+            var oWrap = document.getElementById("wrap"),
+                aP = oWrap.getElementsByTagName("p"),
+                aLi = oWrap.getElementsByTagName("li"),
+                aInp = oWrap.getElementsByTagName("input"),
+                aSpan = oWrap.getElementsByTagName("span"),
+
+                length = aP.length,
+                bool = [];//如果length是未知的,那么就先不给定数组的初始值个数
+                //使用数组分别对应存储开关,相当于bool=[false,false,true]
+                //alert(bool[100]);//undefined
+
+
+            for (var i = 0; i < length; i++) {//for里的变量可以放在外面,所以是全局变量
+                aP[i].index = i;//在点击事件之前设置自定义属性
+                // aP[i].bool = false;//给每个p添加自定义属性来控制状态也可以
+
+                aP[i].onclick = function () {
+                    // alert(1);
+                    //alert(i);//每个li都弹出4
+                    //aLi[i]无法用i来使p和li的序号对应,因为for循环是一瞬间的事,得到的i是执行完毕的值
+
+                    // alert(this.index);//每个li分别弹出对应的序号
+                    // aLi[this.index].className = "active";
+                    //不要通过判断li有没有类名来判断p标签是第几次被点击或者p标签的状态,最好用自身的属性来判断
+                    //分别给每个p标签一个开关来控制,因p标签个数较多,所以考虑用数组
+
+                    var index = this.index;
+                    if ( bool[index] ) {
+                        //这是点击确认以后执行的事件
+                        aSpan[index].innerHTML = aInp[index].value;//获取对应的input值,赋值给span
+                        aLi[index].className = "";
+                        this.innerHTML = "修改";
+                    } else {//undefined是假
+                        aLi[index].className = "active";
+                        this.innerHTML = "确认";
+                    }
+
+                    bool[index] = !bool[index];//点击事件结束,重置状态
+
+
+                }
+            }
+
+
+
+
+
+        </script>
+
+
+    </body>
+
+</html>

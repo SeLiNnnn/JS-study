@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>04-解析顺序</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+    </style>
+</head>
+    <body>
+
+
+
+        <script>
+
+            // case1
+            // alert(a);//报错
+            //
+            // case2
+            // var a = 10;
+            // alert(a);//10
+            //
+            // case3
+            // alert(a);
+            // var a  = 20;//undefined
+
+            //case4
+            alert(a);//undefined
+            fn();//2
+
+            var a = 10;
+            function fn() {
+                alert(2);//读取函数,但暂不执行
+            }
+            alert(a);//10
+
+            /*步骤:
+            1.找定义
+                从上到下找所有的var function,默认undefined
+            2.执行
+                又从上到下执行
+
+
+            */
+
+
+
+
+        </script>
+
+
+    </body>
+</html>

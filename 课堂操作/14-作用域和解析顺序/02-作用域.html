@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>02-作用域</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+    </style>
+</head>
+    <body>
+
+
+
+        <script>
+
+            // var a = 10;
+            // a = 20;//修改全局变量a
+
+            // var a = 10;
+            //如果最外层也没有,不报错,直接弹出20
+            function f() {
+                // var a = 10;
+                // a = 20;//修改自己的a
+
+                a = 20;//如果只有这一行，则修改父级的a
+            }
+            f();
+
+            alert(a);//弹出全局变量a=10
+
+
+
+
+        </script>
+
+
+    </body>
+</html>
