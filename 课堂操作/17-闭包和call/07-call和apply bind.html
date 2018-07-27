@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>07-call和apply bind</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #wrap {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+
+
+    </style>
+</head>
+    <body>
+
+        <div id="wrap"></div>
+        <div id="box"></div>
+
+
+        <script>
+
+            // function a() {
+            //     console.log(this);//非严格模式下,函数自执行,this指向window
+            // }
+            // a();
+
+
+            // var oWrap = document.getElementById("wrap");
+            // oWrap.onclick = a;
+            //
+            // function a() {
+            //     console.dir(this);//指向wrap
+            // }
+
+            var oWrap = document.getElementById("wrap"),
+            oBox = document.getElementById("box");
+            // oWrap.onclick = a(1);//不能这样直接传参,这样是函数自执行
+            oWrap.onclick = function () {
+                a(1,this);
+
+            };
+            oBox.onclick = function () {
+                a(2,this);
+            };
+
+            // function a() {
+            //     console.dir(this);//谁执行指向谁
+            // }
+
+            // function a(num) {
+            //     console.dir(num + ":" + this);//1:[object Window]说明参数没变,但this指向变了
+            // }
+
+            //以前使用传参解决this指向问题
+            function a(num, that) {
+                console.dir(num + ":" + that.id);//1:[object wrap/box]
+            }
+
+
+            /*
+            * 当函数执行时,使用apply call能改变它内部的this指向
+            *
+            *
+            * */
+
+
+
+        </script>
+
+
+    </body>
+</html>

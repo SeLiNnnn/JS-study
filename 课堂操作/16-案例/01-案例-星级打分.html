@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="">
+        <meta name="description" content="这是网页的描述">
+        <meta name="author" content="SeLiNnnn">
+        <meta name="generator" content="WebStorm">
+        <title>01-案例-星级打分</title>
+        <style>
+            body {
+                font-family: "Microsoft Yahei";
+                font-size: 14px;
+            }
+
+            body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+                margin: 0;
+            }
+
+            ol, ul, li {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            img {
+                border: none;
+                vertical-align: bottom;
+            }
+
+            a {
+                text-decoration: none;
+            }
+            #wrap {
+                width: 320px;
+                height: 75px;
+                margin: 50px auto;
+                border: 1px solid pink;
+                font-size: 12px;
+                line-height: 75px;/*让Span居中*/
+                user-select: none;
+
+            }
+            #wrap span.title,#wrap ul,#wrap p {
+                float: left;
+                color: red;
+            }
+            #wrap ul {
+                margin-top: 28px;
+            }
+            #wrap ul li {
+                float: left;
+                width: 19px;
+                height: 19px;
+                background: url("img/star.png");
+                cursor: pointer;
+            }
+            #wrap ul li.on {
+                background-position: 0 19px;
+            }
+            #wrap p {
+                width: 100px;
+                height: 73px;
+                line-height: 20px;
+                border: 1px solid #bbb;
+                color: #000000;
+                margin-left: 30px;
+            }
+            #wrap p span {
+                display: none;
+            }
+            #wrap p span.on {
+                display: block;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <div id="wrap">
+
+            <span class="title">星级打分</span>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <p>
+                <span class="on">提示:请认真打分</span>
+                <span>很差</span>
+                <span>较差</span>
+                <span>一般</span>
+                <span>较好</span>
+                <span>非常好</span>
+            </p>
+
+        </div>
+
+
+        <script>
+
+
+            (function () {
+
+                var oUl = document.querySelector("#wrap ul"),
+                    aStars = document.querySelectorAll("#wrap ul li"),
+                    aSpan = document.querySelectorAll("#wrap p span"),
+                    length = aStars.length,
+                    score = -1,//默认评分-1分
+                    spanIndex = 0;//提示文字 默认显示的序号
+
+                //每个小星星需要添加的操作
+                for (var i = 0; i < length; i++) {
+
+                    var dom = aStars[i];
+                    dom.index  = i;
+
+                    //移入事件
+                    dom.onmouseenter = enterFn;//调用函数
+                    dom.onclick = clickFn;//点击事件
+                }
+
+                //ul的离开事件
+                oUl.onmouseleave = function () {
+                    starEvent(score);//以score为界限,不要直接把starEvent()写在外面,那样是自执行
+                };
+
+
+                //小星星的点击事件
+                function clickFn() {
+                    score = this.index;
+                }
+
+                //小星星的移入事件
+                function enterFn() {
+                    starEvent(this.index);//传参,以当前元素的序号为界限
+                }
+
+                //封装的遍历操作
+                function starEvent(x){
+                    for (var j = 0; j < length; j++) {
+                        aStars[j].className = j <= x ? "on" : "";//离开ul的时候,所有的类名都清除
+                    }
+
+                    aSpan[spanIndex].className = "";
+                    spanIndex = x+1;//第一个星星对应第二个span,当score=-1也就是没有评分的时候,显示第0个span
+                    aSpan[spanIndex].className = "on";
+                }
+
+            })();
+
+
+
+
+
+
+            // (function () {
+            //
+            //     var oUl = document.querySelector("#wrap ul"),
+            //         aStars = document.querySelectorAll("#wrap ul li"),
+            //         length = aStars.length,
+            //         score = -1;//默认评分,是因为如果默认是0,在后面打分的时候需要+1,离开的时候又要减1
+            //
+            //     //每个小星星需要添加的操作
+            //     for (var i = 0; i < length; i++) {
+            //         // aStars[i].onclick = function () {
+            //         //     // alert(1);
+            //         // }
+            //
+            //         var dom = aStars[i];
+            //         dom.index  = i;
+            //         //移入事件
+            //         //把函数封装起来，统一调用,因为函数是引用类型,尽管函数内容是完全一致的，但对于for循环来说,
+            //         //每次事件都注册一个函数,会在堆里面用哪5个单元存储函数,只要是新建的函数,都会被认为是新的数据
+            //         dom.onmouseenter = enterFn;//调用函数
+            //         dom.onclick = clickFn;//点击事件
+            //     }
+            //
+            //     //ul的移出事件,直接给ul加而不是给每个li加
+            //     oUl.onmouseleave = function () {
+            //       for (var j = 0; j < length; j++) {
+            //           aStars[j].className = j <= score ? "on" : "";//离开ul的时候,所有的类名都清除
+            //       }
+            //     };
+            //
+            //     //小星星的点击事件
+            //     function clickFn() {
+            //         score = this.index;
+            //     }
+            //
+            //     //小星星的移入事件
+            //     function enterFn() {
+            //         //console.log(this.index);//01234
+            //
+            //         //给自己之前的所有星星都加类名
+            //         var index = this.index;//获取当前的序号
+            //
+            //         // for (var j = 0; j <= index; j++) {//从0开始到自己为止,小于等于,要取到自己的类名
+            //         //     aStars[j].className = "on";
+            //         // }
+            //         // //从当前的上一位开始,一致到长度,都清除类名,注意是j++
+            //         // for (j = index + 1; j < length; j++) {
+            //         //     aStars[j].className = "";
+            //         // }
+            //         //但是从效率来说,写2个for循环的性能更好，因为同样是执行length的for循环,这种写法没有length次的if判断
+            //
+            //         //其实整体来说,就是对长度的遍历
+            //         // for (var j = 0; j < length; j++) {
+            //         //     if (j <= index) {
+            //         //         aStars[j].className = "on";
+            //         //     } else {
+            //         //         aStars[j].className = "";
+            //         //     }
+            //         // }
+            //
+            //         for (var j = 0; j < length; j++) {//index+1是因为当前的这个不需要被清空
+            //             aStars[j].className = j <= index ? "on" : "";
+            //         }
+            //
+            //     }
+            //
+            // })();
+
+
+
+
+
+
+        </script>
+
+
+    </body>
+</html>

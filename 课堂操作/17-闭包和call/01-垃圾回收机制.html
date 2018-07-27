@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>01-垃圾回收机制</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+    </style>
+</head>
+    <body>
+
+
+
+        <script>
+
+            //垃圾回收机制
+            // var a = 10;
+            // function fn() {
+            //     var a  = 5;
+            //     alert(a);
+            // }
+            //
+            // fn();
+
+            var b = {
+                a : 5,
+                x : 10
+            };
+            alert(b.x);
+            //b是全局变量,b是个引用型数据
+            // 假设到此为止,b的使用已经全部完成
+            //就这样放着虽然没有问题,但不是最好的方式。
+            //因为b是个全局变量,只要b没有被销毁,b在堆里也就不会被销毁
+
+            b = null;//回收:虽然b还在,但释放了堆内存(释放了b的内容),让b不再和堆对应
+
+
+
+
+
+
+        </script>
+
+
+    </body>
+</html>

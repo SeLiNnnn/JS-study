@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>03-闭包</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+    </style>
+</head>
+    <body>
+
+
+
+        <script>
+
+            // var a = 20;
+            //
+            // function fn() {
+            //     var a = 10;
+            //     return function () {
+            //         a ++;
+            //         alert(a);
+            //     }
+            // }
+            //
+            // var b = fn();
+            // b();//弹出11
+            // b();//弹出12
+            // //发现a没有被销毁,此时的b就是闭包
+
+
+            var a = 20;
+
+            function fn() {
+                var a = 10;
+                var f = function () {
+                    a ++;
+                    alert(a);
+
+                };
+                return f;
+            }
+
+            var b = f;
+            b();
+
+
+
+        </script>
+
+
+    </body>
+</html>

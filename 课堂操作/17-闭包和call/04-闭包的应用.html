@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>04-闭包的应用</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+    </style>
+</head>
+    <body>
+
+
+        <div id="wrap">
+            <p>0</p>
+            <p>11</p>
+            <p>222</p>
+            <p>3333</p>
+        </div>
+
+
+        <script>
+
+            var aP = document.getElementsByTagName("p"),
+                length = aP.length;
+
+            // 自定义属性方法
+            // for (var i = 0; i < length; i++) {
+            //
+            //     aP[i].index = i;
+            //     aP[i].onclick = function () {
+            //         alert(this.index);
+            //     }
+            // }
+
+            // 闭包的原理
+            // for (var i = 0; i < length; i++) {
+            //     x(i);//实参
+            //     function x( goudan ) {
+            //         aP[goudan].onclick = function () {
+            //             alert(goudan);//这个匿名函数,使用了外部函数的参数,导致这个参数goudan不会被回收
+            //             //分别弹出0123的序号
+            //             //执行了4次所以产生了4个闭包
+            //         }
+            //     }
+            // }
+            //
+            // 更好的写法
+            // for (var i = 0; i < length; i++) {
+            //
+            //     (function ( goudan ) {
+            //         aP[goudan].onclick = function () {
+            //             alert(goudan);
+            //             //闭包一般是结合函数自执行来使用
+            //         };
+            //     })(i);
+            // }
+
+            //常规操作
+            // for (var i = 0; i < length; i++) {
+            //
+            //     (function ( i ) {//实际开发时,一般形参会取i,假装和外部的i是对应,更符合语义
+            //         aP[i].onclick = function () {
+            //             alert(i);
+            //         };
+            //     })(i);
+            // }
+
+
+            // //注意区分
+            // var x = 20;
+            // a(x);//这个x不在函数作用域里,所以传的值是20
+            //
+            // function a() {
+            //     var x = 10;
+            // }
+
+            !function f() {
+                for (var i = 0; i < length; i++) {//这里的i被销毁了,因为内部的函数没有使用外部函数的变量i
+                    !function (g) {
+                        aP[g].onclick = function () {
+                            alert(g);
+                        };
+                    }(i);
+                }
+
+            }();
+
+
+
+
+
+        </script>
+
+
+    </body>
+</html>

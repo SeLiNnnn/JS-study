@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>05-练习</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+    </style>
+</head>
+    <body>
+
+
+
+        <script>
+
+            //重点理解
+            fn()();//先执行fn,再c()
+            //fn()()();这里已经不能再加括号了,因函数c返回值为undefined,un();就报错了
+            var a = 0;
+            function fn() {
+                alert(a);//undefined
+                var a = 3;
+                function c() {
+                    alert(a);//3
+                }//这里的函数c不是自执行
+                return c;
+            }
+
+
+
+
+
+        </script>
+
+
+    </body>
+</html>

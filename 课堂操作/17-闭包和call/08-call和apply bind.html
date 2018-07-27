@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>07-call和apply bind</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #wrap {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+
+
+    </style>
+</head>
+    <body>
+
+        <div id="wrap"></div>
+        <div id="box"></div>
+
+
+        <script>
+
+            /*
+            * 当函数执行时,使用apply call能改变它内部的this指向
+            *
+            * 借助于call执行的时候,
+            * 第一个实参相当于函数的this指向
+            * 第二个实参对应第一个形参
+            *
+            * */
+
+            // var id = "window";//定义的全局变量,相当于window.id(window的属性)
+            //
+            // var oWrap = document.getElementById("wrap"),
+            // oBox = document.getElementById("box");
+            // oWrap.onclick = function () {
+            //     a(1);
+            //
+            // };
+            // oBox.onclick = function () {
+            //     a(2);
+            // };
+            //
+            // function a(num) {
+            //     console.dir(num + ":" + this.id);//1:[window]
+            // }
+
+
+            // var id = "window";//定义的全局变量,相当于window.id(window的属性)
+            // document.id = "Document";
+            //
+            // var oWrap = document.getElementById("wrap"),
+            //     oBox = document.getElementById("box");
+            // oWrap.onclick = function () {
+            //     a.call(document,1);//第一个实参对应this指向,第二个实参对应第一个形参,所以num还是1
+            //
+            // };
+            // oBox.onclick = function () {
+            //     a.call(document,2);
+            // };
+            //
+            // function a(num) {
+            //     console.dir(num + ":" + this.id);//1:Document/2:Document
+            // }
+
+            // var id = "window";//定义的全局变量,相当于window.id(window的属性)
+            // document.id = "Document";
+            //
+            // var oWrap = document.getElementById("wrap"),
+            //     oBox = document.getElementById("box");
+            // oWrap.onclick = function () {
+            //     a.call(this,1);//a.call(oWrap,1)这样写也可以,但不推荐,这里是个全局变量没有大碍,但如果外层也是个函数,
+            //     //将形成闭包
+            //
+            // };
+            // oBox.onclick = function () {
+            //     a.call(this,2);
+            // };
+            //
+            // function a(num) {
+            //     console.dir(num + ":" + this.id);//1:wrap/2:box
+            // }
+
+
+            (function () {
+                var oWrap = document.getElementById("wrap"),
+                    oBox = document.getElementById("box");
+                oWrap.onclick = function () {
+                    a.call(oWrap,1);
+                    // 这里外层也是个函数,产生了不必要的闭包
+
+                };
+                oBox.onclick = function () {
+                    a.call(this,2);
+                };
+
+                function a(num) {
+                    console.dir(num + ":" + this.id);//1:wrap/2:box
+                }
+
+            })();
+
+
+
+
+
+
+
+
+
+
+
+        </script>
+
+
+    </body>
+</html>

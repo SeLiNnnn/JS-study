@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>06-练习</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+    </style>
+</head>
+    <body>
+
+
+
+        <script>
+
+
+            var a = 5;
+            function fn() {
+                var a = 10;
+                alert(a);
+                function b() {
+                    a ++;
+                    alert(a);
+                }
+                return b;
+            }
+            var c = fn();//10
+            c();//11
+            fn()();//10,11
+            c();//12
+
+            //1.定义
+            //var a,funcion fn,var c
+            //2.执行
+            //  1.var c = fn();
+            // 2.var 1 =10;alert(a)=10
+            //  3. return b,b给c,c和b的指针一样
+            // 4.c()执行相当于b执行,但b已经被销毁了
+            // 5.b执行,a=10,a++,alert(a)=11
+            // 6. fn()();执行fn,这里的fn和var c的fn,
+            // 即使是同一个函数但也是两个相同且独立的作用域,也就是不会存储上一次执行后的结果
+            // 7.fn()();的执行相当于再执行了一次var a=10,alert(a)=10,funtion b,a++,alert(a)=11
+            //8.c()再执行的时候,不需要开辟新的作用域,且var a=10灭有被销毁,所以会接着上一次的a=11进行a++,弹出12
+
+
+            //对第六点的说明
+            // function x() {
+            //     var a = 5;
+            //     a ++;
+            //     alert(a);
+            // }
+            // x();//6
+            // x();//6
+
+        </script>
+
+
+    </body>
+</html>

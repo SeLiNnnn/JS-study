@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>03-案例-购物车结算-不传参</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        table{
+            width: 1000px;
+            border-collapse: collapse;
+            border-color: #930;
+            margin: 50px auto 0;
+            user-select: none;
+        }
+        table tr td{
+            width: 250px;
+            height: 100px;
+            text-align: center;
+        }
+        table tr.title td{
+            height: 50px;
+            background: #c36;
+            color: #fff;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        table tr td img{
+            display: block;
+            width: auto;
+            height: 70px;
+            margin: 0 auto;
+        }
+        table tr td.number span{
+            display: inline-block;
+            font-size: 12px;
+            text-align: center;
+        }
+        table tr td.number span.down,table tr td.number span.add{
+            width: 30px;
+            height: 30px;
+            background: #ddd;
+            line-height: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        table tr td.number span.num{
+            width: 50px;
+            height: 28px;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            line-height: 28px;
+            color: #c36;
+        }
+        .box{
+            width: 1000px;
+            height: 50px;
+            background: #c36;
+            margin: 10px auto;
+        }
+        .box p{
+            float: right;
+            width: 250px;
+            height: 50px;
+            line-height: 50px;
+            color: #fff;
+            font-size: 14px;
+        }
+        .box p span{
+            color: #f4e5a9;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+    <body>
+
+    <table border="1">
+        <thead></thead>
+        <tbody>
+        <tr class="title">
+            <td>商品</td>
+            <td>单价</td>
+            <td>数量</td>
+            <td>小计</td>
+        </tr>
+        <tr>
+            <td><img src="img/shop1.jpg" alt=""></td>
+            <td class="danjia">8</td>
+            <td class="number"><span class="down">-</span><span class="num">0</span><span class="add">+</span></td>
+            <!--上面是行内元素,分开三行写会有产生间隙-->
+            <td class="price">0</td>
+        </tr>
+        <tr>
+            <td><img src="img/shop2.jpg" alt=""></td>
+            <td class="danjia">10</td>
+            <td class="number"><span class="down">-</span><span class="num">0</span><span class="add">+</span></td>
+            <td class="price">0</td>
+        </tr>
+        <tr>
+            <td><img src="img/shop3.jpg" alt=""></td>
+            <td class="danjia">12.5</td>
+            <td class="number"><span class="down">-</span><span class="num">0</span><span class="add">+</span></td>
+            <td class="price">0</td>
+        </tr>
+        <tr>
+            <td><img src="img/shop4.jpg" alt=""></td>
+            <td class="danjia">23</td>
+            <td class="number"><span class="down">-</span><span class="num">0</span><span class="add">+</span></td><td class="price">0</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="box">
+        <p class="totalPrice">合计费用： ￥<span>0</span></p>
+        <p class="totalNum">已选中商品： <span>0</span> 个</p>
+    </div>
+
+
+
+        <script>
+
+
+            (function () {
+                //页面里宝贵的数据,都不要直接从页面通过innerHTML来获取,如果页面被篡改数据就会被改变
+                //都是通过变量或数组来存储数据
+
+                var data = [
+
+                    {
+                        dj : 8,
+                        num : 0
+                    },
+
+                    {
+                        dj : 10,
+                        num : 0
+                    },
+
+                    {
+                        dj : 12.5,
+                        num : 0
+                    },
+
+                    {
+                        dj : 23,
+                        num : 0
+                    }
+
+
+                ];
+
+                var aAdd = document.querySelectorAll("table td.number span.add"),
+                    aDown = document.querySelectorAll("table td.number span.down"),
+                    aNum = document.querySelectorAll("table td.number span.num"),
+                    aPrice = document.querySelectorAll("table td.price"),
+                    aTotalPrice = document.querySelector(".box .totalPrice span"),
+                    aTotalNum = document.querySelector(".box .totalNum span"),
+                    length = aAdd.length,
+                    i ;
+
+
+                //注册事件
+                for ( i = 0; i < length; i++) {
+                    var addDom = aAdd[i],
+                        dowDom = aDown[i];
+                    addDom.index = i;//自定义属性用来在事件函数里取到序号
+                    addDom.onclick = clickFn;
+
+                    dowDom.index = i;
+                    addDom.bool = true;
+                    dowDom.onclick = clickFn;
+                }
+
+                function clickFn() {
+                    var index = this.index,//当前序号
+                        dat = data[index];//引用型-对象-可以提取公因式
+                    if ( this.bool ) {//加号是true
+                        dat.num ++;
+                    } else {//减号是undefined
+                        if (!dat.num) return;
+                        dat.num --;
+                    }
+
+                    aNum[index].innerHTML = dat.num;//将数量反应到html里面,前置++,先自增后赋值
+                    aPrice[index].innerHTML = dat.dj * dat.num;//对应的小计4
+
+                    getTotal();//计算总价属于单独的逻辑,单独列出来
+                }
+
+
+                //计算总价
+                function getTotal() {
+                    var num = 0,
+                        price = 0;
+                    for (i = 0; i < length; i++) {
+                        num += data[i].num;
+                        price += data[i].num * data[i].dj;
+                    }
+                    aTotalPrice.innerHTML = price;
+                    aTotalNum.innerHTML = num;
+                }
+
+
+
+
+            })();
+
+
+
+        </script>
+
+
+    </body>
+</html>
