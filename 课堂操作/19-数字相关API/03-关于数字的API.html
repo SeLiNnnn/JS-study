@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>03-关于数字的API</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+
+    <div id="wrap"></div>
+
+
+
+
+
+        <script>
+
+            /*
+            * number
+            * NaN
+            * isNaN()  当参数是NaN的是，返回true。当参数能被Number()转化为数字的话，返回false
+            *
+            * NaN和它自己都不等
+            * */
+
+
+            // var a = undefined + 1;
+            // console.log(a);//NaN
+            //
+            // alert(isNaN("456"));//false
+            // alert(isNaN("h456"));//NaN
+            // alert(isNaN("0"));//false
+
+
+            //alert(NaN===NaN);//false
+
+            // var a = NaN;
+            // alert(a===a);//false
+
+            //alert( {} === {} );//false
+            //引用型，比较的是指针地址，这是2个不同的json。
+
+            var a = {};
+            alert( a === a );//true,自己是等于自己的
+
+
+
+        </script>
+
+    </body>
+</html>

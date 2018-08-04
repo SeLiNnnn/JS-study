@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>02-关于this</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+    </style>
+</head>
+    <body>
+
+
+
+        <script>
+
+            // var json = {//json不是关键词
+            //   goudan : 123
+            // };
+            // fn.call(json);//使用call,this指向从window变成了json(打印出obj)
+            //
+            // function fn() {
+            //     console.log(this);
+            // }
+
+            document.onclick = function () {
+                fn.call(this);//这个this不是fn内部的this,这是实参,是外部准备给你的,不是自己的this
+                //实参this是属于当前事件函数function的作用域,事件函数里的this指向事件触发的主体document
+            };
+
+            function fn() {
+                console.log(this);
+            }
+
+
+
+
+
+        </script>
+
+
+    </body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>02-点击生成div</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #wrap {
+            width: 1000px;
+            height: 400px;
+            margin: 50px auto;
+            user-select: none;
+        }
+        #wrap p {
+            width: 150px;
+            height: 30px;
+            margin: 30px auto;
+            background-color: pink;
+            color: #FFFFFF;
+            text-align: center;
+            line-height: 30px;
+        }
+        #wrap div {
+            float: left;
+            width: 50px;
+            height: 50px;
+            background-color: greenyellow;
+            margin: 50px 20px 0 0 ;
+        }
+    </style>
+</head>
+    <body>
+
+    <div id="wrap">
+        <p>点击生成10个div</p>
+    </div>
+
+
+
+
+
+    <script>
+
+        var oP = document.querySelector("#wrap p"),
+            oWrap = document.getElementById("wrap");
+
+
+        //我写的
+        // oP.onclick = function () {
+        //     for (var i = 0; i < 10; i++) {
+        //         oWrap.innerHTML += "<div></div>";
+        //     }
+        // };
+
+        //源码优化
+        oP.onclick = function () {
+            var str = "";//用一个变量来存储
+            for (var i = 0; i < 10; i++) {
+                str += "<div></div>";//循环执行了10次，都赋值给变量，oWrap通过变量来修改内容，只需执行1次，而不是每次
+                //执行循环都修改内容
+            }
+            oWrap.innerHTML += str;//oWrap本身还有其他元素
+        }
+
+        //总结：
+        //我自己的写法，浏览器将重绘10次页面，优化后只重绘一次。
+
+
+
+
+
+    </script>
+
+    </body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>01-字符串相关的方法</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+
+    <div id="wrap"></div>
+
+
+
+
+
+        <script>
+
+
+            /*
+            * length
+            * charAt
+            * charCodeAt-unicode编码
+            *
+            * */
+
+            //var str = "阿飞ab";
+
+            // var l = str.length;
+            // alert(l);//弹出4,不分中英文，只要占一个字符,就算1长度
+
+            //alert(str[1]);//飞，不兼容ie低版本
+            //alert(str.charAt(0));//阿,兼容IE
+            //alert( str.charCodeAt(0) );//38463
+
+            //alert( String.fromCharCode( 40000 ) );//40000对应的字符编码
+            // for (var i = 0, length = 20000; i < length; i++) {
+            //     document.write( String.fromCharCode(i) );
+            // }
+
+            var str = "朝歌老师:小北鼻我爱你";
+
+            var newStr = "";
+
+            for (var i = 0, length = str.length; i < length; i++) {
+                var s = str.charCodeAt(i);//得到每一位字符对应的编码
+                s += 520;
+                newStr += String.fromCharCode(s);
+            }
+
+            alert(newStr);//做一些简单的加密
+
+
+
+
+        </script>
+
+    </body>
+</html>

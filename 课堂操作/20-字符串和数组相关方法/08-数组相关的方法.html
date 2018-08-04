@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>08-数组相关的方法</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+
+    <div id="wrap"></div>
+
+
+
+
+
+        <script>
+
+            /*
+            * 重点：
+            *
+            *   splice()
+            *       参数： 第几位开始，删除几个，用什么来代替
+            *
+            *
+            * */
+
+            var arr = [1,5,8,"唪光脒",function () {},{}];
+
+            //arr.splice(2,2,233);//从第二位开始，把8删除了
+
+            //arr.splice(3,0,"福尔摩谛");//在唪光脒之前加增加了数据,如果是增加到唪光脒后面，则从第四位开始,也就是在第几位插入数据
+            arr.splice(4,0,"福尔摩谛","智障薇");//和push一样，可以完全代替刚刚的4种方法
+            console.log(arr);//[1,5,233,{},fn,{}];没有代替值的是空对象
+
+
+        </script>
+
+    </body>
+</html>

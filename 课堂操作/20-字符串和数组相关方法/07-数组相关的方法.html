@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>07-数组相关的方法</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+
+    <div id="wrap"></div>
+
+
+
+
+
+        <script>
+
+
+            /*
+            * push和pop都能改变原数组，是功能函数
+            * charAt 是关注结果的函数，不改变原数据
+            *
+            * */
+
+
+            var arr = [1,2,3];
+            // //arr.push(4,5,6);//往最后添加数据，返回length
+            // arr.pop();//删除原数组最后一位，一次只能删一个，返回被删除的数据
+            // console.log(arr);
+
+            //var arr = [1,2,3];
+            //var x = arr.push(8,9,9,9,9);
+
+            //var x = arr.unshift(44);//在第一位增加数据，返回lenght
+            var x = arr.shift();//删除第一位，返回被删除的数据
+
+            console.log(arr);
+            console.log(x);
+
+
+        </script>
+
+    </body>
+</html>

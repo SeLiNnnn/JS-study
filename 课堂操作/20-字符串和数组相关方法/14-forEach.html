@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>14-forEach</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+        <script>
+
+            //遍历数组forEach,没有返回值
+            //var arr = ["唪光脒","福尔摩谛","智障薇"];
+
+            // arr.forEach(function (a, b, c) {
+            //     //第一个形参 当前对应的值
+            //     console.log(a);
+            //     console.log(b);
+            //     console.log(c);
+            //
+            // });
+
+            // var DOM = document.getElementsByTagName("div");//DOM伪数组
+            // //给每个div加innerHTML
+            // [].slice.call(DOM).forEach(function (a, b, c) {
+            //     // console.log(a);
+            //     // console.log(b);
+            //     // console.log(c);
+            //     a.innerHTML = ""+b+b+b+b+b;
+            // })
+
+            //数组里的每一位+1
+            var arr = [1,2,3,4];
+            var nArr = arr.map(function (value) {
+                return ++value;
+            });
+            console.log(nArr);//[2,3,4,5]
+
+
+        </script>
+
+    </body>
+</html>

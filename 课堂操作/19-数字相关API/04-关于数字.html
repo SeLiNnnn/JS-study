@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>04-关于数字</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+
+    <div id="wrap"></div>
+
+
+
+
+
+        <script>
+
+
+            /*
+            * parseInt() 强制取整
+            * parseFloat() 强制取数(可以取到小数)
+            *
+            *   从第一位非空格的字符开始识别，能取到满足规则的数字则返回数字，否则NaN
+            *
+            * */
+
+            //var b =Number("10.2");//10.2
+
+            //var b = Number("10.2h");//NaN
+            //var b = Number("10px");//NaN
+
+            //var b = parseInt("10px");//10
+            //var b = parseInt("10px20");//10
+            //var b = parseInt("10.2px20");//10
+
+            //var b = parseInt("abc20");//找到a,无法转化，NaN
+            //var b = parseInt("    -10abc20");//-10
+            //var b = parseInt("     +10px20");//10
+            //var b = parseInt("   - 10abc20");//NaN,符号数字不能分开
+            //var b = parseInt(".1");//NaN
+
+
+            //var b = parseFloat(" 10.2px20");//10.2
+            //var b = parseFloat("10px20");//10,不会强制加小数
+            //var b = parseFloat(" .1");//0.1
+
+
+            console.log(b);
+
+
+        </script>
+
+    </body>
+</html>

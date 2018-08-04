@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>03-生成左尖括号</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #wrap {
+            /*width: 250px;*/
+            /*height: 400px;*/
+            border: 1px #000000 dotted;
+            margin: 100px auto;
+        }
+        #wrap div {
+            width: 50px;
+            height: 50px;
+            background-color: cornflowerblue;
+            color: #ffffcc;
+            text-align: center;
+            line-height: 50px;
+            font-weight: bolder;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="wrap">
+        <!--<div>1</div>-->
+    </div>
+
+
+    <script>
+
+        var oWrap = document.getElementById("wrap");
+
+        var length = 10,
+            mid = length/2;
+
+        oWrap.style.width = (mid+0.5)*50 + "px";
+        oWrap.style.height = length*50 + "px";
+
+        var str = "";//必须写在循环外面
+        //var mLeft;
+        for (var i = 0; i < length; i++) {
+
+            // if ( i < mid ) {//想清楚偶数个时候的状态
+            //     mLeft = i*50;
+            // } else {
+            //     mLeft = (length-i-1)*50;
+            // }
+
+
+            //var mLeft = i<mid?(i*50):(length-i-1)*50;
+            var mLeft = (i<mid?i:(length-i-1))*50;
+
+            str += "<div style=margin-left:"+mLeft+"px>" + i + "</div>";
+        }
+        oWrap.innerHTML += str;
+
+        //总结：
+        //1.最开始写的时候我是想用定位来控制元素位置，不好操作，因为其实div是块级元素，垂直方向上的距离就是序号*height
+        //2.注意有很多拼接内容时候的引号写法
+        //3.这次优化做的还不错，多看多比较，不要死记硬背length-1-i，要灵活找到长度，序号之间的关系
+
+
+
+    </script>
+
+</body>
+</html>

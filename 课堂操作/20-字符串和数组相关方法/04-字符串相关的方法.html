@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>04-字符串相关的方法</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+
+    <div id="wrap"></div>
+
+
+
+        <script>
+
+            /*
+            * split
+            *
+            * */
+
+
+            var str = "阿飞，乌拉，心艾，朱雀，发发，冰冰";
+
+            //转换成数组存每一个名字
+            //var arr = str.split(",");//按照什么规则切割
+            //var arr = str.split("");//全部切割开
+            var arr = str.split("y");//无法切割,就是一个整体
+
+            console.log(arr);
+
+
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>01-发布留言</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        img {
+            width: 30px;
+            height: 30px;
+        }
+        #wrap {
+            width: 415px;
+            margin: 50px auto;
+            user-select: none;
+        }
+        #wrap .topcommet {
+            position: relative;
+            width: 100%;
+            height: 115px;
+            background-color: #cccccc;
+        }
+        .topcommet input {
+            width: 395px;
+            height: 65px;
+            border-radius: 6px;
+            padding-left: 5px;
+            margin: 5px 5px 0 5px;
+        }
+        .topcommet .userpic {
+            display: inline-block;
+        }
+        .topcommet .userpic img {
+            display: none;
+            position: absolute;
+            bottom: 5px;
+            left: 5px;
+        }
+        .topcommet .userpic img.on {
+            display: block;
+        }
+        .topcommet .btn {
+            float: right;
+            width: 60px;
+            height: 30px;
+            margin: 5px;
+            background-color: #FFA500;
+            border-radius: 5px;
+            color: #ffffff;
+            line-height: 30px;
+            text-align: center;
+        }
+        .bottomlist {
+            width: 100%;
+            height: 300px;
+            /*background-color: pink;*/
+            margin-top: 10px;
+        }
+        .bottomlist ul {
+            width: 100%;
+        }
+        .bottomlist ul li {
+            width: 100%;
+            height: 60px;
+            border-bottom: 1px solid #cccccc;
+        }
+        .bottomlist ul li img {
+            margin: 20px 5px 5px 5px;
+        }
+        .bottomlist ul li span {
+            margin-left: 5px;
+        }
+
+
+    </style>
+</head>
+    <body>
+
+        <div id="wrap">
+            <!-- 留言编辑区 -->
+            <div class="topcommet">
+
+                <input type="text">
+                <span class="userpic">
+                    <img class="on" src="image/boy.jpg">
+                    <img src="image/girl.jpg">
+                </span>
+                <div class="btn">提交</div>
+
+            </div>
+            <!-- 查看留言 -->
+            <div class="bottomlist">
+                <ul>
+                    <!--<li><img src="image/boy.jpg" alt=""><span>111</span></li>-->
+                    <!--<li><img src="image/boy.jpg" alt=""><span>2</span></li>-->
+                    <!--<li><img src="image/boy.jpg" alt=""><span>33</span></li>-->
+                </ul>
+            </div>
+        </div>
+
+        <script>
+
+            var aInp = document.querySelector(".topcommet input"),
+                oBtn = document.querySelector(".topcommet .btn"),
+                oUl = document.querySelector(".bottomlist ul"),
+                aImg = document.querySelectorAll(".topcommet img");
+
+
+
+            var src = aImg[0].src;
+            var length = aImg.length,
+                i = 0,
+                index = 0,
+                bool;
+
+
+
+
+            //点击切换头像
+            //这个案例必须使用src
+            for (i; i < length; i++) {
+                aImg[i].index = i;
+
+                aImg[i].onclick = function() {
+
+                    //方法1:模运算
+                    if (index%length < 1) {
+                        aImg[index].className = "";
+                        index = index+1;
+                        aImg[index].className = "on";
+                        src = aImg[index].src;
+                    } else {
+                        aImg[index].className = "";
+                        index = index-1;
+                        aImg[index].className = "on";
+                        src = aImg[index].src;
+                    }
+
+
+                    //方法2:布尔值判断图片点击状态
+                    // if ( bool ) {
+                    //     aImg[index].className = "";
+                    //     index = index-1;
+                    //     aImg[index].className = "on";
+                    //     src = aImg[index].src;
+                    //
+                    // } else {
+                    //     aImg[index].className = "";
+                    //     index = index+1;
+                    //     aImg[index].className = "on";
+                    //     src = aImg[index].src;
+                    //     bool = false;
+                    // }
+                    // bool = !bool;
+
+                    //对if判断的优化,方法2也可进行此优化
+                    // if (index%length < 1) {
+                    //     picchange();
+                    //     index = index+1;
+                    // } else {
+                    //     picchange();
+                    //     index = index-1;
+                    // }
+                    // function picchange() {
+                    //     aImg[index].className = "";
+                    //     aImg[index].className = "on";
+                    //     src = aImg[index].src;
+                    // }
+
+                };
+            }
+
+
+
+            //方法3,直接用下标操作
+            // aImg[0].onclick = function() {
+            //     this.className = "";
+            //     aImg[1].className = "on";
+            //     src = aImg[1].src;
+            // };
+            // aImg[1].onclick = function() {
+            //     this.className = "";
+            //     aImg[0].className = "on";
+            //     src = aImg[0].src;
+            // };
+
+
+            //点击发布留言
+
+
+            oBtn.onclick = function () {
+                var val = aInp.value;
+
+                if (val) {
+                    oUl.innerHTML += "<li>"+ "<img src=' "+src+" '>" + val +"</li>";
+                } else {
+                    alert("请输入内容");
+                }
+                aInp.value = "";
+
+            }
+
+
+
+
+
+
+
+        </script>
+
+
+    </body>
+</html>

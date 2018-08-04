@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>04-bind</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+    </style>
+</head>
+    <body>
+
+
+
+        <script>
+
+
+            /*
+            * bind完全不支持IE
+            * call和apply在函数自执行(马上就要执行)的时候改变this指向
+            * 换一种说法,用了call和apply,函数就一定会立马执行
+            *
+            *
+            *
+            * */
+
+            // var json = {
+            //     a : 10
+            // };
+            //
+            // document.onclick = fn.call(json);//不需要等到点击,立马就执行了
+            //
+            // function fn() {
+            //     console.log(this);
+            // }
+
+
+            var json = {
+                a : 10
+            };
+
+            document.onclick = fn.bind(json);//不会立马执行,
+            // 点击才改变this的指向,当后面的代码或者事件触发该函数之后,改变函数内部的this
+
+            function fn() {
+                console.log(this);
+            }
+
+
+            // fn.call();//call其实是一个函数,内部也有其他语句的执行来改变this指向
+            // fn.call = function () {
+            //
+            // }
+
+        </script>
+
+
+    </body>
+</html>

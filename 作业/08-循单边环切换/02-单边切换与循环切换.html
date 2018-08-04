@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="">
+        <meta name="description" content="这是网页的描述">
+        <meta name="author" content="SeLiNnnn">
+        <meta name="generator" content="WebStorm">
+        <title>01-单边切换与循环切换</title>
+        <style>
+            body {
+                font-family: "Microsoft Yahei";
+                font-size: 14px;
+            }
+
+            body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+                margin: 0;
+            }
+
+            ol, ul, li {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            img {
+                border: none;
+                vertical-align: bottom;
+            }
+
+            a {
+                text-decoration: none;
+            }
+            #wrap {
+                width: 418px;
+                height: 265px;
+                /*background-color: pink;*/
+                margin: 50px auto;
+                user-select: none;
+            }
+            #wrap .topbtn {
+                width: 100%;
+                height: 30px;
+            }
+            .topbtn p {
+                float: left;
+                width: 80px;
+                height: 100%;
+                margin-right: 10px;
+                background-color: #000;
+                color: #ffffff;
+                font-size: 12px;
+                line-height: 30px;
+                text-align: center;
+                cursor: pointer;
+            }
+            .topbtn p.on {
+                background-color: #F60;
+            }
+            .main {
+                position: relative;
+                width: 100%;
+                height: 235px;
+                /*background-color: red;*/
+            }
+            .main .txtlist p {
+                position: absolute;
+                top: 0;
+                width: 100%;
+                height: 20px;
+                background-color: #4C4C4C;
+                color: #ffffff;
+                line-height: 20px;
+                text-align: center;
+                font-size: 12px;
+            }
+            .main .txtlist p.txtbotm {
+                top: 215px;
+            }
+            .main .arrow p {
+                position: absolute;
+                top: 105px;
+                width: 30px;
+                height: 30px;
+                background-color: #4C4C4C;
+                color: #ffffff;
+                line-height: 30px;
+                text-align: center;
+            }
+            .main .m-pic li{
+                display: none;
+                position: absolute;
+                top: 20px;
+            }
+            .main .m-pic li.on {
+                display: block;
+            }
+            .arrow {
+                cursor: pointer;
+            }
+            .arrow .r-arrow {
+                position: absolute;
+                right: 0;
+            }
+
+
+        </style>
+    </head>
+    <body>
+
+        <div id="wrap">
+
+            <!-- 切换模式按钮 -->
+            <div class="topbtn">
+                <p class="on">循环切换</p>
+                <p>单边切换</p>
+
+            </div>
+
+            <!-- 主体部分 -->
+            <div class="main">
+
+                <!-- 文字显示部分 -->
+                <div class="txtlist">
+                    <p class="txttop"><span>1</span>/6</p>
+                    <p class="txtbotm">第<span>一</span>张</p>
+                </div>
+
+                <!-- 图片部分 -->
+                <ul class="m-pic">
+                    <li class="on"><img src="img/p1.png" alt=""></li>
+                    <li><img src="img/p2.png" alt=""></li>
+                    <li><img src="img/p3.png" alt=""></li>
+                    <li><img src="img/p4.png" alt=""></li>
+                    <li><img src="img/p5.png" alt=""></li>
+                    <li><img src="img/p6.png" alt=""></li>
+                </ul>
+
+                <!-- 左右箭头按钮 -->
+                <div class="arrow">
+                    <p class="l-arrow">&lt;</p>
+                    <p class="r-arrow">&gt;</p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <script>
+
+            var aImg = document.querySelectorAll("#wrap .main ul li"),
+                oArrow = document.querySelectorAll("#wrap .main .arrow p"),
+                oBtn = document.querySelectorAll("#wrap .topbtn p"),
+                oToptxt = document.querySelector("#wrap .main .txtlist .txttop span"),
+                oBotmtxt = document.querySelector("#wrap .main .txtlist .txtbotm span");
+
+
+            var length = aImg.length,
+                flag = false,
+                index = 0,
+                txt = [
+                    "一",
+                    "二",
+                    "三",
+                    "四",
+                    "五",
+                    "六"
+                ];
+
+            //模式切换按钮
+            oBtn[0].onclick = function () {
+                //循环切换状态
+                oBtn[1].className = "";
+                this.className = "on";
+                flag = false;
+                console.log(flag);
+            };
+            oBtn[1].onclick = function () {
+                //单边切换状态
+                oBtn[0].className = "";
+                this.className = "on";
+                flag = true;
+                //console.log(flag);
+            };
+
+            //右箭头
+            oArrow[1].onclick = function () {
+
+                if (flag) {
+                    //单边切换
+                    if (index !== length-1) {
+                        aImg[index].className = "";
+                        index ++;
+                        aImg[index].className = "on";
+                        oToptxt.innerHTML = index+1;
+                        oBotmtxt.innerHTML = txt[index];
+
+                    } else {
+                        alert("已经是最后一张啦!");
+                    }
+
+
+                } else {
+                    //循环切换
+                    aImg[index].className = "";
+                    index = (index+1)%length;
+                    aImg[index].className = "on";
+                    oToptxt.innerHTML = index+1;
+                    oBotmtxt.innerHTML = txt[index];
+
+                }
+
+            };
+
+            //左箭头
+            oArrow[0].onclick = function () {
+
+                if (flag) {
+                    //单边切换
+                    if (index !== 0) {
+                        aImg[index].className = "";
+                        index --;
+                        aImg[index].className = "on";
+                        oToptxt.innerHTML = index+1;
+                        oBotmtxt.innerHTML = txt[index];
+                    } else {
+                        alert("已经是第一张啦!");
+                    }
+
+
+                } else {
+                    //循环切换
+                    aImg[index].className = "";
+                    index --;
+                    if (index < 0) {
+                        index = length - 1;
+                    }
+                    aImg[index].className = "on";
+                    oToptxt.innerHTML = index+1;
+                    oBotmtxt.innerHTML = txt[index];
+
+
+                }
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+
+
+
+        </script>
+
+
+    </body>
+</html>

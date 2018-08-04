@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>05-Math</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+
+    <div id="wrap"></div>
+
+
+
+
+
+        <script>
+
+
+            // console.log(Math);
+            // console.log(Math.PI);//3.1315926...
+
+            /*
+            //Math.PI
+            //Math.abs();绝对值
+            //Math.max();
+            //Math.min();
+
+            *Math.floor();向下取整,舍弃小数部分
+            *Math.ceil();向上取整,不管小数有多小，全部加1
+            *Math.round();四舍五入
+            *
+            *Math.random(); 生成[0,1)的随机数，不需要传参
+            *
+            *学有余力还可了解一下三角函数相关的API
+            *Math.sin()  Math.asin()
+            *Math.cos()  Math.acos()
+            *...
+            */
+
+            //console.log(Math.max(5,9,"80",99));//99能比较，但不推荐这样用
+
+
+            // var arr = [5,7,8,9];
+            // var max = Math.max.apply(Math,arr);//取到数组中的最大值
+            // console.log(max);//9
+
+            //var a = Math.floor( 10.999 );//10
+            //var a = Math.ceil( 10.0000001 );//11
+            //var a = Math.round(10.5000001);//11
+
+            //var a = Math.random();
+            //var a = Math.random() * 10;//得到[0，10)的随机数
+
+            //生成[10，15)的随机数
+            //var a = Math.random()*5 + 10;//[0,1)*5 --> [0,5)+10 --> [10,15)
+
+            //生成[10,15)的整数
+            var  a = Math.floor(Math.random()*6+10);//10 11 12 13 14 15
+            alert(a);
+
+
+
+        </script>
+
+    </body>
+</html>

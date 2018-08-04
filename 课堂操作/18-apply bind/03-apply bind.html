@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>03-apply bind</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+    </style>
+</head>
+    <body>
+
+
+
+        <script>
+
+            //fn();//window
+
+            //fn(1,2);//window,3
+
+            //fn.call(document,1,2);//document,3
+
+            /*
+            * apply和call的用法是类似的,也可以改变this指向
+            * 但实参的对应是不一样的！apply只能对应两个实参,
+            * apply(this指向, []);
+            * 只能是this指向和数组,数组里的第一位对应第一个形参,依次类推
+            *
+            * */
+
+            //fn.apply(document);//document,NaN
+
+            fn.apply(document, [3,2]);//document,5
+
+            function fn( a, b ) {
+                console.log(this);
+                console.log(a+b);
+            }
+
+
+
+        </script>
+
+
+    </body>
+</html>

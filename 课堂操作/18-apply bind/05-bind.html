@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>05-bind</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+    </style>
+</head>
+    <body>
+
+
+
+        <script>
+
+            // fn(
+            //     function () {
+            //         console.log(this);
+            //     }.bind(document)//不会让函数立马执行,thi                                                                                                                                     s指向document
+            // );
+            //
+            // function fn(a) {
+            //     a();
+            // }
+
+            // document.onclick = function () {
+            //     console.log(this);//document
+            // }
+
+            fn(
+                function (i, j) {
+                    console.log(this);//document
+                    console.log(i+j);//3
+                }.bind(document)//bind不影响传参
+            );
+
+            function fn(a) {
+                a(1,2);
+            }
+
+
+
+        </script>
+
+
+    </body>
+</html>

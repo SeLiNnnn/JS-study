@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="这是网页的描述">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>01-关于this</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+    </style>
+</head>
+    <body>
+
+
+
+        <script>
+            // fn();//函数自执行,this指向window
+            //document.onclick = fn();//这样也是自执行,先读等号右边,
+            // 这样就相当于把返回值undefined给document的点击事件,导致点击的时候不会触发事件。
+
+            //document.onclick = fn;//this指向document
+            // function fn() {
+            //     console.log(this);
+            //     var a = 10;
+            //     return function () {//这里的匿名函数才是事件函数,借此可以来做闭包
+            //         console.log( ++a );//这是一种在事件函数里做计数的常见方法
+            //     }
+            // }
+
+            document.onclick = (function () {
+                var a = 10;
+                return function () {
+                    console.log(++a);
+                }
+            })();//闭包,计数器
+
+
+
+        </script>
+
+
+    </body>
+</html>

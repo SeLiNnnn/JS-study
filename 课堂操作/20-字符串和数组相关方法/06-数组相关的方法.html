@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>06-数组相关的方法</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+
+    <div id="wrap"></div>
+
+
+
+
+
+        <script>
+
+
+            var arr = [5,6,7,null,"福尔摩谛"];
+
+            //console.log(arr.length);//5
+
+            arr[0] = 999;
+            console.log(arr);//数组下标可以取值也可以赋值，但字符串不行
+
+            // var str = "唪光脒";
+            // str[0] = "骚";
+            // console.log(str);//还是唪光脒，字符串无法修改
+
+            //arr.length = 2;//数组可以通过length来改变个数，但字符串不行
+            //console.log(arr);//只剩下999和6了
+
+            //arr.length = 9;
+            //console.log(arr);//[empty x 4]没有的都是undefined
+
+            arr[6] = "唪光脒";
+            arr[10] = "130斤";
+            //序号分别是：0 1 2 3 4 6 10，中间没有的不会显示，但length是11
+
+
+            //保持引用不变，清空数组
+            var g = [8,9,5,6,7,5];
+            g.goudan = 456;//数组里可能还有其他属性
+            g.length = 0;//使长度为0而不是 g = [];这样是改变了引用
+
+        </script>
+
+    </body>
+</html>
