@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>09-正弦函数轨迹</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #wrap {
+            position: relative;
+            width: 800px;
+            height: 500px;
+            border: 1px solid pink;
+            margin: 50px auto;
+        }
+        #wrap p.y {
+            position: absolute;
+            width: 1px;
+            height: 100%;
+            background-color: #000;
+        }
+        #wrap p.x {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #000;
+        }
+        #wrap .ball, #wrap span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 6px;
+            background-color: #ff983b;
+            margin-left: -3px;
+            margin-top: -3px;
+            border-radius: 50%;
+        }
+        #wrap span {
+            background-color: #327243;
+        }
+
+    </style>
+</head>
+    <body>
+
+        <div id="wrap">
+            <p class="y"></p>
+            <p class="x"></p>
+
+            <p class="ball"></p>
+            <div id="box"></div>
+        </div>
+
+
+
+        <script>
+
+            var x = 0;
+            var oBall = document.querySelector("#wrap .ball");
+            var oBox = document.getElementById("box");
+
+
+            var timer = setInterval( function () {
+                //y=sin(x); x弧度 pi ==> 180度
+                //x += 0.2;//0变到3.14,y在（-1，1）
+                x += 1/50*Math.PI;
+                var y = Math.sin(x);
+
+                var left = x*30,//放大x来增加波峰之间间距
+                    top = -y*200+250;//网页y轴正坐标和数学上的上相反的所以加负，修改-y*200的值修改波峰波谷的间距
+
+                var css = "left:"+left+"px;top:"+top+"px;";
+
+                //console.log(y*100);
+
+                oBall.style.cssText = css;
+
+                oBox.innerHTML += "<span style='"+css+"'></span>";
+            } ,13);
+
+
+
+
+
+        </script>
+
+    </body>
+</html>

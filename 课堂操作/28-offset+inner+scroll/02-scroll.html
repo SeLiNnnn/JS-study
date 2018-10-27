@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>02-scroll</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #box {
+            width: 200px;
+            height: 200px;
+            margin: 25px;
+            padding: 10px;
+            border: 15px solid yellow;
+            background-color: #f60;
+        }
+    </style>
+</head>
+    <body style="width: 2000px;height: 2000px;">
+
+        <div id="box">1111111111111111111111111111111111111111111</div>
+
+
+
+        <script>
+
+            var oBox = document.getElementById("box");
+            //console.log(oBox.scrollWidth);//220 width+padding
+
+            //oWrap.scrollWidth   宽度+右内边距+文字超出部分(即使超出隐藏还是会显示超出部分宽度),
+            //从哪边超出就不算哪边的内边距，如果不超出，值和clientWidth是一样的
+
+            //获取可视区域
+            console.log(document.documentElement.scrollTop);//滚动了的距离
+
+            //window.onscroll 当窗口发生滚动的时候，触发事件
+            //window.onscroll = function () {
+            //    console.log(document.documentElement.scrollTop);//只要滚动，就会不停触发
+            //}
+            //console.log(document.documentElement.clientWidth);//不包括滚动条，1425
+            //console.log(window.innerWidth);//包括滚动条，1440
+
+
+        </script>
+
+    </body>
+</html>

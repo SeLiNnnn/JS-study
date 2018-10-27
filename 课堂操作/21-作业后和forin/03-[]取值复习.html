@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>03-[]取值复习</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+
+        <div id="wrap"></div>
+
+
+
+
+        <script>
+
+
+            var json = {
+                name : "abc",
+                age : 111
+            };
+
+            var a = "name";
+
+            console.log(json[a]);//不能使用.操作了，这里的a不是json里的某个属性,而是一个变量，且是字符串所以用[]
+
+            //定义json的时候，属性是不能访问到外面的变量，但值可以用变量来代替
+            var b = "abc";
+            var json = {
+                "name" : b,
+                age : 111
+            };
+            console.log(json.name);
+
+
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>02-事件冒泡</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: #000;
+        }
+        #box .wrap {
+            position: absolute;
+            top: 500px;
+            left: 500px;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+    <body>
+        <div id="box">
+            <div class="wrap"></div>
+        </div>
+
+
+
+        <script>
+
+            //即使脱离文档流还是会冒泡
+            var oBox = document.getElementById("box");
+            // document.onclick = function () {
+            //     console.log("document");
+            // };
+            // oBox.children[0].onclick = function () {
+            //     console.log("wrap");
+            // };
+            // oBox.onclick = function () {
+            //     console.log("box");
+            // };
+            // oBox.onmouseup = function () {
+            //     console.log("抬起");
+            // };
+
+            //阻止冒泡事件
+            // oBox.children[0].onclick = function (ev) {
+            //     ev = ev || window.event;
+            //     ev.stopPropagation();//阻止冒泡
+            //     console.log("wrap");
+            // };
+            // document.onclick = function() {
+            //     console.log("document");
+            // };
+            // oBox.onclick = function () {
+            //     console.log("box");
+            // };
+            // oBox.onmouseup = function () {
+            //     console.log("抬起");
+            // };
+
+            //阻止冒泡
+            oBox.children[0].onclick = function (ev) {
+                ev = ev || window.event;
+                //ev.cancelBubble = true;//兼容IE
+                //兼容处理
+                if (ev.stopPropagation) {
+                    ev.stopPropagation();
+                } else {
+                    ev.cancelBubble = true;
+                }
+                console.log("wrap");
+            };
+            document.onclick = function() {
+                console.log("document");
+            };
+            oBox.onclick = function () {
+                console.log("box");
+            };
+            oBox.onmouseup = function () {
+                console.log("抬起");
+            };
+
+
+
+        </script>
+
+    </body>
+</html>

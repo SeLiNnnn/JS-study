@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>06-设置时间戳</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+
+        <div id="wrap"></div>
+
+
+
+        <script>
+
+            // var y = new Date(2008,8-1,8,0,0,58);//要减1才能显示8月
+            // // 最多接收7个参数，可以省略某些部分;最少接收2个参数-年和月
+            //
+            // console.log(y);//否则是9月:Mon Sep 08 2008 00:00:00 GMT+0800 (中国标准时间)
+            //
+            // var z = new Date(2008);//表示1970年再过2秒钟
+            // console.log(z);//1970
+            // 当只设置一个数字参数的时候，认为传入的是一个毫秒数，会在1970年的基础上，得到对应的时间戳
+
+            //var x = new Date("2008-08-08 08:08:08");
+            var x = new Date("08/08/2018 08:08:08");//这两种表示都可以，且写的是几月就是几月
+            console.log(x);
+
+
+        </script>
+
+    </body>
+</html>

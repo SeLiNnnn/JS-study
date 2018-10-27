@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>02-创建节点</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+    <body>
+
+        <div id="box">
+            <span>1111</span>
+            <!--<span>2222</span>-->
+            <!--<span>3333</span>-->
+            <!--<span>4444</span>-->
+        </div>
+
+
+
+        <script>
+
+            /*
+            *
+            * obj.appendChild() 在obj内容的最后添加一个子节点
+            * obj.insertBefore(a,b) 在oBox的任意一个子节点前面添加一个子节点
+            * removeChilde() 删除子节点
+            *
+            * clneNode() 克隆节点，有参数
+            *   false 默认值，浅克隆，仅仅复制元素节点本身，不复制内容
+            *   true 深度克隆，全部复制
+            *
+            * */
+
+            var oBox = document.getElementById("box");
+
+            // oBox.innerHTML += "<p>我是innerHTML添加的p标签</p>";//实际是一个字符串
+            //
+            // var oP = document.createElement("p");//创建节点
+            // oP.innerHTML = "我是被文档创建的p节点";
+            // oP.onclick = function() {
+            //     alert(1);
+            // };
+            //oBox.appendChild(oP);//添加子节点
+
+            //oBox.insertBefore(oP,oBox.children[1]);//获取第二个span,想把oP放到span前面
+            //oBox.removeChild(oBox.children[0]);//删掉了第一个span
+
+            //oBox.replaceChild(oP,oBox.children[2]);//用oP替换第三个span
+
+            oBox.appendChild(oBox.children[0].cloneNode());//克隆并添加了一个span标签，仅仅只有标签
+            oBox.appendChild(oBox.children[0].cloneNode(true));//全部复制，包括内容
+
+
+
+        </script>
+
+    </body>
+</html>

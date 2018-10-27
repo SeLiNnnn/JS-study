@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>01-clientX</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+        <div id="wrap"></div>
+
+
+
+        <script>
+
+
+            // document.onclick = function (ev) {
+            //     console.log(ev);//MouseEvent {isTrusted: true, screenX: 750, screenY: 611...}
+            //     console.log(ev.clientX + "  " + ev.clientY);//47 43可视区域内鼠标点击时候的位置
+            //     //不包括滚动条，即是说，点击滚动条时不会触发事件
+            // }
+
+            //兼容处理
+            document.onclick = function (e) {
+                e = e || window.event;
+                console.log(e.clientX + "  " + e.clientY);
+            }
+
+
+
+
+        </script>
+
+    </body>
+</html>

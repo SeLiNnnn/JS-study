@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>02-关闭定时器</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+
+    <div id="wrap"></div>
+
+
+
+        <script>
+
+            /*
+            * 关闭定时器
+            * clearInterval()
+            *
+            * clearTimeout()
+            *
+            * 要停止定时器，首先要将对应的设置定时器的函数返回值拿到,
+            * 该返回值是代表当前定时器的序号的数字，但不推荐使用该数字去做其他的运算，
+            * 仅用来停止定时器
+            * */
+
+
+            function fn() {
+                console.log(1);
+            }
+
+            var x = setInterval(fn,1000);
+
+            document.onclick = function () {
+                clearInterval(x);//点击停止计时器
+            }
+
+            //停止后想再执行，需要重新执行定时器代码
+
+
+
+        </script>
+
+    </body>
+</html>

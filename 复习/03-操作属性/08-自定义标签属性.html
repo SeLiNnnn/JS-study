@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>操作自定义标签属性</title>
+</head>
+<body>
+  
+  <div id="wrap" class="box"></div>
+  <script>
+    var oWrap = document.getElementById('wrap')
+    oWrap.setAttribute("goudan","自定义的属性")
+    oWrap.setAttribute("goudan", "新名字") // 覆盖
+    oWrap.removeAttribute("goudan") //直接删除goudan
+    oWrap.removeAttribute("id")// 自定义标签属性的操作方法同样可以操作规范的标签属性 反之不然
+    oWrap.setAttribute("selin","hhh") // 删除了id还是可以操作 再次验证id和class获取的不同
+    alert(oWrap.selin)// undefined
+    alert(oWrap.className) // box
+    oWrap.demo = "demo"
+    console.dir(oWrap) // demo无法在标签中显示 但在控制台可以看到
+
+    var j = {}
+    j.a = 10;
+    console.log(j) // {a:10}
+    
+  
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>其他元素可以通过单个元素来操作</title>
+</head>
+<body>
+  <div id="wrap">
+    <span id="spa" class="spaa"></span>
+    <p><a href=""></a></p>
+    <p></p>
+    <p></p>
+  </div>
+
+  <script>
+    var oWrap = document.getElementById('wrap')
+    //var aSpan = oWrap.getElementsById('spa') // 无法获取 oWrap.getElementsById is not a function
+    var aSpan = oWrap.getElementsByClassName('spaa') // 可以获取
+    var aP = oWrap.getElementsByTagName('p')
+    var a = aP[0].getElementsByTagName('a');// 必须是单个元素 而不是集合 集合无法获取
+
+    console.log(aSpan);
+    console.log(aP);
+    console.log(a)
+    
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>01-认识正则</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+        <div id="wrap"></div>
+
+
+
+        <script>
+
+            /*
+            * 正则表达式
+            *   是一个对象
+            *   通常用来做和字符串相关的操作
+            *
+            *
+            *
+            * */
+
+            //需求：取出所有的数字，装成一个数组
+            //以前的写法
+            var str = "selin123yuki456hhh789";
+            // console.log(fn());
+            //
+            //
+            // function fn() {
+            //     var arr = [];
+            //     for (var i = 0, length = str.length; i < length; i++) {
+            //         var char = str.charAt(i);
+            //
+            //         if (!isNaN(char)) {
+            //             arr.push(char);
+            //         }
+            //     }
+            //     return arr;
+            // }
+
+            //正则
+            console.log(str.match(/\d+/g));
+
+
+        </script>
+
+    </body>
+</html>

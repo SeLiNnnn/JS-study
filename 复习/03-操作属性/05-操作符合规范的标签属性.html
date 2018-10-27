@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>符合规范的标签属性</title>
+</head>
+<body>
+
+  <div id="wrap" class="box" goudan="haha"></div>
+
+  <script>
+    var oWrap = document.getElementById('wrap')
+
+    oWrap.className = "bgbox" // 修改成功
+    oWrap.goudan = "lueluelue"// 修改失败
+  
+  
+  </script>
+  
+</body>
+</html>

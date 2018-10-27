@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>02-获取元素最终样式的API</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #wrap {
+            width: 50%;
+            height: 200px;
+            background-color: pink;
+            padding: 20px 10px;
+            border: 5px solid #000000;
+        }
+    </style>
+</head>
+    <body>
+
+        <div id="wrap">aafffefefefafefefefefefefefedfdfdfdfd</div>
+
+        <script>
+
+
+            var oWrap = document.getElementById("wrap");
+
+            var cssObj;
+            cssObj = getComputedStyle(oWrap);
+            //
+            // //IE8及其以下
+            // //cssObj = oWrap.currentStyle;
+            //
+            // //cssObj.width = '900px';//CSSStyleDeclaration是只读属性，不可写
+            //
+            console.log(cssObj.width);//720px,不管单位是px % rem都会显示成px
+            // console.log(cssObj.background);//rgb(255, 192, 203) none repeat scroll 0% 0% / auto padding-box border-box
+
+
+
+
+        </script>
+
+    </body>
+</html>

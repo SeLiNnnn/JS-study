@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>再使用querySelector会报错？</title>
+</head>
+<body>
+  
+  <div id="wrap">
+    <p>
+      <i></i>
+      <i></i>
+      <a href=""></a>
+      <a href=""></a>
+    </p>
+  </div>
+
+  <script>
+    var aI = document.getElementById('wrap').querySelector('p').querySelectorAll('i')
+    var a = document.getElementById('wrap').querySelector('p').querySelector('a')
+    console.log(aI) //可以获取
+    console.log(a) //可以获取
+
+    // 暂时没遇到报错 不过还是避免这样写
+    
+    a.innerHTML = '我是a操作的' // 是第一个a 有多个的时候 querySelector只获取第一个
+
+    
+  
+  </script>
+
+
+</body>
+</html>

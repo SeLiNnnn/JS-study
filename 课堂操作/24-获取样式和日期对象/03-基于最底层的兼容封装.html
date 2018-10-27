@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>03-基于最底层的兼容封装</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #wrap {
+            width: 50%;
+            height: 200px;
+            background-color: pink;
+            padding: 20px 10px;
+            border: 5px solid #000000;
+        }
+    </style>
+</head>
+    <body>
+        <div id="wrap"></div>
+
+
+
+        <script>
+
+
+            //兼容处理,只判断一次
+            window.getComputedStyle =
+                window.getComputedStyle ||
+                function (dom) {
+                    return dom.currentStyle;
+                };
+
+            //我的写法
+            // if (!getComputedStyle()) {
+            //     window.getComputedStyle =(
+            //         function (dom) {
+            //             return dom.currentStyle;
+            //         }
+            //     )
+            // }
+
+
+
+            var oWrap = document.getElementById("wrap");
+
+            // var cssObj;
+            // cssObj = getComputedStyle(oWrap);
+            //alert(cssObj.width);
+
+
+            /*
+            * @param
+            *   1.object 必须 DOM元素节点对象
+            *   2.string 必须 要获取的属性
+            * @return
+            *   object [CSSStyleDeclaration]
+            * */
+            function getStyle(dom, attr) {
+                return getComputedStyle(dom)[attr];
+            }
+
+
+        </script>
+
+    </body>
+</html>

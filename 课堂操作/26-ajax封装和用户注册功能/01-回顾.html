@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>01-回顾</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+        <div id="wrap"></div>
+
+
+
+        <script>
+
+
+            // console.log(1);//同步
+            //
+            // setTimeout(function () {
+            //     console.log(3);
+            // } ,0);//异步
+            //
+            // //ajax();//异步
+            // setTimeout(function () {
+            //     console.log(4);
+            // });
+            //
+            // console.log(2);//同步
+
+            //输出顺序一定是1234 异步队列会等同步队列全部执行完后才执行
+
+
+            //如果同步队列里有异步队列
+            fn();
+            function fn() {
+                console.log(1);
+                setTimeout(function () {
+                    console.log(6);
+                } ,0)
+            }
+
+            console.log(2);
+            //输出顺序 126  不管是不是在同步队列里，只要是异步，就要等同步执行完了才能执行
+
+
+        </script>
+
+    </body>
+</html>

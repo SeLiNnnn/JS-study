@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>08-减法运算</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+        <div id="wrap"></div>
+
+
+
+        <script>
+
+
+            /*
+            减法运算
+
+                两个日期对象之间，日期对象和数字之间，可以做减法
+                本质是先把时间转换成毫秒数，然后再做减法
+
+
+             */
+
+
+            var a = new Date();
+
+            setTimeout(function () {
+                var b = new Date();
+
+                console.log(b - a);//得到毫秒数之差，不是标准的2000
+                console.log(b - 0);//得到的还是毫秒数，和.getTime()差不多用法
+            } ,2000)
+
+
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>03-addEventListener</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+    <body>
+        <div id="box"></div>
+
+
+
+        <script>
+
+            var oBox = document.getElementById("box");
+            // oBox.onclick = function () {//节点.属性 = 赋值
+            //     console.log(1);
+            // };
+            // oBox.onclick = function () {//覆盖前面
+            //     console.log(2);//只输出2
+            // };
+
+
+
+            // oBox.addEventListener("click",function () {
+            //     console.log(1);
+            // });
+            // oBox.onclick = function() {
+            //     console.log(1);//也可以输出1 2
+            // };
+            // oBox.addEventListener("click",function () {
+            //     console.log(2);//输出1  2
+            // });
+            // oBox.addEventListener("click",function () {
+            //     console.log(3);//输出1 2  3
+            // });
+
+            //兼容IE写法,不支持其他浏览器，且执行顺序不是代码书写顺序
+            // oBox.attachEvent("onclick",function () {
+            //     console.log(1);
+            // });
+            // oBox.attachEvent("onclick",function () {
+            //     console.log(2);
+            // });
+
+            //移除监听
+            function fn() {
+                console.log(1);
+            }
+            oBox.addEventListener("click",fn);
+            oBox.addEventListener("click",function () {
+                console.log(2);
+            });
+            oBox.removeEventListener("click",fn);//只输出2
+            //移除IE里的监听事件
+            oBox.detachEvent("onclick",fn);
+
+
+
+        </script>
+
+    </body>
+</html>

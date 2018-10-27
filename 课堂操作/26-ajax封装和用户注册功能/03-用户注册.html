@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>03-用户注册</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+
+        <h1>用户注册</h1>
+        用户名:<input type="text" name="id" id="user" placeholder="请输入用户名"><br>
+        密码：<input type="password" name="pwd" id="pwd" placeholder="请输入密码"><br>
+        <!--确认密码:<input type="password" id="pwd2" placeholder="请再次输入密码"><br>-->
+        email:<input type="text" id="email" name="email" placeholder="邮箱"><br>
+        手机号:<input type="text" id="tel" name="tel" placeholder="请输入手机号"><br>
+        <button id="btn">注册</button>
+
+
+
+        <script>
+
+
+            /*
+            *
+            * ajax的封装
+            *
+            * */
+
+            // ajax({
+            //     method : "post",
+            //     url: "http://localhost:3000",
+            //     async: true,//异步
+            //     data:{
+            //       name : "goudan",
+            //       age : 18
+            //     },
+            //     timeout : 1000,//设置访问请求时间，超时就停止请求
+            //     success : function (msg) {
+            //         //msg是一个对象
+            //         //当对象里的type为0，代表用户名已存在
+            //         //为1，代表用户名可以注册
+            //         console.log(msg);
+            //     },
+            //     error : function (msg) {
+            //         console.log(msg);
+            //     }
+            //
+            // });
+
+            var oBtn = document.getElementById("btn");
+            oBtn.onclick = function () {
+                var data = {
+                    id : user.value,
+                    pwd : pwd.value,
+                    email : email.value,
+                    tel : tel.value
+                };
+
+                ajax({
+                    url : "http://localhost:3000",
+                    data : data,
+                    success : function (msg) {
+                        alert(msg.msg);
+                    }
+                })
+            };
+
+
+            function ajax(obj) {
+                //如果不传method  默认使用get请求
+                var method = obj.method || "get",
+                    url = obj.url,//必传，url接口是不确定的
+                    async = obj.async !== false,//不传参数的时候,默认异步就可以了
+                    data = obj.data,//数据是不确定的，无法给定默认值
+                    timeout = (typeof obj.timeout === "number") ? obj.timeout : false,
+                    success = obj.success,
+                    error = obj.error;
+
+                var str = "";
+                //如果没有data就不遍历，否则遍历undefined就要报错
+                if (data) {
+                    //处理data数据
+                    //name=fy&age=18，key就是属性名
+                    for (var key in data) {
+                        str += key + "=" + data[key] + "&";
+                    }
+
+                }
+
+                //判断是get还是post方法
+                //判断method里是否有get，返回值是一个数字
+                //解决get方式的缓存问题，post没有缓存问题
+                if ( method.indexOf("get") > -1 ) {
+                    //get方法的弊端：url每次都相同时，请求后可能存在缓存，即使数据更新了，浏览器可能不再发送请求而是直接读取缓存
+                    //加上当前时间的毫秒值，使得每次url的请求都不一样
+                    url += "?" + str + "t_=" + Date.now();
+                }
+
+                var xhr = new XMLHttpRequest();
+
+                    xhr.open(method, url, async);
+                    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+
+
+                    //启动定时器
+                    if (timeout !== false) {
+                        setTimeout(function () {
+                            xhr.abort();//超时就关闭请求
+                        } ,timeout);
+                    }
+
+                xhr.send(str || null);
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState !== 4) return;
+                    if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
+                        success && success(JSON.parse(xhr.responseText));
+                    } else {
+                        error && error(xhr.status);
+                    }
+
+                }
+
+
+            }
+
+
+
+
+
+
+        </script>
+
+    </body>
+</html>

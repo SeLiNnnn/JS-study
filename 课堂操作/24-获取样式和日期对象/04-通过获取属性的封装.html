@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>04-通过获取属性的封装</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #wrap {
+            width: 200px;
+        }
+    </style>
+</head>
+    <body>
+        <div id="wrap"></div>
+
+
+
+        <script>
+
+            //这种方法没有基于最底层的方法好，因为这种方法每次获取元素样式就要判断
+            var oWrap = document.getElementById("wrap");
+
+            //获取wrap的width属性
+
+            console.log(goudan(oWrap, "width"));
+
+            console.log(goudan(document.body, "fontFamily"));
+
+            function goudan(dom, attr) {
+                if (dom.currentStyle) {//所有IE都支持currentStyle
+                    return dom.currentStyle[attr];
+                } else {//非IE的其他浏览器
+                    return getComputedStyle(dom)[attr];
+                }
+            }
+
+
+
+
+        </script>
+
+    </body>
+</html>

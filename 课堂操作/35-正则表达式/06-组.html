@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>06-组</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+        <div id="wrap"></div>
+
+
+
+        <script>
+
+            /*
+            *
+            * 组 ()
+            *   当match没有全局g修饰的时候，数组里面第二位是组匹配的内容
+            *   当match被全局g修饰的时候，就没有第二位的组项了
+            *
+            * */
+
+            var str = "ababababc";
+            //var reg = /ab+/;//无法匹配无数个ab，这样只能匹配到abbb...
+            // console.log(str.match(reg));//Array(1) 0: "ab"
+
+            // var reg = /(ab)+/;//正确写法,这样才能匹配到ab
+            // console.log(str.match(reg));//["abababab", "ab", index: 0, input: "abababab", groups: undefined]
+
+            // var reg = /(ab)+c/;
+            // console.log(str.match(reg));//(2) ["ababababc", "ab", index: 0, input: "ababababc", groups: undefined]
+            //0: "ababababc"
+            //1: "ab"
+            //注意：数组里第二位是组里匹配的内容，没有c
+
+            var reg = /(ab)+c/g;
+            console.log(str.match(reg));
+            //["ababababc"]0: "ababababc"length: 1__proto__: Array(0)
+
+
+
+
+
+        </script>
+
+    </body>
+</html>

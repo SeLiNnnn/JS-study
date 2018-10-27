@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>02-for in</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+
+        <div id="wrap"></div>
+
+
+
+
+
+        <script>
+
+            var oW = document.getElementById("wrap");
+
+            var json = {
+                name : "selin",
+                age : 21,
+                sex : 1,
+                marry : false,
+                handsome : true
+            };
+
+            //只有for in 可以遍历对象的所有属性
+            //变量 in 对象 这个变量代表所有的属性
+
+            var str = "";
+
+            for (var key in json) {
+                // console.log(key);//出现5次，分别是name,age,sex,marry,handsome,不同浏览器的排序规则可能不同
+                // console.log(json[key]);//要取到key这个字符串的值，只能用[]不能用.
+                str += "<p>"+key+"<===>"+json[key]+"</p>";
+            }
+            oW.innerHTML = str;
+
+
+
+
+
+        </script>
+
+    </body>
+</html>

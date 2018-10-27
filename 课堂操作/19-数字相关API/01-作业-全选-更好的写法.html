@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <meta name="author" content="SeLiNnnn">
+        <meta name="generator" content="WebStorm">
+        <title>01-作业-全选</title>
+        <style>
+            body {
+                font-family: "Microsoft Yahei";
+                font-size: 14px;
+            }
+
+            body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+                margin: 0;
+            }
+
+            ol, ul, li {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            img {
+                border: none;
+                vertical-align: bottom;
+            }
+
+            a {
+                text-decoration: none;
+            }
+            #wrap {
+                width: 400px;
+                border: 1px solid #aaaaaa;
+                border-radius: 15px;
+                margin: 50px auto;
+            }
+            #wrap ul {
+                padding: 30px 0;
+            }
+            #wrap ul li {
+                width: 100%;
+                height: 60px;
+                background: url("../18-apply bind/img/ck.png") no-repeat 20px 20px;
+                border-bottom: 1px solid #aaaaaa;
+                line-height: 60px;
+                text-indent: 70px;
+                color: #fff;
+                cursor: pointer;
+            }
+            #wrap ul li.on {
+                background-image: url("../18-apply bind/img/cked.jpg");
+                text-indent: 90px;
+            }
+            #all {
+                width: 100%;
+                height: 60px;
+                background: url("../18-apply bind/img/ck.png") no-repeat 20px 20px;
+                line-height: 60px;
+                text-indent: 70px;
+                cursor: pointer;
+                font-size: 16px;
+                font-weight: bolder;
+            }
+            #all.on {
+                background-image: url("../18-apply bind/img/cked.jpg");
+                text-indent: 90px;
+            }
+        </style>
+    </head>
+
+    <body>
+
+    <div id="wrap">
+        <ul id="list">
+            <!--<li>项目1</li>-->
+            <!--<li>项目2</li>-->
+            <!--<li>项目3</li>-->
+            <!--<li>项目4</li>-->
+            <!--<li>项目5</li>-->
+            <!--<li>项目6</li>-->
+        </ul>
+
+        <p id="all">全选</p>
+
+    </div>
+
+
+        <script>
+
+            (function (length) {
+                var oUl = document.getElementById("list"),
+                    aLi = oUl.getElementsByTagName("li"),
+                    oAll = document.getElementById("all");//动态方法，即使先定义了后面增加了li,aLi在使用前也会重新获取
+
+
+                //生成length个li
+                (function() {
+                    var arrColor = ["#333","#666","#999"];//隔行变色
+                    var str = "";
+                    for (var i = 0; i < length; i++) {
+                        str += "<li style='background-color:"+arrColor[i%3]+";'>项目" +(i+1)+ "</li>";
+                    }
+                    oUl.innerHTML += str;
+
+                })();
+
+                //li的点击事件
+                (function () {
+                    //计数器
+                    var num = 0;
+
+
+                    for (var i = 0; i < length; i++) {
+                        aLi[i].onclick = function () {
+                            //名字的变化
+                            this.className = this.className?"":"on";
+                            //变化完之后，判断，改变计数器
+                            this.className?num++:num--;
+                            //判断计数器,决定全选按钮状态
+                            oAll.className = num===length?"on":"";
+                        }
+                    }
+                })();
+
+                //全选的点击事件
+                oAll.onclick = function () {
+                    var cName;
+                    if (this.className) {
+                        this.className = "";
+                        cName = "";
+                        num = 0;
+                    } else {
+                        this.className = "on";
+                        cName = "on";
+                        num = length;
+                    }
+                    for (var i = 0; i < length; i++) {
+                        aLi[i].className = cName;
+                    }
+                }
+
+
+            })(6);
+
+        </script>
+
+    </body>
+</html>

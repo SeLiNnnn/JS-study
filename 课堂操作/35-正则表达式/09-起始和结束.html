@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>09-起始和结束</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+        <div id="wrap"></div>
+
+
+
+        <script>
+
+            /*
+            * ^ 起始位置 (在字符集里才是非的意思，在外面是起始位置)
+            * $ 终止位置
+            *
+            * */
+
+            var str = "阿飞";
+
+            // var reg = /^阿/;//查看是否是以"阿"作为起始
+            // console.log(reg.test(str));//true
+
+            var reg = /飞$/;//查看是否是以"飞"作为终止
+            console.log(reg.test(str));//true
+
+
+
+
+        </script>
+
+    </body>
+</html>

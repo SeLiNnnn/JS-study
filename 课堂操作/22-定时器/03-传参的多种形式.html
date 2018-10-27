@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>03-传参的多种形式</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+
+    <div id="wrap"></div>
+
+
+        <script>
+
+            //传函数
+            //1.匿名函数
+            // setTimeout(function () {
+            //     alert("hello world");
+            // },2000);
+
+            //2.有名函数
+            // setTimeout(fn,1000);
+            // function fn() {
+            //     alert("hello world");
+            // }
+
+            //传字符串--会把该字符串里面的内容当成js代码来读
+            // setTimeout("a()",1000);
+            // function a() {
+            //     alert(4);
+            // }
+
+            // (function () {
+            //     setTimeout("a()",1000);
+            //     function a() {
+            //         alert(4);//a is not defined
+            //     }
+            // })();
+            //因为此时的是a包裹在函数里，是局部的a了，setTimeout无法访问
+
+            //解决方法1-把funcion放在外面
+            // (function () {
+            //     setTimeout("a()",1000);
+            //
+            // })();
+            // function a() {
+            //     alert(3);//a is not defined
+            // }
+
+            //解决方法2-如果不方便把函数放在外面
+            // (function () {
+            //     setTimeout("a()",1000);
+            //     function a() {
+            //         alert(2);//a is not defined
+            //     }
+            //     window.a = a;//把局部的a给全局
+            //     //不会等定时器执行完，会先把后面的代码执行完，只要是定时器，就是有延迟的
+            //
+            // })();
+
+            setTimeout("alert('阿飞');",1000);//可以弹出
+
+
+
+
+
+
+        </script>
+
+    </body>
+</html>

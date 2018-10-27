@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>01-作业</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+        #wrap{
+            width:300px;
+            margin:50px auto;
+            border:1px solid #ccc;
+            text-align:center;
+            height:299px;
+            overflow:hidden;
+            position: relative;
+        }
+        #wrap p{
+            background: #ccc;
+            line-height:30px;
+            cursor:pointer;
+            position: absolute;
+            width:100%;
+            z-index:99;
+
+        }
+        #wrap p:hover{
+            background-color: #aaa;
+            color:#fff;
+        }
+        #wrap p.up{
+            top:0;
+        }
+        #wrap p.down{
+            bottom:0;
+        }
+        #wrap ul{
+            position: relative;
+            top:30px;
+        }
+        #wrap ul li{
+            list-style: none;
+        }
+    </style>
+</head>
+    <body>
+
+        <div id="wrap">
+            <p class='up'>上</p>
+            <ul>
+                <li><img src="images/scroll1.png" alt=""></li>
+                <li><img src="images/scroll2.png" alt=""></li>
+                <li><img src="images/scroll3.png" alt=""></li>
+            </ul>
+            <p class='down'>下</p>
+        </div>
+
+
+
+
+        <script>
+
+            (function () {
+
+                /*
+                * clearInterval(参数)
+                * 参数即使是undefined null这类的数据，也不会报错
+                *
+                * 清除定时器不能阻止函数里面代码的继续执行，要注意和return的区别
+                *
+                * */
+
+                var oUp = document.querySelector("#wrap .up"),
+                    oDown = document.querySelector("#wrap .down"),
+                    oUl = document.querySelector("#wrap ul"),
+                    initTop = 30;//ul top的初始值，css里设置的
+
+
+                var timer1,
+                    minTop = -(727-(300-62))+40,//因为目前为止我们还没学获取元素样式相关的API所以暂时写一个定值
+                    maxTop = 30;
+
+                //按下的时候触发定时器开始运动
+
+                oUp.onmousedown = function() {
+                    move(true);
+                };
+                oDown.onmousedown = function() {
+                    move(false);
+                };
+
+                function move(bool) {
+                    var num = bool?-1:1;
+                    timer1 = setInterval(function () {//这里也叫timer1不会冲突，因为这个定时器触发前，上一个定时器已经清除了
+                        initTop += num;
+                        if (initTop >= maxTop || initTop <= minTop) {
+                            initTop = bool?minTop:maxTop;//往上走是最小top值
+                            clearInterval(timer1);
+                        }
+                        oUl.style.top = initTop + 'px';
+                    } ,15);
+                }
+
+                // oUp.onmousedown = function () {
+                //     //console.log("按下");
+                //     timer1 = setInterval(function () {
+                //         initTop --;
+                //         //加快滚动速度
+                //         //initTop -= 3;
+                //         if (initTop <= minTop) {
+                //             initTop = minTop;//修正top值,推荐这种方法
+                //             //或者initTop ++;
+                //             clearInterval(timer1);//虽然定时器清除了，但每次点击都还会增加top值
+                //         }
+                //         oUl.style.top = initTop + 'px';
+                //     } ,13);//一般保持在16以下，间隔多少ms执行这个函数
+                // };
+                //
+                // oDown.onmousedown = function() {
+                //   timer1 = setInterval(function () {//这里也叫timer1不会冲突，因为这个定时器触发前，上一个定时器已经清除了
+                //       initTop ++;
+                //       if (initTop >= maxTop) {
+                //           initTop = maxTop;
+                //           clearInterval(timer1);
+                //       }
+                //       oUl.style.top = initTop + 'px';
+                //   } ,15);
+                // };
+
+                //松开的时候，停止定时器，结束运动
+                document.onmouseup = function () {//不需要写2个清除事件
+                    clearInterval(timer1);
+                };
+
+
+            })();
+
+
+
+
+
+
+        </script>
+
+    </body>
+</html>

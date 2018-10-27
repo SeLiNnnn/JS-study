@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>06-使用js跳转页面</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+
+        <div id="wrap"></div>
+
+
+        <script>
+
+            // document.onclick = function () {
+            //     window.open("https://www.baidu.com" , "_blank" );
+            //     //有些浏览器都会禁止定时器里的open，阻止窗口弹出
+            // };
+
+            // setInterval(function () {
+            //     window.open("https://www.baidu.com" , "_blank" );
+            //     //小心操作！会一直弹出窗口
+            // } ,1000)
+
+
+            document.onclick = function () {
+                window.location.href = "https://www.baidu.com";
+            }
+
+
+
+        </script>
+
+    </body>
+</html>

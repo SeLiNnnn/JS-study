@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>移动移出的冒泡事件</title>
+  <style>
+    body {
+      position: relative;
+    }
+    #big {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+    #small {
+      position: absolute;
+      top: 100px;
+      left: 200px;
+      width: 100px;
+      height: 100px;
+      background-color: skyblue;
+      
+    }
+  
+  </style>
+</head>
+<body>
+  <div id="big">
+    <div id="small">蓝色小盒子</div>
+  </div>
+
+  <script>
+    
+    var oBig = document.getElementById('big')
+    var oSmall = document.getElementById('small')
+
+    oBig.onmouseover = function () { // 小盒子被移入也会输出 冒泡了！！
+      console.log('移入了')
+    }
+    oSmall.onmouseout = function () {
+      console.log('移出了') // 大盒子不会输出
+    }
+    oBig.onmouseout = function () {
+      console.log('移出了') // 小盒子会输出
+    }
+
+  </script>
+
+
+</body>
+</html>

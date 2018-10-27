@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>05-测试</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        div {
+            width: 50px;
+            height: 50px;
+            margin: 20px;
+            background-color: #faa;
+            color: #fff;
+            font-size: 20px;
+        }
+    </style>
+</head>
+    <body>
+
+        <div>01</div>
+        <div>02</div>
+        <div>03</div>
+
+
+
+        <script>
+
+            var aDiv = document.getElementsByTagName("div"),
+                value = 0;
+            // aDiv[0].addEventListener("click",function () {
+            //     value += 4;
+            //     aDiv[1].addEventListener("click",function () {
+            //         value += 3;
+            //         aDiv[2].addEventListener("click",function () {
+            //             value += 2;
+            //             console.log(value);
+            //         });
+            //         console.log(value);
+            //     });
+            //     console.log(value);
+            // });
+
+            /* 依次点击 0 1 2 0 1 2
+            * 依次输出 4 7 9 13 16 19 21 23 25
+            * 因为第二次点击第0个的时候再绑定了一个1号事件，不会覆盖因为可以给同一个元素绑定多个相同事件；
+            * 再点击第1个的时候，实际已经有2个1号事件了所以输出13和16，此时又给第二个1绑定了第2个事件；
+            * 此时已又2个事件2了，再点击事件2的时候再次触发事件3，所以输出21 23 25；
+            * 第0个只有一次点击事件，因为给第0个添加的点击事件就只有这一个，而其他的都是在点击了第0个以后才添加的事件
+            *
+            * */
+
+            // aDiv[0].addEventListener("click",function () {
+            //     value = 5;
+            //     console.log(value);//只有这一个代码块的时候只触发一个事件，不断输出5
+            // });
+            // aDiv[0].addEventListener("click",function () {
+            //     value = 5;
+            //     console.log(value);
+            // });
+            // aDiv[0].addEventListener("click",function () {
+            //     value = 5;
+            //     console.log(value);//有三个代码块的时候触发3个5
+            // });
+
+            aDiv[0].addEventListener("click",function () {
+                aDiv[1].addEventListener("click",function () {
+                    console.log(1);
+                })
+            })
+            //点击第0个不会输出，只是绑定/添加了一个事件，当点击第1个的时候才输出数字，点击几次第0个就输出几个数字；
+            //但输出了数字以后再点击第0个，输出数字的逻辑就和最开始那个案例相同了
+
+
+
+
+
+
+        </script>
+
+    </body>
+</html>

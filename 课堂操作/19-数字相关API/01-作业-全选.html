@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <meta name="author" content="SeLiNnnn">
+        <meta name="generator" content="WebStorm">
+        <title>01-作业-全选</title>
+        <style>
+            body {
+                font-family: "Microsoft Yahei";
+                font-size: 14px;
+            }
+
+            body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+                margin: 0;
+            }
+
+            ol, ul, li {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            img {
+                border: none;
+                vertical-align: bottom;
+            }
+
+            a {
+                text-decoration: none;
+            }
+            #wrap {
+                width: 400px;
+                border: 1px solid #aaaaaa;
+                border-radius: 15px;
+                margin: 50px auto;
+            }
+            #wrap ul {
+                padding: 30px 0;
+            }
+            #wrap ul li {
+                width: 100%;
+                height: 60px;
+                background: url("../18-apply bind/img/ck.png") no-repeat 20px 20px;
+                border-bottom: 1px solid #aaaaaa;
+                line-height: 60px;
+                text-indent: 70px;
+                color: #fff;
+                cursor: pointer;
+            }
+            #wrap ul li.on {
+                background-image: url("../18-apply bind/img/cked.jpg");
+                text-indent: 90px;
+            }
+            #all {
+                width: 100%;
+                height: 60px;
+                background: url("../18-apply bind/img/ck.png") no-repeat 20px 20px;
+                line-height: 60px;
+                text-indent: 70px;
+                cursor: pointer;
+                font-size: 16px;
+                font-weight: bolder;
+            }
+            #all.on {
+                background-image: url("../18-apply bind/img/cked.jpg");
+                text-indent: 90px;
+            }
+        </style>
+    </head>
+
+    <body>
+
+    <div id="wrap">
+        <ul id="list">
+            <!--<li>项目1</li>-->
+            <!--<li>项目2</li>-->
+            <!--<li>项目3</li>-->
+            <!--<li>项目4</li>-->
+            <!--<li>项目5</li>-->
+            <!--<li>项目6</li>-->
+        </ul>
+
+        <p id="all">全选</p>
+
+    </div>
+
+
+        <script>
+
+            /*
+            * 回顾：类数组
+            *   动态方法 By...
+            *   静态方法 querySelectorAll
+            * */
+
+            (function (length) {
+                var oUl = document.getElementById("list"),
+                    aLi = oUl.getElementsByTagName("li"),
+                    oAll = document.getElementById("all");//动态方法，即使先定义了后面增加了li,aLi在使用前也会重新获取
+                    //querySelectorAll是静态方法
+
+
+                //生成length个li
+                (function() {
+                    var arrColor = ["#333","#666","#999"];//隔行变色
+                    var str = "";
+                    for (var i = 0; i < length; i++) {
+                        str += "<li style='background-color:"+arrColor[i%3]+";'>项目" +(i+1)+ "</li>";
+                    }
+                    oUl.innerHTML += str;
+
+                })();
+
+                //给li添加点击事件
+                (function(){
+                    //循环添加点击事件
+                    for (var i = 0; i < length; i++) {
+
+                        var dom = aLi[i];
+                        dom.i = i;
+                        dom.onclick = clickFn;
+
+                        //闭包实现序号的存储
+                        // !function (i) {
+                        //     aLi[i].onclick = function () {//这里的匿名函数不能单独放出来，单独放出来无法构成闭包就无法存储
+                        //         alert(i);//弹出对应的序号
+                        //     }
+                        // }(i);
+                    }
+
+                    //点击事件单独列出来
+                    function clickFn() {
+                        //alert(this.i);
+                        this.className = this.className ? "":"on";
+                        //如果本身就有className这样做的局限性太大了,更好的方法是使用开关
+
+                        //全选监听li的点击事件
+                        //检测是不是所有的li都勾选上了
+                        var bool = true;//假设全选了
+                        for (var i = 0; i < length; i++) {
+                            if (!aLi[i].className) {//只要有一个没有选上就break
+                                bool = false;
+                                break;
+                            }
+                        }
+                        oAll.className = bool? "on":"";
+
+                    }
+                })();
+
+                //oAll的点击事件
+                (function () {
+                    oAll.onclick = function () {
+                        //this.className = this.className ? "":"on";//判断体里的this.className是取反以后赋值给this.className
+
+                        //不是最好的写法，因为执行了length次判断且每次判断结果一致,用另一个变量来装结果
+                        //var cName = this.className ? "on":"";//这里的this.className和上一句判断体里的this.className不一样
+
+                        var cName;
+                        if (this.className) {
+                            this.className = "";
+                            cName = "";
+                        } else {
+                            this.className = "on";
+                            cName = "on";
+                        }
+                        for (var i = 0; i < length; i++) {
+                            //aLi[i].className = "on";//li本身可以不判断了
+
+                            //aLi[i].className = this.className ? "on":"";//假设all有名字li也该有名字
+
+                            aLi[i].className = cName;
+                        }
+
+                    }
+                })();
+
+
+
+            })(6);
+
+
+
+
+
+        </script>
+
+    </body>
+</html>

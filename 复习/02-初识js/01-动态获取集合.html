@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>动态获取集合</title>
+</head>
+<body>
+
+  <div class="goudan"></div>
+
+  <script>
+    var aGou = document.getElementsByClassName('goudan');
+
+    console.log(aGou)
+    // HTMLCollection(1)0: div.goudanlength: 1__proto__: HTMLCollection
+    // 即使只有一个元素类名是goudan，获取的依然是一个集合，伪数组
+
+    
+  
+  </script>
+  
+</body>
+</html>

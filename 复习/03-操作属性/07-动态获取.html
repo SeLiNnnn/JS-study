@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>动态获取</title>
+</head>
+<body>
+
+  <div>
+    <p class="par">1</p>
+    <p class="par">2</p>
+    <p class="par">3</p>
+  </div>
+
+  <ul id="list">
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>  
+
+  <script>
+    var aP = document.getElementsByClassName('par')
+    aP[0].className = "aaa" // 1号变成aaa
+    aP[0].className = "bbb" // 2号变成bbb
+
+    // !!! 通过类名查找的aP不是一个确定的节点，是集合，一旦修改了某个查找的属性，document会立刻按照className的规则重新查找
+    
+    var oUl = document.getElementById('list')
+    oUl.id = "changeid" // id变成changeid
+    oUl.className = "lists"
+
+    // 通过id查找的特点元素 即使id改变了 依然是这个元素 不会重新查找 
+
+
+  </script>
+
+
+  
+</body>
+</html>

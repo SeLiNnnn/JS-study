@@ -51,10 +51,10 @@
 
             var obj = {name:456};
 
-            var arr = [5,1,7,"唪光脒",9,0,obj,2];
+            var arr = [5,1,7,"唪光脒","9",0,obj,2,obj];
 
             //var index = arr.indexOf("唪光脒");//返回对应的序号
-            var index = arr.indexOf(obj);//6
+            var index = arr.indexOf(obj);//6,有相同的值，只返回第一个
             //var index = arr.indexOf( {name:456} );//-1说明找不到
             console.log(index);
 

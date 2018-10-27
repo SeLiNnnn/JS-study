@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>03-阻止默认行为</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body style="height: 2000px;">
+        <div id="wrap"></div>
+
+
+
+        <script>
+            //监听滚动条位置变化
+            // document.onscroll = function () {
+            //     console.log(1);
+            // };
+            //
+            // //监听鼠标滚轮事件，只能给document加这个事件
+            // document.onmousewheel = function () {
+            //     console.log(2);
+            // }
+
+            //不推荐使用return false来阻止默认事件
+            //在DOM 0级中阻止默认事件
+            // document.onmousewheel = function () {
+            //     console.log(3);
+            //     return false;//输出3，但滚动条不滚动
+            // };
+
+            //在DOM 2级中无法用return false阻止默认事件，滚动条依然会滚动
+            // document.addEventListener("onmousewheel",function () {
+            //     console.log(2);
+            //     return false;//阻止默认事件，不输出
+            // })
+
+
+
+            //推荐阻止默认行为的方法：ev.preventDefault()
+            //阻止滚动条滚动
+            // document.addEventListener("mousewheel",function (ev) {
+            //     ev = ev || window.event;
+            //     ev.preventDefault();
+            //     console.log(2);//输出2，但滚动条不跟着滚动
+            // })
+
+            //阻止右键菜单栏
+            // document.addEventListener("contextmenu",function (ev) {
+            //     ev = ev || window.event;
+            //     ev.preventDefault();
+            //     console.log(2);
+            // })
+
+            document.addEventListener("mousewheel",function (ev) {
+                ev = ev || window.event;
+                console.log(ev.preventDefault);//ƒ preventDefault() { [native code] }输出函数块
+                //在IE8及其一下是undefined
+            });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </script>
+
+    </body>
+</html>

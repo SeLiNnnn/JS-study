@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>07-字符集[]</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+        <div id="wrap"></div>
+
+
+
+        <script>
+
+
+            /*
+            *
+            * 字符集 []
+            *
+            * 或者：
+            *   | 前面和后面的所有都关联，和量词不同，如ab+和ab|b
+            *   [] 里面每个字符的或者功能
+            *   在最前面加上了⌃之后，就是除了的意思
+            *   大部分有特殊意义的字符，在字符集里面是没有特殊意义的
+            *   字段
+            *   [0-9]
+            *   [a-z]
+            *   [A-Z]
+            *
+            * */
+
+            // |的用法
+            // var str = "abc";
+            // //var reg = /ab|c/;//匹配ab或者c
+            // //var reg = /ah|c/;//匹配ah或者c
+            // var reg = /a(h|b)/;//匹配组里的某一个 ["ab", "b", index: 0, input: "abc", groups: undefined]
+            // console.log(str.match(reg));
+
+            // []用法
+            // var str = "abc";
+            // var reg = /[abc]/g;//匹配a或者b或者c,只匹配一个字符
+            // console.log(str.match(reg));//(3) ["a", "b", "c"]
+
+            // var str = "aabc";
+            // var reg = /[abc]+/;//任意字符重复都可以
+            // console.log(str.match(reg));//["aabc", index: 0, input: "abc", groups: undefined]
+
+            //有bug
+            // var str = "aabcdddgg";
+            // var reg = /[^abc]/;//除了abc之外的第一个字符
+            // var reg = /[⌃abc]+/;//除了abc之外的其他所有字符
+            // console.log(str.match(reg));
+
+            // var str = "{}";
+            // //var reg = /\{5\}/;//必须转义,且还是为Null
+            // var reg = /[{5}]+/;
+            // console.log(str.match(reg));//["{}", index: 0, input: "{}", groups: undefined]
+
+            //var str = "1547";
+            //var reg = /[0-5]+/;// -在字符集里是有特殊意义的！！！放在字符集外没有特殊意义
+            //最大范围是0-9 如果写[0-12]表示的是0-1或者2 字符串不存在计数一说
+            //console.log(str.match(reg));//154
+
+            var str = "1547jtya";
+            // var reg = /[0-9a-g]+/g;
+            // console.log(str.match(reg));//(2) ["1547", "a"]
+            var reg = /[0-A]+/g;
+            console.log(str.match(reg));//1547无法匹配到a,因为ASCII码不相同
+
+
+        </script>
+
+    </body>
+</html>

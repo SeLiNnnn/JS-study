@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>02-page</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body style="width: 2000px; height: 2000px;">
+        <div id="wrap"></div>
+
+
+
+        <script>
+
+            document.onclick = function (ev) {
+                ev = ev || window.event;
+                //console.log(ev.pageX + "  " + ev.pageY);//获得鼠标到页面可视区域的距离，也就是滚动后得到的是到原有可视区的距离
+                //console.log(document.documentElement.scrollTop + ev.clientY);//和下面得出的数据是一致的
+                // console.log(ev.pageY);
+                if (!ev.pageY) {//兼容处理，检测是否是IE8，再决定使用哪个，IE8时返回undefined
+                    console.log(document.documentElement.scrollTop + ev.clientY);
+                } else {
+                    console.log(ev.pageY);
+                }
+            };
+
+
+
+        </script>
+
+    </body>
+</html>

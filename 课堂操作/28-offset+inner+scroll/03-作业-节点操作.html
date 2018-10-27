@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>03-作业-节点操作</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        .clearfix:after {
+            display: block;
+            clear: both;
+            content: "";
+        }
+        #box {
+            width: 800px;
+            height: 600px;
+            margin: 0 auto;
+            border: 2px solid #000;
+        }
+        #box .left,.right {
+            float: left;
+            width: 50%;
+            height: 100%;
+        }
+        #box .left {
+            background-color: pink;
+        }
+        #box .left li span {
+            color: #ff6db5;
+            padding: 0 5px;
+            cursor: pointer;
+        }
+        #box li {
+            float: left;
+            padding: 2px 4px;
+            margin: 10px 4px;
+            font-size: 16px;
+        }
+        #box .left ul li.city {
+            border: 1px solid #ffffff;
+        }
+        #box .right {
+            background-color: #cccccc;
+        }
+    </style>
+</head>
+    <body>
+        <div id="box">
+
+            <div class="left">
+                <ul class="select clearfix">
+                    <li>请选择目的地</li>
+                    <li class="city">泰国</li>
+                    <li class="city">伦敦</li>
+                    <li class="city">西班牙</li>
+                    <li class="city">冰岛</li>
+                    <li class="city">北极</li>
+                </ul>
+                <ul class="result clearfix">
+
+                </ul>
+            </div>
+            <ul class="right"></ul>
+
+
+        </div>
+
+
+
+        <script>
+
+
+            var oBox = document.getElementById("box"),
+                aLi = oBox.querySelectorAll(".left .select .city"),
+                oResult = oBox.querySelector(".left .result"),
+                oRight = oBox.querySelector(".right"),
+                length = aLi.length;
+
+            for (var i = 0; i < length; i++) {
+                aLi[i].bool = false;//禁止重复点击
+                aLi[i].onclick = function () {
+                    if (!this.bool) {
+                        var li1 = this.cloneNode(true),//左右各需一个li
+                            li2 = this.cloneNode(true),
+                            span = document.createElement("span"),
+                            myThis = this;
+                        //不使用innerHTML来添加span因为无法同步操作右边的节点
+                        span.innerHTML = "| X";
+                        span.onclick = function() {
+                            //span.parentNode.parentNode.removeChild(span.parentNode);//通过span的爷爷移除span的爸爸
+                           oResult.removeChild(li1);
+                           oRight.removeChild(li2);
+                           myThis.bool = !myThis.bool;
+                        };
+                        li1.appendChild(span);
+                        oResult.appendChild(li1);
+                        oRight.appendChild(li2);
+                        this.bool = !this.bool;
+
+                    }
+                }
+            }
+
+
+
+
+
+
+
+        </script>
+
+    </body>
+</html>

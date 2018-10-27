@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>05-for in遍历数组</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+
+        <div id="wrap"></div>
+
+
+
+        <script>
+
+            var arr = [1,2,3,4,5,6];
+            arr.jj = 9999;
+
+            for (var key in arr) {
+                //console.log((typeof key));//string
+                console.log(arr[key]);//通常不用for in来遍历数组，因为for in会遍历所有的属性包括自定义属性，
+                // 但有时候我们只想遍历本身属性
+            }
+
+
+
+
+        </script>
+
+    </body>
+</html>

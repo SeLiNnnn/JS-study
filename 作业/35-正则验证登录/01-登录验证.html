@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>01-登录验证</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #wrap {
+            width: 410px;
+            height: 720px;
+            /*border: 1px solid #ccc;*/
+            margin: 20px auto;
+        }
+        #wrap div img {
+            border-radius: 50%;
+            margin-left: 130px;
+        }
+        #wrap ul {
+            width: 365px;
+            margin-left: 20px;
+        }
+        #wrap ul li {
+            position: relative;
+            width: 100%;
+            height: 65px;
+            border-bottom: 1px solid #77b4c9;
+            padding-top: 10px;
+        }
+        #wrap ul li input {
+            display: block;
+            width: 80%;
+            height: 35px;
+            border: none;
+            margin: 2px 20px;
+            font-size: 16px;
+            outline: none;
+        }
+        #wrap ul li i,#wrap ul li img {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            color: red;
+        }
+        #wrap ul li i{
+            display: none;
+        }
+        #wrap ul li i.on {
+            display: block;
+        }
+        #wrap ul li span {
+            color: #cccccc;
+            font-size: 12px;
+            font-style: italic;
+            margin: 0 10px;
+        }
+        #wrap ul li img {
+            top: 35px;
+        }
+        #wrap .submit {
+            width: 365px;
+            height: 50px;
+            background-color: #9fcbdf;
+            font-size: 14px;
+            color: #fff;
+            margin: 10px 20px;
+        }
+        #wrap p {
+            font-size: 12px;
+            margin-left: 50px;
+        }
+        #wrap p span {
+            color: #00ad98;
+        }
+    </style>
+</head>
+    <body>
+
+        <div id="wrap">
+
+            <div>
+                <img src="img/logo.jpg" alt="头像" width="150" height="150">
+            </div>
+
+            <ul>
+                <li>
+                    <span>请输入11位数字</span>
+                    <input type="text" placeholder="手机号">
+                    <i>!不合法</i>
+                </li>
+                <li>
+                    <span>以英文开头&nbsp;&nbsp;包含字母&nbsp;_&nbsp;数字&nbsp;&nbsp;&nbsp;长度6~18位</span>
+                    <input type="text" placeholder="昵称">
+                    <i>!不合法</i>
+                </li>
+                <li>
+                    <span>以英文开头&nbsp;&nbsp;包含字母&nbsp;_&nbsp;数字&nbsp;&nbsp;长度6~18位</span>
+                    <input type="text" placeholder="密码">
+                    <i>!不合法</i>
+                </li>
+                <li>
+                    <span>再次输入相同的密码</span>
+                    <input type="text" placeholder="再次输入密码">
+                    <i>!不合法</i>
+                </li>
+                <li>
+                    <span>邮箱如:example@QQ.com</span>
+                    <input type="text" placeholder="邮箱">
+                    <i>!不合法</i>
+                </li>
+                <li>
+                    <span>请输入如图所示验证码</span>
+                    <input type="text" placeholder="验证码">
+                    <img src="img/verifyCode.jpg" alt="验证码">
+                </li>
+            </ul>
+
+            <input class="submit" type="button" value="注册">
+            <p>点击“注册”按钮，即代表您同意<span>《我们公司的用户协议》</span></p>
+
+
+        </div>
+
+
+        <script>
+
+            // var telReg = /^1[3-8]\d{9}$/,
+            //     nameReg = /^([a-zA-Z]|[\u4e00-\u9fa5])(\w|[\u4e00-\u9fa5]){5,17}$/,
+            //     emailReg = /^\w{2,18}@\w{1,18}\.[a-zA-Z]{1,6}$/;
+
+            var aInp = document.getElementsByTagName("input"),
+                tips = document.getElementsByTagName("i"),
+                reg = {
+                    tel : /^1[3-8]\d{9}$/,
+                    name : /^([a-zA-Z]|[\u4e00-\u9fa5])(\w|[\u4e00-\u9fa5]){5,17}$/,
+                    email : /^\w{2,18}@\w{1,18}\.[a-zA-Z]{1,6}$/
+                };
+
+            for (var i = 0, length = aInp.length; i < length; i++) {
+                aInp[i].index = i;//自定义属性存储序号
+                //var val = aInp[index].value;
+                aInp[i].onblur = function () {
+                    var val = this.value;
+                    switch (this.index) {
+                        case 0:
+                            var patt = reg.tel;
+                            test.call(this);
+                            break;
+                        case 1:
+                            var patt = reg.name;
+                            test.call(this);
+                            break;
+                        case 2:
+                            var patt = reg.name;
+                            test.call(this);
+                            break;
+                        case 3:
+                            var patt = reg.name;
+                            test.call(this);
+                            break;
+                        case 4:
+                            var patt = reg.email;
+                            test.call(this);
+                            break;
+                    }
+
+                    function test() {
+                        if (val) {
+                            var result = patt.test(val);
+                            var _this = this;
+                            if(!result){
+                                this.focus();
+                                tips[_this.index].className = 'on';
+                                setTimeout(function(){
+                                    tips[_this.index].className = '';
+                                },1500)
+
+                            }
+                            //处理用户名和密码相同情况
+                            if(this.index==2 && this.value == aInp[1].value ){
+                                _this.focus();
+                                var tipsvalue =  tips[_this.index].innerHTML;
+                                tips[_this.index].innerHTML = '密码和用户名不能相同！';
+                                tips[_this.index].className = "on";
+                                setTimeout(function(){
+                                    tips[_this.index].className = "";
+                                    tips[_this.index].innerHTML =  tipsvalue;
+                                },1500)
+                            }
+                            //处理再次输入的密码和首次密码不同情况
+                            if(this.index==3 && this.value !== aInp[2].value ){
+                                _this.focus();
+                                var tipsvalue =  tips[_this.index].innerHTML;
+                                tips[_this.index].innerHTML = '密码不一致！';
+                                tips[_this.index].className = "on";
+                                setTimeout(function(){
+                                    tips[_this.index].className = "";
+                                    tips[_this.index].innerHTML =  tipsvalue;
+                                },1500)
+                            }
+
+                        }
+
+
+                    }
+
+
+
+
+                };
+
+
+
+            }
+
+
+
+
+
+
+
+
+        </script>
+
+    </body>
+</html>

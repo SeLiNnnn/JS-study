@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>07-classList</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+        <div id="wrap" class="aa bb cc"></div>
+
+
+
+        <script>
+
+            //classList  --  H5的新API,但是不兼容IE，IE11都不完全兼容
+
+            var oW = document.getElementById("wrap");
+
+            var x = oW.classList;
+
+            //该类数组支持forEach
+            //console.log(x);//DOMTokenList(3) ["aa", "bb", "cc", value: "aa bb cc"]
+
+            /*
+            * add
+            * remove
+            * toggle
+            * contains
+            * */
+
+            //添加类名
+            x.add("Tt","pp");//之所以可以更改是因为x是个引用型
+
+            //移除
+            x.remove("aa","bb");
+
+            //toggle有就加，没有就删
+            x.toggle("cc");//不支持传多个参数
+
+            //contains有类名返回true没有false
+            console.log(x.contains("pp"));//返回true
+
+
+        </script>
+
+    </body>
+</html>

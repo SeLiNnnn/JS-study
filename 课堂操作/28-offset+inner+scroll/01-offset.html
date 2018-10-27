@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>01-offset</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #box {
+            position: absolute;
+            top: 100px;
+            width: 200px;
+            height: 200px;
+            margin: 25px;
+            padding: 10px;
+            /*border: 15px solid red;*/
+            background-color: #f60;
+        }
+        #box div {
+            position: absolute;
+            top: 50px;
+            width: 100px;
+            height: 100px;
+            background-color: #ff0;
+        }
+        #box div p {
+            position: absolute;//当前p的父级定位是上一层div而不是body
+            top: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+    <body>
+        <div id="box">
+            <div>
+                <p>牧渔</p>
+            </div>
+        </div>
+
+
+
+        <script>
+
+            /*
+
+                offsetTop 获取元素离定位父级顶部的距离
+                offsetLeft
+                没有offsetRight和offsetBottom,因为文档流是按上和左来计算的
+
+
+             */
+
+            var oBox = document.getElementById("box");
+            //console.log(oBox.clientWidth+"px");//width+padding,220px
+            //console.log(oBox.offsetTop+"px");//125px,有top 100 + margin 25 = 125px
+
+
+
+            //计算p到body之间的距离
+            function getoffset(dom) {
+                var obj = {
+                    left : 0,
+                    top : 0
+                };
+                while (dom !== document.body) {
+                    obj.top += dom.offsetTop;
+                    obj.left += dom.offsetLeft;
+                    dom = dom.offsetParent;
+                }
+                return obj;
+            }
+
+            console.log(getoffset(oBox.children[0].children[0]).top + "px");//175px
+
+
+        </script>
+
+    </body>
+</html>

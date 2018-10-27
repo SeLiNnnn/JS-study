@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>已经存在类名</title>
+</head>
+<body>
+
+  <div class="box"></div>
+
+
+  <script>
+    
+    var oBox = document.getElementsByClassName("box") // 别忘了！！即使只有一个类名符合要求 得到的也是伪数组
+    oBox[0].className += " nextname" // 原本就有类名需要添加的时候 使用+= 空格名字
+
+  
+  </script>
+
+</body>
+</html>

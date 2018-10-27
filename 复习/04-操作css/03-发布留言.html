@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>发布留言</title>
+  <style>
+    #bgbox {
+      width: 408px;
+      height: 110px;
+      background-color: #ccc;
+      margin: 50px auto;
+      padding:5px;
+    }
+    ul,li {
+      list-style: none;
+    }
+    input.msg  {
+      width: 400px;
+      height: 70px;
+      border-radius: 5px;
+      margin-bottom: 5px;
+    }
+    .btn {
+      float: right;
+      width: 60px;
+      height: 30px;
+      background-color: orange;
+      border-radius: 5px;
+      color: #fff;
+      text-align: center;
+      line-height: 30px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    img {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+    }
+    .wrap img {
+      position: absolute;
+      display: none;
+    }
+    .wrap img.active {
+      display: block;
+    }
+    ul {
+      width: 410px;
+      padding: 0;
+      margin-top: 30px;
+      margin-left: -3px;
+    }
+    ul li {
+      width: 100%;
+      height: 60px;
+      border-bottom: 1px solid #ccc;
+      
+    }
+    ul li img {
+      margin-top: 15px;
+      margin-right: 5px;
+    }
+   
+
+  
+  </style>
+</head>
+
+<body>
+  <div id="bgbox">
+    <div class="wrap">
+      <input type="text" class="msg">
+      <img class="active" src="img/user1.jpg" alt="用户头像">
+      <img src="img/user2.jpg" alt="用户头像">
+      <div class="btn">提交</div>
+    </div>
+    <ul>
+      <!-- <li>
+          <img src="img/user1.jpg" alt="用户头像">
+          第一条
+        </li>
+        <li>
+          <img src="img/user2.jpg" alt="用户头像">
+          第二条
+        </li> -->
+    </ul>
+  </div>
+
+  <script>
+    var oText = document.getElementsByTagName('input'); // 这里获取的也是集合
+    var oBtn = document.getElementsByClassName('btn');
+    var aImg = document.getElementsByTagName('img');
+    var oUl = document.querySelector('ul'); // 获取的是单个节点
+    var activeImg = document.getElementsByClassName('active');
+
+    // 点击发布
+    oBtn[0].onclick = function () {
+      // alert(oText[0].value)
+      // alert(aImg[0].src)
+      var val = oText[0].value;
+      var src = activeImg[0].src
+      if (val) {
+        oUl.innerHTML += "<li>" + "<img src=' " + src + " ' />" + val + "</li>" // 这次一定要记住了！！！是这样写的！！！
+      } else {
+        alert('请输入内容！！')
+      }
+    }
+
+
+    // 点击切换图片
+    // 方法1:直接操作下标
+    // aImg[0].onclick = function () {
+    //   this.className = "";
+    //   aImg[1].className = "active"
+    // }
+    // aImg[1].onclick = function () {
+    //   this.className ="";
+    //   aImg[0].className = "active"
+    // }
+
+
+    var index = 0;
+    // 方法2
+    // for (var i = 0; i < aImg.length; i++) {
+    //   aImg[i].index = i;
+    //   aImg[i].onclick = function () {
+    //     if (index % aImg.length < 1) { //这里小于几 和图片的长度有关 复用性不太好
+    //       this.className = "";
+    //       index += 1;
+    //       src = aImg[index].src;
+    //       aImg[index].className = "active";
+    //     } else {
+    //       this.className = "";
+    //       index -= 1;
+    //       src = aImg[index].src;
+    //       aImg[index].className = "active";
+    //     }
+    //   }
+    // }
+
+    //方法2
+    var flag;
+    for (var i = 0; i < aImg.length; i++) {
+      aImg[i].index = i;
+      aImg[i].onclick = function () {//这种比较好吧 和图片长度无关
+        if (flag) {
+          this.className = "";
+          index -= 1;
+          aImg[index].className = "active"
+        } else {
+          this.className = "";
+          index += 1;
+          aImg[index].className = "active";
+
+        }
+        flag = !flag; // 记住啦！！！是!flag不是!=flag
+      }
+    }
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+body {
+    min-width: 1280px;
+}
+#bg {
+    position: absolute;/*铺在最底部*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1280px;
+}
+#bg .bg {
+    width: 100%;
+    background-position: top center;
+    background-repeat: no-repeat;
+
+}
+#bg .bg1 {
+    height: 1080px;
+    background-image: url("../img/bg1.jpg");
+}
+#wrap {
+    position: relative;
+    width: 100%;
+    height: 1080px;
+}
+#wrap .wSwiper #logo {
+    position: relative;
+    display: none;
+    left: -200px;
+    width: 150px;
+    height: 115px;
+    padding: 20px 0 0 20px;
+}
+#wrap .wSwiper #logo img {
+    float: left;
+}
+#wrap .wSwiper #logo .img2{
+    width: 90px;
+    height: 90px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    margin-left: 20px;
+}

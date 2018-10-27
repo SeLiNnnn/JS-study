@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>03-post方式</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+        用户名：<input type="text" id="userID"><br>
+        密码：<input type="password" id="pwdID"><br>
+        <button id="btn">提交</button>
+
+
+
+        <script>
+
+            var oBtn = document.getElementById("btn");
+
+            oBtn.onclick = function () {
+                var user = userID.value,
+                    pwd = pwdID.value;
+
+                var data = 'user=' +user+ '&pwd=' +pwd;
+
+
+                var xhr = new XMLHttpRequest();
+
+
+                //post方法
+                xhr.open('post','http://localhost:3000',true);
+                xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+                xhr.send(data);
+
+                xhr.onreadystatechange = function () {
+
+                    if (xhr.readyState === 4) {
+                        if (xhr.status >= 200 && xhr.status <300 || xhr.status === 304) {
+                            //数据能拿到了
+                            //console.log(xhr.responseText);
+                            console.log(xhr.getResponseHeader('Content-Type'));//后台没有设置响应头的时候返回null
+                        }
+                    }
+                }
+            }
+
+
+        </script>
+
+    </body>
+</html>

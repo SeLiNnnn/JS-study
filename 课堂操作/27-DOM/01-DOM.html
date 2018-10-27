@@ -1,0 +1,140 @@
+。<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>01-DOM</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #wrap {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background-color: #f66;
+            font-size: 30px;
+            color: #fff;
+        }
+        p {
+            position: absolute;
+        }
+    </style>
+</head>
+    <body>
+        <div id="wrap">123
+            <p>哈哈</p>
+            <ul>
+                <li>牧渔</li>
+                <li>冀秋</li>
+                <li>留到</li>
+            </ul>
+
+        </div>
+
+
+
+        <script>
+
+            /*
+            * js的三大组成：
+            *   DOM 文档的对象模型
+            *   BOM
+            *   ECMAScript es,js的语法规范
+            *
+            * 节点:
+            *   document 文档节点
+            *   html元素 元素节点
+            *   文字/空格/换行 文本节点
+            *   html标签属性 属性节点
+            *   注释节点
+            *
+            * childNodes 返回子节点，包括文本节点。但IE8及以下，不会返回空格的文本节点，除非是文字。
+            *       children 获取子元素节点，没有兼容性问题，经常用到，是动态获取
+            * nodeType 获取节点类型，返回的是编号
+            * nodeName 获取解节点名称
+            * tagName 获取标签名称
+            *
+            * //以下三个几乎用不到，了解就可
+            * getAttributeNode("属性名") 获取属性节点
+            * createAttribute() 创建一个属性节点
+            * obj.setAttributeNode() 给obj添加属性节点
+            *
+            * firstElementChild 获取第一个子元素节点，不兼容IE8及以下
+            * firstChild 获取第一个子节点，兼容良好。主流浏览器可能返回文本节点，但在IE8及以下不会返回空格换行的文本节点
+            * lastChild 获取最后一个子节点，兼容性同上
+            * lastElementChild 获取最后一个子元素节点，兼容性同上
+            *
+            * nextSibling 获取下一个兄弟节点
+            * nextElementSibling 获取下一个兄弟元素节点
+            * previousSibling 获取上一个兄弟节点
+            * previousElementSibling 获取上一个兄弟元素节点
+            *
+            * */
+
+            var oBox = document.getElementById("wrap");
+
+            //console.log(oBox.childNodes);//只返回子节点
+            // console.log(oBox.children);//只返回子元素节点
+            // console.log(oBox.nodeType);//返回1
+            // console.log(oBox.childNodes[0].nodeType);//返回3,代表文本节点
+            // console.log(oBox.childNodes[1].nodeName);//ul 节点名称
+            // console.log(oBox.nodeName);//DIV
+            //console.log(oBox.tagName);//DIV
+            // console.log(oBox.getAttributeNode("id").nodeName);//返回id，属性节点名称就是属性名
+            //
+            // var attr = document.createAttribute("title");
+            // oBox.setAttributeNode(attr);
+            // console.log(attr);//空的title
+
+            // console.log(oBox.firstElementChild);//<p>哈哈</p>获取第一个子元素节点
+            // console.log(oBox.firstChild);//返回123
+            // console.log(oBox.lastChild);//返回#text
+            // console.log(oBox.lastElementChild.nodeName);//返回ul
+
+            // console.log(oBox.children[0]);//<p>哈哈</p>
+            // console.log(oBox.children[0].nextSibling + "节点");//[object Text]节点
+            // console.log(oBox.children[0].nextElementSibling);//ul
+            // console.log(oBox.children[1]);//ul
+            // console.log(oBox.children[1].previousSibling);//#text
+            // console.log(oBox.children[1].previousElementSibling);//<p>哈哈</p>
+
+            //获取父级节点,兼容IE8
+            //console.log(oBox.parentNode);//<body>..</body>
+            //console.log(oBox.parentNode.nodeName);//BODY
+
+            //获取定位参考父级
+            //console.log(oBox.children[0].offsetParent);//<div id="wrap">...</div>
+            //如果没有参考父级，会返回body
+
+            //获取自元素节点个数，不兼容IE8
+            console.log(oBox.childElementCount);//2
+
+
+        </script>
+
+    </body>
+</html>

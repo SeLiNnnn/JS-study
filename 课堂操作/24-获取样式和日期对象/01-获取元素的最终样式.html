@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>01-获取元素的最终样式</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #wrap {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            padding: 20px 10px;
+            border: 5px solid #000000;
+        }
+    </style>
+</head>
+    <body>
+
+        <div id="wrap">aafffefefefafefefefefefefefedfdfdfdfd</div>
+
+
+
+        <script>
+
+            var oWrap = document.getElementById("wrap");
+
+            /*获取元素宽度:
+                oWrap.clientWidth   宽度+内边距
+                oWrap.offsetWidth   宽度+内边距+边框
+                oWrap.scrollWidth   宽度+右内边距+文字超出部分(即使超出隐藏还是会显示超出部分宽度),
+                从哪边超出就不算哪边的内边距，如果不超出，值和clientWidth是一样的
+
+                //document.documentElement.clientWidth 获取文档的可视化区域的宽度，不包括滚动条
+
+
+            */
+
+            var w = oWrap.scrollWidth;
+            console.log(w);//220px
+
+
+        </script>
+
+    </body>
+</html>

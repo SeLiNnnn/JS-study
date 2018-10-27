@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>02-引用类型才能添加自定义属性</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap"></div>
+
+
+
+<script>
+
+    var a = 10; // 基础类型无法添加自定义属性
+    a.goudan = 20;
+    console.log(a.goudan); // undefined
+
+    var b = {}
+    b.goudan = "hhh"
+    console.log(b.goudan);// hhh
+
+    var c = null
+    // c.goudan = "nullobj"// Cannot set property 'goudan' of null
+    // console.log(c.goudan);
+    // null虽然是对象 但很特殊 给它添加自定义属性直接报错
+    // alert(typeof c) // obj
+
+    //alert(document) //[object HTMLDocument]
+    //var d
+    //alert(typeof d)// undefined
+
+    //var e = undefined
+    //alert(e)// undefined
+
+    var f = NaN
+    alert(typeof f)// number
+
+
+
+
+</script>
+
+</body>
+</html>

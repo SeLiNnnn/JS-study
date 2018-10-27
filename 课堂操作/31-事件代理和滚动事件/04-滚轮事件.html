@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>04-滚轮事件</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body style="height: 2000px">
+
+        <div id="wrap"></div>
+
+
+
+        <script>
+
+           /*
+           *
+           * onmousewheel 唯独不支持火狐
+           *    ev.wheelDella 获取滚动方向
+           *        往上滚是正，往下滚是负,值是120的倍数(一定要通过鼠标滚轮)
+           * DOMMouseScroll 火狐里的写法，只能通过addEventListener来写才有效，不支持直接的document.操作
+           *    ev.detail 获取滚动方向
+           *        往上滚是负，往下滚是正，值是3的倍数
+           *
+           * */
+
+            //chrome和ie
+             document.onmousewheel = function (ev) {
+                 ev = ev || window.event;
+                 console.log(ev.wheelDelta);//输出很多数值，
+             };
+
+            //firefox
+            document.addEventListener("DOMMouseScroll",function(ev){
+                ev = ev || window.event;
+                console.log(ev.detail);
+            });
+
+
+        </script>
+
+    </body>
+</html>

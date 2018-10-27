@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>02-定义正则表达式</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+        <div id="wrap"></div>
+
+
+
+        <script>
+
+            /*
+            * test方法
+            *   正则.test(字符串)//检测括号中的字符串里有没有该正则规则
+            *       有该规则返回true,否则返回false
+            *
+            *
+            * */
+
+
+            //正则定义方法1
+            var str = "阿飞老师真的超厉害哟";
+
+            var r1 = /阿飞/;  //只要//之间有东西，就是正则表达式的定义，要匹配什么字符就写什么
+
+            if (!r1.test(str)) {
+                console.log("报错");
+            }
+            //console.log(r1.test(str));//有的话返回true
+
+            //正则定义方法2
+            //var r2 = new RegExp("老师");//必须有引号
+            //console.log(r2.test(str));
+
+            //1和2的区别
+            // var x = "老师";
+            // //var r1 = /x/;//无法得到变量x
+            // var r2 = new RegExp(x);//只能使用方法2才能匹配相关变量
+            // console.log(typeof r2);//obj
+
+
+        </script>
+
+    </body>
+</html>

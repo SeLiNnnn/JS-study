@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>03-转义</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+        <div id="wrap"></div>
+
+
+
+        <script>
+
+            /*
+            *
+            *   \  转义符号
+            *
+            *   \s 匹配所有的空格
+            *   \S 匹配所有的非空格字符
+            *
+            *   \d 匹配所有的数字
+            *   \D 匹配所有的非数字
+            *
+            *   \w 匹配字符（数字 字母 _）
+            *   \W 匹配非字符
+            *
+            *   \b 单词边界（除了\w里的不是单词边界外，其他都是单词边界，包括起始位置使单词独立也是可以匹配的）
+            *   \B 非单词边界
+            *
+            *   \ 特殊符号
+            *   . 特殊符号
+            * */
+
+            //常规转义
+            // var str = "\"\"\n\t\r";
+            // var reg = /\n/;//就是匹配\n
+
+            //某一些写法可以对应某一类的字符
+            // var str = "  ";
+            // var reg = / /;//匹配空格字符
+            // var reg = /\s/;//等价操作
+            // console.log(reg.test(str));//true
+
+            // var str = " ";//只有1个空格
+            // var reg = /  /;//匹配2个空格字符
+            // console.log(reg.test(str));//false
+
+            // var str = "selin233";
+            // var reg = /\d/;//匹配所有的数字
+            // console.log(reg.test(str));//true
+
+            // var str = "阿飞";
+            // var reg = /\w/;
+            // console.log(reg.test(str));//false
+
+            // var str = "What are youtube doing now?";
+            // //var reg = /you/;//返回true
+            // //返回正确的某个单词，而不是包含这个单词的组合词,使用\b
+            // var reg = /\byou\b/;//返回false
+            // console.log(reg.test(str));
+
+            //转义的常规用法
+            // var str = "/";
+            // var reg = /\//;// 匹配/
+            // console.log(reg.test(str));
+
+            // var str = "飞";
+            // var reg = /./;
+            // var reg = /\./;//正确写法
+            console.log(reg.test(str));//返回true，默认.除开\n\r\t这种无法匹配以外，可以匹配所有的字符，
+
+
+
+
+        </script>
+
+    </body>
+</html>

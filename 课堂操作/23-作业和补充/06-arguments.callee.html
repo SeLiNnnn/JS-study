@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>06-arguments.callee</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+        <div id="wrap"></div>
+
+
+
+        <script>
+
+            // var a = function b() {
+            //     alert("@@@@");
+            //     //b();只能这样使用,小心此处是死回调
+            // };
+            //
+            // a();//只有a才是全局变量
+            //b();//b is not defined，b也是变量，但只能在函数内部回调自己的时候使用
+
+
+            // function x() {
+            //     console.log(111);
+            //
+            //     console.log(arguments.callee);//callee就是函数本身,专门用来做函数回调,因为很多时候函数是没有名字的
+            // }
+            // x();
+
+            !function () {
+
+                console.log(111);
+                console.log(arguments.callee);//这种情况下使用比较方便，但严格模式下不支持callee
+            }();
+
+            //函数回调：
+            //  完成一件事后紧接的下一件事，就是回调。
+            //  比如吃了饭要去喝水，喝水就是回调。
+
+
+        </script>
+
+    </body>
+</html>

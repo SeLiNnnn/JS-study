@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>02-setTimeout代替setInterval</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+
+        <div id="wrap"></div>
+
+
+
+        <script>
+
+            // 为什么要代替?
+            //
+            // setInterval(function () {
+            //     //...code
+            //         //如果函数内容非常多，10ms执行不完，或者执行时间过长导致间隔缩短
+            //         //假设希望函数内容完全执行完之后，再进行下一次函数的话，就需要代替
+            // } ,10);
+
+            //把函数单离出来
+            // setTimeout(fn,10);//目前只执行1次
+            // function fn() {
+            //     setTimeout(fn,10);//回调自己
+            // }
+            // clearTimeout(fn);
+
+            // var a = setTimeout(fn,10);
+            // function fn() {
+            //     ...code
+            //     a = setTimeout(fn,10);
+            // }
+            // clearTimeout(a);
+
+            setTimeout(fn,10);
+            function fn() {
+                //...code
+                if (/*.....*/) {
+                    return;//setTimeout可以用reutrn被结束，就没有下一次setTimeout了但interval是一直处于被添加的循环队列里
+                }
+                a = setTimeout(fn,10);
+            }
+
+
+
+
+        </script>
+
+    </body>
+</html>

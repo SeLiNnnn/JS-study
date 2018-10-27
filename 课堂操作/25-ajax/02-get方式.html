@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>02-get方式</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+        用户名：<input type="text" id="userID"><br>
+        密码：<input type="password" id="pwdID"><br>
+        <button id="btn">提交</button>
+
+
+
+        <script>
+
+            /*
+            * get和post的区别：
+            *   get--
+            *       是比较常见的请求，通常用于向服务器查询信息，数据是拼接在接口后面的,也就是拼接到?后
+            *       由于数据是拼接在接口后面，所以可能在浏览器的地址栏可以看到数据
+            *
+            *   post--
+            *       在请求的时候，需要设置请求头信息,而且是在send()发送数据
+            *
+            *   get方式为什么网上说，传输的数据有上限？
+            *   因为不是get方式不允许进行大批量数据传输，而是因为get方法的数据都在url里，而浏览器会有一个对url长度的限制
+            *
+            *   安全性？只要不加密，两者都不安全。
+            *   get能在地址栏看到数据，post数据
+            *
+            * */
+
+            //键值对,通过键值，就可获取不同的值
+            //user=123
+            //pwd=456
+
+
+            var oBtn = document.getElementById("btn");
+
+            oBtn.onclick = function () {
+                var user = userID.value,
+                    pwd = pwdID.value;
+
+                var data = '?user=' +user+ '&pwd=' +pwd;
+                //var data = 'user=' +user+ '&pwd=' +pwd;//post方式
+                //data是发送到后台到数据
+
+
+                var xhr = new XMLHttpRequest();
+
+                //xhr.open('get','http://127.0.0.1:3000?user=fengyu&pwd=123456');//传递方式大小写都可以
+                xhr.open('get','http://localhost:3000'+data,true);
+
+                //get方法
+                xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+                xhr.send('user=123&pwd=456');
+
+                //xhr.send();
+                //post方法
+                //xhr.open('post','http://localhost:3000',true);
+                //xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+                //xhr.send(data);
+
+                xhr.onreadystatechange = function () {
+
+                    if (xhr.readyState === 4) {
+                        if (xhr.status >= 200 && xhr.status <300 || xhr.status === 304) {
+                            //数据能拿到了
+                            console.log(xhr.responseText);
+                        }
+                    }
+                }
+            }
+
+
+        </script>
+
+    </body>
+</html>

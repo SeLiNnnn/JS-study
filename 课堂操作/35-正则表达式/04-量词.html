@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>04-量词</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+        <div id="wrap"></div>
+
+
+
+        <script>
+
+            /*
+            *
+            * 量词 {}
+            *   {n} n个
+            *   {n,m} 最少匹配n个， 最多m个，是指的自己本身匹配的长度，而非需要字符串长度
+            *   {n, } 最少n个，最大没限制
+            *
+            * 几个特殊量词的简写
+            *   {1, }  -------   +
+            *   {0,1}  -------   ?
+            *   {0,}   -------   *
+            *
+            * 贪婪与惰性
+            *   量词默认是贪婪的，尽量是往多的去匹配
+            *   量词后面再跟上一个?字符，就是惰性匹配，尽量往少的去匹配
+            *
+            * */
+
+            /*
+            *
+            * match
+            *   字符串.match(正则)
+            *       返回匹配的内容数组，否则返回null
+            *
+            * */
+
+            // var str = /"1234"/;
+            // var reg = /\d\d\d\d/;
+            //
+            // console.log(reg.test(str));//匹配str里有没有连起来的四个字符，返回true
+            // var str = /"1234567890"/;
+            // var reg = /\d{10}/;//相同的规则重复出现多少次
+            //
+            // console.log(reg.test(str));//true
+
+            var str = "2346293875237503402938";
+            var reg = /\d{2,5}/;
+            console.log(str.match(reg));//["23462", index: 0, input: "2346293875237503402938", groups: undefined]
+
+
+        </script>
+
+    </body>
+</html>

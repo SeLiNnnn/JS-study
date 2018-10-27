@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>04-requestAnimationFrame的兼容</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+
+
+        <div id="wrap"></div>
+
+
+        <script>
+
+            /*
+            * 因为requestAnimationFrame和setTimeout很像，
+            * 所以做兼容的时候，使用setTime来代替,但不能完全代替，因为没有时间延迟，只是在做持续性动画的时候可以代替
+            *
+            *
+            * */
+
+            //一个全局的API变量名，不要直接判断是否存在
+            //使用typeof或者window.来判断,但使用window.更好，因为不需要判断数据类型，而window.不存在的属性是undefined
+            // if (!window.requestAnimationFrame) {
+            //     window.requestAnimationFrame = function (fn) {
+            //         setTimeout(fn,1000/60);//setTimeout并不完全等于requestAnimationFrame因为setTimeout有时间间隔，
+            //         //所以先给setTime一个默认时间，又因为避免setTimeout()自执行所以写一个需要接收参数的函数包起来
+            //         //必须写时间，如果不写，浏览器会抽风- -,无限制给队列里加内容
+            //     };
+            // }
+
+            window.requestAnimationFrame =
+                window.requestAnimationFrame ||
+                function (fn) {
+                    return setTimeout(fn, 1000/60);
+                };
+            window.cancelAnimationFrame =
+                window.cancelAnimationFrame ||
+                clearTimeout;
+
+            // if (!window.requestAnimationFrame) {
+            //     window.requestAnimationFrame = function (fn) {
+            //         return setTimeout(fn, 1000/60);
+            //     };
+            //     window.cancelAnimationFrame = clearTimeout;
+            // }
+
+
+
+
+        </script>
+
+    </body>
+</html>

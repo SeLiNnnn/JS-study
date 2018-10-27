@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>04-事件冒泡+事件捕获</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+    <body>
+        <div id="box"></div>
+
+
+
+        <script>
+
+            /*
+            *  addEventListener的boolean值
+            *    false 默认值
+            * */
+
+            // var oBox = document.getElementById("box");
+            // oBox.addEventListener("click",fn,false);
+            // document.addEventListener("click",fn,false);
+            // function fn() {
+            //     console.log(this);//依次输出div和document
+            // }
+
+            //捕获，和冒泡顺序相反，用的较少
+            //IE不支持事件捕获
+            var oBox = document.getElementById("box");
+            oBox.addEventListener("click",fn,false);
+            document.addEventListener("click",fn,true);
+            function fn() {
+                console.log(this);//先输出document再输出div
+            }
+
+
+
+
+
+
+
+
+
+
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>01-ajax</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+        <div id="wrap"></div>
+
+
+        <script>
+
+            /*
+            * js-单线程-只能一步一步执行
+            * ajax
+            *   asyncChronous javascript and XML
+            *   异步的js和xml(xml通常是用来传输数据的一种格式)
+            *
+            *    用户名：123
+            *    密码：666
+            *    email:123@qq.com
+            *
+            *    input.onblur = 此用户名可以使用
+            *
+            * ajax的功能：
+            *   不刷新页面的情况下，实现与后台的数据交互，同时在页面进行更新
+            * 跨域：默认不能跨域
+            *   同源策略 主域名 www.baidu.com
+            *   只能跟同源的后台进行数据交互
+            *
+            *   要跨域只能通过后台相应的设置，或者接口(一个地址)
+            *   jsonp
+            *
+            *
+            *
+            * 数据传输
+            *   json
+            *
+            * 步骤：
+            * 1.ajax = new XHTMLHttpRequest()
+            * 2.ajax.open(method，url,boolean);设置和后台交互的一些方式
+            *   method:get/post方式
+            *   boolean:true异步false同步
+            *
+            * ajax.readystate
+            *   表示ajax对象跟后台交互状态
+            *   0:ajax对象已创建,但是未调用open
+            *   1:open方法已调用,但是send()没有启动
+            *   2:send()启动,数据已经发送给后台
+            *   3:正在接收数据,http响应头已经接收,但是数据没有全部接收
+            *   4:数据全部接收完成
+            *
+            * ajax.status
+            *   用于记录服务器的状态码
+            *   2开头 还有304
+            *
+            * */
+
+
+            var ajax = new XMLHttpRequest();//ajax第一步，创建ajax对象---构造函数，必须使用new
+
+                ajax.open('post',"www.baidu.com",true);//第二步，打开接口
+
+                ajax.send();//发送数据
+
+                //中止请求：可能由于网络原因，导致请求时间过长，可以设定一个时限，时间到如果还没有拿到数据就关闭这次请求
+                //ajax.abort();//关闭请求的方法
+                setTimeout(function () {
+                    ajax.abort();
+                } ,5000);//时间到，就停止
+
+                ajax.onreadystatechange = function () {//绑定监听事件,只要有所改变，就会触发
+                    if (ajax.readyState === 4) {
+                        //如果readystate===4,通常情况就是拿到数据，但也会有后台服务器故障的情况
+                        if (ajax.status >= 200 && ajax.status < 300 ||
+                            ajax.status === 304){
+                            //这个判断是为了确定服务器是否可用，可用才能拿到数据
+                            //当进入这个判断，就能拿到数据了
+
+                            console.log(ajax.responseText);//显示数据
+                        }
+                    }
+
+
+                }
+
+
+
+
+        </script>
+
+    </body>
+</html>

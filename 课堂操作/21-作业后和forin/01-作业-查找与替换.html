@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>01-作业-查找与替换</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei","monospace";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #wrap {
+            width: 640px;
+            height: 330px;
+            border: 1px solid #aaaaaa;
+            margin: 100px auto;
+        }
+        .search {
+            padding-top: 10px;
+            margin-left: 2px;
+        }
+        .search input {
+            float: left;
+            margin: 5px;
+        }
+        .search input[type="text"] {
+            width: 200px;
+            height: 24px;
+        }
+        .search input[type="button"] {
+            -webkit-appearance: button;/*mac对表单样式有严格的控制必须加上这一句*/
+            width: 50px;
+            height: 30px;
+        }
+        .txt {
+            padding: 20px;
+        }
+        .txt p {
+            text-indent: 2em;
+            margin: 10px 0;
+        }
+        .txt p span {/*只要给搜索的词加上span就可以修改样式*/
+            color: red;
+        }
+    </style>
+</head>
+    <body>
+
+        <div id="wrap">
+            <div class="search">
+                <input type="text" class="inp1">
+                <input type="button" class="inp2" value="搜索">
+                <input type="text" class="inp3">
+                <input type="button" class="inp4" value="替换">
+                <input type="button" class="inp5" value="重置">
+            </div>
+
+            <div class="txt">
+                <p>张家界是湖南省辖地级市，原名大庸市，辖2个市辖区（永定区、武陵源区）、2个县（慈利县、桑植县）。位于湖南西北部，澧水中上游，属武陵山区腹地。[1] 张家界因旅游建市，是中国最重要的旅游城市之一，是湘鄂渝黔革命根据地的发源地和中心区域。</p>
+                <p>1982年9月，张家界国家森林公园成为中国第一个国家森林公园。</p>
+                <p>1988年8月，张家界武陵源风景名胜区被列入国家重点风景名胜区；1992年，由张家界国家森林公园等三大景区构成的武陵源风景名胜区被联合国教科文组织列入《世界自然遗产名录》；2004年2月，被列入全球首批《世界地质公园》；2007年，被列入中国首批国家5A级旅游景区。[2]</p>
+            </div>
+
+
+
+        </div>
+
+
+        <script>
+
+            /*
+            * 初始 或者 每步结束之后将内容先用变量存储起来
+            *
+            * */
+
+            (function () {
+
+                var oTxt = document.querySelector("#wrap .txt"),
+                    aInp = document.querySelectorAll("#wrap .search input"),
+
+                    TXT = oTxt.innerHTML,//获取所有的HTML字符串，先把最初始状态的内容存起来,基于最初始的去修改
+                    TXTXT = TXT;//真正初始的TXT，一边使用纯大写来定义这类在使用中不想改变的变量，意为常量
+
+                //搜索的点击
+                aInp[1].onclick = function () {
+                    var val = aInp[0].value;//获取第一个输入框的内容
+                    if (!val) return;//假设输入框无内容，结束
+
+                    // var arr = TXT.split( val );//按val来切割
+                    //
+                    // var t = arr.join("<span>"+ val + "</span>" );
+                    // oTxt.innerHTML = t;
+                    // console.log(arr);
+
+                    oTxt.innerHTML = TXT.split(val).join("<span>"+ val +"</span>");//变量都只使用了一次所以写在一起
+                    //aInp[0].value = "";//清空搜索框的文字
+                };
+
+                //替换
+                aInp[3].onclick = function () {
+                    var val1 = aInp[0].value,
+                        val2 = aInp[2].value;
+
+                    if ( !(val1 && val2) ) return;//都不为空才能往下执行
+                    oTxt.innerHTML = TXT.split(val1).join("<span>"+val2+"</span>");
+                    if (TXT===TXTXT) {
+                        TXT = TXTXT.split(val1).join(val2);
+                    } else {
+                        TXT = TXT.split(val1).join(val2);//更新TXT的内容，因为已经替换了
+                        //不能直接等于oTxt.innerHTML这样会有很多span
+                    }
+
+
+                };
+
+                //重置的点击
+                aInp[4].onclick = function () {
+                    oTxt.innerHTML = TXTXT;
+                    aInp[0].value = aInp[2].value = "";//从最后开始读,清空两个输入框
+                }
+
+            })();
+
+
+
+
+
+
+
+
+        </script>
+
+
+
+    </body>
+</html>

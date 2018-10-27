@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>08-案例-随机色卡</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #wrap {
+            overflow: hidden;
+            border: 1px dashed #999;
+        }
+        #wrap span {
+            float: left;
+            width: 100px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: bolder;
+            color: #fff;
+        }
+    </style>
+</head>
+    <body>
+
+        <div id="wrap">
+
+
+
+        </div>
+
+
+
+        <script>
+
+            //var arr = ["0","a","b"];可以用数组取a-f的值
+
+            // var num = Math.floor(Math.random()*10);//先取0-9.999999再向下取整，得到0-9
+            //
+            // var a = 12;
+            // alert(a.toString(16));//可以用toString将数据转成字符串，当数据是数字类型的时候，toString()可以传参，转成其他进制
+
+            var oW = document.getElementById("wrap");
+
+            setInterval(function () {
+                var color = randomColor();
+               // console.log(color);
+                oW.innerHTML += "<span style='background-color: "+color+"'>"+color+"</span>";
+            } ,500);
+
+            function randomColor() {
+                var str = "#";
+                for (var i = 0, length = 6; i < length; i++) {//循环6次得到6位的16进制颜色值字符串
+                    str += Math.floor(Math.random()*16).toString(16);
+                }
+                return str;
+            }
+
+
+
+
+
+        </script>
+
+    </body>
+</html>

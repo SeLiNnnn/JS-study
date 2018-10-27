@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>获取行内样式</title>
+  <style>
+    #wrap {
+      width: 200px;
+      height: 200px;
+      background-color: skyblue;
+    }
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <div id="wrap" class="box"></div>
+  <div class="box"></div>
+
+
+  <script>
+    var oWrap = document.getElementById("wrap")
+    console.log(oWrap.style.width) // 无输出  只能获取行内样式
+    oWrap.style.border = "10px solid #ccc" //添加的也是行内样式
+    
+    // styleFloat 好像已经无法使用了
+    oWrap.style.styleFloat = "left"
+    
+    oWrap.onclick = function () {
+      this.style.fontSize = "30px"
+      this.style.border = "10px green dashed"
+      this.style.cssFloat = "left"
+      this.style.cssText = "width:300px;height:300px;background-color:red;" // 这种方法可以不写驼峰
+    }
+
+    
+    
+    
+
+
+
+  </script>
+
+  
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>05-日期对象</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+        <div id="wrap"></div>
+
+
+        <script>
+
+            //得到的只是当前系统的时间戳，而不是服务器的时间戳
+            var x = new Date();
+
+            //alert(x);//直接弹出当前系统时间
+
+            /*需要掌握的日期对象相关的API
+                年月日时分秒
+
+
+            */
+
+            console.log(x.getFullYear());//2018 number类型不是字符串
+            console.log(x.getMonth()+1);//从0开始计数，所以要+1才是当前月份
+            console.log(x.getDay());//星期，不需要加1，因为星期天是第0天
+            console.log(x.getDate());//日
+            console.log(x.getMinutes());//分
+            console.log(x.getSeconds());//秒
+
+            console.log(x.getTime());//1533913403365是一个毫秒数,表示1970年到当前时间戳的毫秒数
+
+
+        </script>
+
+    </body>
+</html>

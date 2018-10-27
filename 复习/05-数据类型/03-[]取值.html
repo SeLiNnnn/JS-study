@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>03-[]取值</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap"></div>
+
+
+
+<script>
+
+   var x = {};
+   x.name = "goudan"
+   x["name"] = "dachui" // 写
+
+   var k = "name" //当使用某个变量里的属性值时，只能用[]
+   var n = x[k]// 如果写成x.k 表示的是x下的属性k 而不是变量k
+   // console.log(x);
+   console.log(n);
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>05-帧数</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+
+        <div id="wrap"></div>
+
+
+
+        <script>
+
+            //setInterval(,1000/60);//1秒60帧,或者直接写15ms
+
+            var a = new Date();
+
+            var x = setInterval( function () {
+                // var b = new Date();
+                // console.log(b - a);//当前时间减去上次的时间,也就是相邻两次函数执行的时间差
+                // a = b;
+                console.log(1);
+            } ,15);//发现间隔不是标准的15ms，定时器时间不靠谱！！！
+
+            setTimeout(function () {
+                clearInterval(x);
+
+            } ,1500)//理论上应该上执行了100次，实际会有一些偏差,
+            // 定时器的时间间隔是有误差的，间隔越小误差越大，所以不能过度信赖第二个参数设置的时间
+            // 浏览器是有最小刷新频率的，根据浏览器和电脑配置不同而不同，所以当定时器设置得非常小的时候
+            // 比如间隔为1的时候，浏览器不可能只等1ms就执行
+
+
+
+        </script>
+
+    </body>
+</html>

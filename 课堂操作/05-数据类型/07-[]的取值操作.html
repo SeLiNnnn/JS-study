@@ -39,28 +39,37 @@
         <script>
 
             // []取值
-            //几乎所有的对象.操作都可以使用[]来代替
+            //几乎所有的对象.操作都可以使用[]来代替，只要是字符串就可以
             // var n = x["goudan"];//必须加双引号，且此时的goudan变成了字符串
             // alert(n);
             //或者
             //或者
-            var k = "goudan";//当使用某个变量里的属性值时，只能用[]
-            var n = x[k];//这里的k是变量k
+            // var k = "goudan";//当使用某个变量里的属性值时，只能用[]
+            // var n = x[k];//这里的k是变量k
             // var n = x.k;//这里的k是x下的属性k，不能这样写
 
             // document.onclick = function () {
             //     alert(n);
             // }
 
-            document["onclick"] = function () {
-                alert(n);
-            }
+            // document["onclick"] = function () {
+            //     alert(n);
+            // };
 
             //读写
-            x.dachui = 50;
-            x.name = "打锤";
-            x["name"] = "小刘鸭";
-            console.log(x);
+            // x.dachui = 50;
+            // x.name = "打锤";
+            // x["name"] = "小刘鸭";
+            // console.log(x);
+
+            var x = {};
+            x.name = "goudan"
+            x["name"] = "dachui" // 写
+
+            var k = "name" //当使用某个变量里的属性值时，只能用[]
+            var n = x[k]
+            // console.log(x);
+            console.log(n);
 
         </script>
     </body>

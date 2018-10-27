@@ -3,9 +3,9 @@
 ## 5.JS里的系统弹窗代码
 
 - `alert('内容')`;
-- .`confirm('确定？')`;
-- .`prompt('请输入您的姓名：')`; 
-- console.log( )//调试完后一定要注释掉console.log，因为有的浏览器不支持console.log，一旦报错后续代码就无法执行。
+- `confirm('确定？')`;
+- `prompt('请输入您的姓名：')`; 
+- console.log( )//调试完后一定要注释掉console.log，因为有的浏览器不支持console.log，一旦报错后续代码就无法执行。???神他妈哪个浏览器不支持console.log???
 
 ## 6.变量
 
@@ -92,7 +92,7 @@ var p = document.getElementsByTagName("p");
 //p[2].innerHTML = 3;
 // p[3].innerHTML = 4;//只有3个，多获取会报错
 
- var oWrap = document.getElementById("wrap");
+var oWrap = document.getElementById("wrap");
 var aP = oWrap.getElementsByTagName("p");//id获取必须的document，其他元素可以用单个元素来操作，注意不是集合。
 aP[0].innerHTML = 1;
 aP[1].innerHTML = 2;
@@ -113,7 +113,21 @@ var x = document.getElementById("wrap").getElementsByTagName("p")[0].getElements
 var x = document.querySelectorAll("#wrap p i");//选择器写法，但性能没有前一种好 
 
 /* case 3 queryselector*/
-var x = document.querySelectorAll("#wrap p i");//querySelector后不要再用querySelector来选择，会有错误。
+var x = document.querySelectorAll("#wrap p i");//querySelector后不要再用querySelector来选择，会有错误。???暂时没遇到
+<div id="wrap">
+    <p>
+      <i></i>
+      <i></i>
+      <a href=""></a>
+      <a href=""></a>
+    </p>
+  </div>
+  
+  var aI = document.getElementById('wrap').querySelector('p').querySelectorAll('i')
+    var a = document.getElementById('wrap').querySelector('p').querySelector('a')
+    console.log(aI) //可以获取
+    console.log(a) //可以获取
+
 x[1].innerHTML = "我是x操作的";
 
 var y = document.querySelector("#wrap p i");
@@ -122,7 +136,7 @@ y.innerHTML = "我是y操作的";//如果有多个i，则选择第一个
 
 
 
-![](G:\WEB\JS精英实验班课堂操作&作业\笔记\pic\1.png)
+![](pic\1.png)
 
 ## 9.获取和修改元素内容 
 

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>09-replace</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+        <div id="wrap"></div>
+
+
+
+        <script>
+
+            /*
+            * replace 字符串的替换
+            *   第一个参数是正则表达式
+            *       如果参数是一个字符串 会用找到该字符串然后替换它 但是这种方法只会替换一个
+            *   第二个参数是要替换成的内容
+            *
+            *
+            * */
+
+            var str = "阿飞老师人超好，阿飞老师超级帅，阿飞老师真是个大好人。";
+
+            var reg = /阿飞/g;
+
+            //console.log(str.match(reg));//匹配到三个阿飞
+
+            //var newStr = str.replace(reg, "朝歌");
+
+            // var newStr = str.replace(reg, function () {
+            //     return "乌拉";//乌拉老师人超好，乌拉老师超级帅，乌拉老师真是个大好人。
+            // });
+
+            var num = 0,
+                arr=["乌拉","朝歌"];
+            var newStr = str.replace(reg, function () {
+                num ++;
+                return arr[num%arr.length];//朝歌老师人超好，乌拉老师超级帅，朝歌老师真是个大好人。
+                //第一次匹配到阿飞的时候，num = 0+1=1, 1%arr.length = 1%2 = 1,所以用朝歌来替换阿飞
+            });
+
+            console.log(newStr);//朝歌老师人超好，朝歌老师超级帅，朝歌老师真是个大好人。
+
+
+        </script>
+
+    </body>
+</html>

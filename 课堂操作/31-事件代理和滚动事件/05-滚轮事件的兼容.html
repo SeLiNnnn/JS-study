@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>05-滚轮事件的兼容</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        div {
+            overflow: auto;
+            width: 200px;
+            height: 200px;
+            background-color: #f00;
+        }
+    </style>
+</head>
+    <body style="height: 2000px;">
+        <!--<div id="box">-->
+            <!--1111111111111-->
+            <!--1111111111111-->
+            <!--1111111111111-->
+            <!--1111111111111-->
+            <!--1111111111111-->
+            <!--1111111111111-->
+            <!--1111111111111-->
+            <!--1111111111111-->
+            <!--1111111111111-->
+            <!--1111111111111-->
+            <!--1111111111111-->
+            <!--1111111111111-->
+            <!--1111111111111-->
+            <!--1111111111111-->
+            <!--1111111111111-->
+            <!--1111111111111-->
+            <!--1111111111111-->
+            <!--1111111111111-->
+            <!--1111111111111-->
+            <!--1111111111111-->
+            <!--1111111111111-->
+            <!--1111111111111-->
+            <!--1111111111111-->
+            <!--1111111111111-->
+            <!--1111111111111-->
+            <!--1111111111111-->
+            <!--1111111111111-->
+            <!--1111111111111-->
+
+
+        <!--</div>-->
+
+
+
+        <script>
+
+            //用户要执行的东西，事件函数
+            function wheel() {
+                console.log("我滚动了");
+            }
+
+            mouseWheel(document,wheel);
+            function mouseWheel(obj, eFn) {
+                ev = ev || window.event;
+                //让滚动方向和值统一
+                var direction = ev.wheelDelta / 120 || -ev.detail / 3;//在火狐里取反,保证正负是一致的,且将其化整为1
+            }
+
+
+
+
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>01-事件代理</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        ul {
+            width:50px;
+            margin-left: 20px;
+            background-color: #cccccc;
+        }
+        ul li {
+            width: 50px;
+            height: 50px;
+            margin: 10px 0;
+            background-color: pink;
+            font-size: 20px;
+        }
+    </style>
+</head>
+    <body>
+        <ul id="box">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>10</li>
+        </ul>
+
+
+
+        <script>
+
+
+            var oBox = document.getElementById("box"),
+                aLi = oBox.getElementsByTagName("li"),
+                length = aLi.length;
+
+            for (var i = 0; i < length; i++) {
+                aLi[i].onclick = function () {
+                    console.log(this.innerHTML);
+                }
+            }
+
+            // oBox.onclick = function (ev) {
+            //     ev = ev || window.event;
+            //     console.log(ev.target);
+            // }
+
+            /*事件代理：将要做的事件交给别人去做
+                ev.target 获得触发事件的事件源
+                target不兼容IE8及其以下
+
+
+            */
+
+            //兼容处理
+            oBox.onclick = function (ev) {
+                ev = ev || window.event;
+                var that = ev.target || ev.srcElement;
+                console.log(that.nodeName);//输出LI，返回节点名字就是大写的
+            }
+
+
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>05-修饰符</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+    <body>
+        <div id="wrap"></div>
+
+
+
+        <script>
+
+            /*
+            *
+            * 修饰符
+            *   g 全局匹配
+            *   i 不区分大小写
+            *   m 换行匹配
+            *
+            * */
+            // var str = "df14809hfhr38492adf3840";
+            // var reg = /\d+/;//匹配到后就结束不会继续匹配
+            // console.log(str.match(reg));//["14809", index: 2, input: "df14809hfhr38492adf3840", groups: undefined];
+            // index表示第一个字符出现的位置
+
+            //修饰词
+            var str = "df14809hfhr38492adf3840";
+            //var reg = /\d+/gi;//修饰符g 全局匹配
+            var reg = new RegExp("\\d+", "i");//特别注意：如果希望得到的是\d必须写\\d
+            console.log(str.match(reg));//(3) ["14809", "38492", "3840"]
+
+
+
+        </script>
+
+    </body>
+</html>

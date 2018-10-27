@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="SeLiNnnn">
+    <meta name="generator" content="WebStorm">
+    <title>03-requestAnimationFrame</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: bottom;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #wrap {
+            width: 0;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+    <body>
+
+        <div id="wrap"></div>
+
+
+
+
+        <script>
+
+
+            /*
+            requestAnimationFrame()
+                H5里面一个新的定时器API
+                和setTimeout比较像，也只执行一次，但不能自主设定时间
+                时间间隔默认的是，当浏览器准备就绪，就刷新执行
+            只要浏览器支持，用requestAnimationFame来做动画会更好
+            cancelAnimationFrame()
+                清除定时器
+
+            */
+
+            // requestAnimationFrame(fn);
+            //
+            // function fn() {
+            //     //..code
+            // }
+
+
+
+            var oW = document.getElementById("wrap"),
+                width = 0,
+                bool = true,
+                x;
+
+            function clickFn() {
+                if (bool) {
+                    requestAnimationFrame(move);
+
+                    function move() {
+                        width +=2;
+                        oW.style.width = width+'px';
+                        x = requestAnimationFrame(move);
+                    }
+                } else {
+                    cancelAnimationFrame(x);
+                }
+
+                bool = !bool;
+
+                //或者初始自执行
+                // !function move() {
+                //     width +=2;
+                //     oW.style.width = width+'px';
+                //     requestAnimationFrame(move);
+                // }
+
+            }
+
+            document.onclick = clickFn;
+
+
+
+
+        </script>
+
+    </body>
+</html>
