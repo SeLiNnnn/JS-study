@@ -1,0 +1,28 @@
+<!--
+ * @Author: SeLiNnnn
+ * @Description: Go for my goal and for the life I want.
+ * @Date: 2019-10-19 19:37:47
+ * @LastEditTime: 2019-10-19 19:43:19
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="wrap"></div>
+    <script>
+      var $w = $("#wrap")
+      // $w.g = 10//最好不要这样写 不符合jq函数式操作
+      // console.log($w.g)
+
+      $w.data("css", 20) //存值 自定义的js属性 不是标签属性
+      console.log($w.removeData("css"))
+      console.log($w.data("css")) //取值 避免里api冲突 undefined
+    </script>
+  </body>
+</html>

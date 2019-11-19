@@ -1,0 +1,70 @@
+<!--
+ * @Author: SeLiNnnn
+ * @Description: Go for my goal and for the life I want.
+ * @Date: 2019-10-18 15:13:25
+ * @LastEditTime: 2019-10-18 15:33:56
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="wrap">
+      <p>88888</p>
+      <p>9999</p>
+      <p>0000</p>
+    </div>
+    <p>77777</p>
+    <script>
+      /*
+      $
+        传字符串参数
+        传dom对象 /DOMList对象
+        传function
+        传两个参数
+
+      jq对象和dom对象的互相转换
+        dom -> jq  $(dom对象)
+        jq -> dom jq对象.get(序号) 返回dom对象  / jq对象[序号]
+        
+
+      .eq() 操作指定元素 返回的依然是jq对象
+      
+      */
+
+      // $("#wrap p").css({
+      //   color: "blue",
+      //   fontSize: "18px"
+      // })//改变多个样式
+
+      // $("#wrap p").css("color", "red") //自动遍历
+      // $("#wrap p")
+      //   .eq(0)
+      //   .css("color", "red") //只改变第0个
+
+      // var oW = document.getElementById("#wrap")
+      // var aP = document.getElementsByTagName("p")
+      // console.log($(aP)) //伪数组
+
+      // $(oW).css("color","green")
+      // $(aP).css("color", "green") //DOMList和单个DOM都可以 但依然是静态方法
+
+      // $(aP).get(1).style.color = "red"
+      // $("#wrap p")[2].style.color = "red"
+
+      // $(document).ready(function(){})
+      //以下是上面这个事件的简写
+      //当dom文档加载完成后触发的事件 触发时机早于window.load
+      // $(function() {})
+
+      var $wrap = $("#wrap")
+      $("p", $wrap).css("color", "blue") //选择在$wrap里面的p标签
+      $wrap.find("p").css //获取子元素 所以很少用到双参数的写法
+    </script>
+  </body>
+</html>

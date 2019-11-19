@@ -1,0 +1,42 @@
+<!--
+ * @Author: SeLiNnnn
+ * @Description: Go for my goal and for the life I want.
+ * @Date: 2019-10-19 10:26:26
+ * @LastEditTime: 2019-10-19 10:36:55
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="wrap">
+      <p>ppppp</p>
+      <p>p222</p>
+      <p>p3333</p>
+    </div>
+    <script>
+      var arr = ["red", "blue", "yellow"]
+      var $p = $("#wrap p")
+
+      // $("#wrap p").each(function(a, b) {
+      //   //遍历所有
+      //   console.log(a) //元素序号
+      //   console.log(b) //当前DOM对象
+      //   b.innerHTML = a //可以使用DOM的API 但最好不要这样混合使用jq和原生
+      //   b.style.color = arr[a]
+      // })
+
+      //函数重点关注：参数 this指向 返回值
+      $("#wrap p").each(function(a) {
+        // console.log(b === this)//3次true this指向当前dom对象
+        $(this).css("color", arr[a]) //this转jq对象 使用jq方法
+      })
+      console.log($p) //1个jq对象 存储了3个dom对象 伪数组
+    </script>
+  </body>
+</html>

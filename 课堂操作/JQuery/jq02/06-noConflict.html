@@ -1,0 +1,29 @@
+<!--
+ * @Author: SeLiNnnn
+ * @Description: Go for my goal and for the life I want.
+ * @Date: 2019-10-19 19:43:45
+ * @LastEditTime: 2019-10-19 19:47:29
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="wrap">hhhh</div>
+    <script>
+      jQuery.noConflict()
+      ;(function(selin) {
+        // console.log(selin)//可以在局部任意定义来代替$
+        selin("#wrap").css("color", "red")
+      })(jQuery)
+
+      // console.log($)//undefined
+      console.log(jQuery)
+    </script>
+  </body>
+</html>

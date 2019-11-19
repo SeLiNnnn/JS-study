@@ -1,0 +1,41 @@
+<!--
+ * @Author: SeLiNnnn
+ * @Description: Go for my goal and for the life I want.
+ * @Date: 2019-10-19 10:37:15
+ * @LastEditTime: 2019-10-19 19:37:38
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <p>p1</p>
+    <div id="wrap">
+      <a href=""></a>
+      <a href=""></a>
+      <a href=""></a>
+      <p>p2</p>
+      <p class="h">p3</p>
+      <p>p4</p>
+    </div>
+    <script>
+      /*
+        获取当前Jq对象的的序号
+          不传参数 默认获取当前元素在父级所有子元素里的序号z z
+          传选择器字符串 前者在后者里的序号
+          传jq对象 后者在前者里的序号
+      
+      */
+      var $p = $("p")
+      // console.log($p.eq(1));//表示p2
+      // console.log($p.eq(1).index()) // 3
+      // console.log($p.eq(1).index("p")) //传选择器  $p.eq(1)是所有p标签里的第1个
+      console.log($p.index($(".h"))) //传选择器 p.h是所有p标签里的第2个
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!--
+ * @Author: SeLiNnnn
+ * @Description: Go for my goal and for the life I want.
+ * @Date: 2019-10-19 19:47:39
+ * @LastEditTime: 2019-10-19 20:02:55
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="wrap"></div>
+    <script>
+      // $.ajax() //$函数本身的api
+
+      $.ajax({
+        type: "GET", //默认GET
+        url: "http://xxxxxxxx",
+        data: {
+          name: "",
+          age: ""
+        },
+        dataType: "xml", //返回数据类型,默认text,结果会预处理
+        success: function(data) {
+          console.log(data)
+        }
+      })
+    </script>
+  </body>
+</html>
